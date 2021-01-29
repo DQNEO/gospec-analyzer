@@ -1,19 +1,16 @@
 // Usage:
 //   go run parseHTML.go
 package main
+
 import (
 	"fmt"
 	"github.com/PuerkitoBio/goquery"
 	"github.com/jdkato/prose"
 	"os"
+	"strings"
 )
 
 func main() {
-	//html, err := ioutil.ReadFile("./spec.html")
-	//if err != nil {
-	//	panic(err)
-	//}
-	//fmt.Print(string(html))
 	specFile := os.Getenv("GOPATH") + "/src/github.com/DQNEO/go-samples/nlp/gospec/spec.html"
 	f, err := os.Open(specFile)
 	if err != nil {
@@ -41,20 +38,31 @@ func main() {
 		// is VBZ O
 		// an DT O
 		// ...
-		wordCount[tok.Text]++
+		word := strings.ToLower(tok.Text)
+		wordCount[word]++
 	}
 
 	type sameFreqGroup []string
 	var frequency []sameFreqGroup = make([]sameFreqGroup, len(wordCount))
 	for w, n := range wordCount {
-		//fmt.Printf("%3d\t%s\n", n,w)
 		frequency[n] = append(frequency[n], w)
 	}
 
+	var total int
 	for n, grp := range frequency {
 		for _, w := range grp {
+			first := []byte(w)[0]
+			if first < 'a' || 'z' < first {
+				// not alphabet
+				continue
+			}
+			if len(w) <= 2 {
+				// too short
+				continue
+			}
+			total++
 			fmt.Printf("%4d\t%s\n", n, w)
 		}
 	}
-	fmt.Printf("%4d\tTotal\n", len(wordCount))
+	fmt.Printf("%4d\tTotal\n", total)
 }
