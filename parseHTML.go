@@ -1,9 +1,11 @@
+// Usage:
+//   go run parseHTML.go
 package main
-
 import (
 	"fmt"
-	"os"
 	"github.com/PuerkitoBio/goquery"
+	"github.com/jdkato/prose"
+	"os"
 )
 
 func main() {
@@ -17,11 +19,42 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	doc, err := goquery.NewDocumentFromReader(f)
+	gdoc, err := goquery.NewDocumentFromReader(f)
 	if err != nil {
 		panic(err)
 	}
-	doc.Find("pre").Remove()
-	noCodeText := doc.Text()
-	fmt.Print(noCodeText)
+	gdoc.Find("pre").Remove()
+	noCodeText := gdoc.Text()
+
+	// NLP
+	doc, err := prose.NewDocument(noCodeText)
+	if err != nil {
+		panic(err)
+	}
+
+	var wordCount = map[string]int{}
+
+	// Iterate over the gdoc's tokens:
+	for _, tok := range doc.Tokens() {
+		//fmt.Println(tok.Text, tok.Tag, tok.Label)
+		// Go NNP B-GPE
+		// is VBZ O
+		// an DT O
+		// ...
+		wordCount[tok.Text]++
+	}
+
+	type sameFreqGroup []string
+	var frequency []sameFreqGroup = make([]sameFreqGroup, len(wordCount))
+	for w, n := range wordCount {
+		//fmt.Printf("%3d\t%s\n", n,w)
+		frequency[n] = append(frequency[n], w)
+	}
+
+	for n, grp := range frequency {
+		for _, w := range grp {
+			fmt.Printf("%4d\t%s\n", n, w)
+		}
+	}
+	fmt.Printf("%4d\tTotal\n", len(wordCount))
 }
