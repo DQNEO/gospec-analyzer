@@ -1,36 +1,23 @@
 // Usage:
-//   go run parseHTML.go
+//   go run main.go
 package main
 
 import (
 	"fmt"
-	"github.com/PuerkitoBio/goquery"
-	"github.com/jdkato/prose"
 	"os"
 	"strings"
+
+	"github.com/jdkato/prose"
 )
 
-func extractText(specFile string) string {
-	f, err := os.Open(specFile)
-	if err != nil {
-		panic(err)
-	}
-	gdoc, err := goquery.NewDocumentFromReader(f)
-	if err != nil {
-		panic(err)
-	}
-	gdoc.Find("pre").Remove()
-	noCodeText := gdoc.Text()
-	return noCodeText
-}
+var specFile = os.Getenv("GOPATH") + "/src/github.com/DQNEO/go-samples/nlp/gospec/spec.html"
 
 func main() {
-	specFile := os.Getenv("GOPATH") + "/src/github.com/DQNEO/go-samples/nlp/gospec/spec.html"
-	noCodeText := extractText(specFile)
-	fmt.Print(noCodeText)
-	return
+	text := extractText(specFile)
+	//fmt.Print(text)
+
 	// NLP
-	doc, err := prose.NewDocument(noCodeText)
+	doc, err := prose.NewDocument(text)
 	if err != nil {
 		panic(err)
 	}
