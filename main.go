@@ -55,16 +55,18 @@ func main() {
 
 	// Iterate over the gdoc's tokens:
 	tokens := doc.Tokens()
-	var meaningfulTokens []*prose.Token
+	var meaningfulTokens []prose.Token
 	// exclude meaningless tokens
 	for _, tok := range tokens {
-		if len(tok.Text) == 1 {
-			switch tok.Text {
-			case ".",",","'", "\"":
-				continue
-			}
+		if len(tok.Text) == 1 { // exclue one letter
+			continue
 		}
-		meaningfulTokens = append(meaningfulTokens, &tok)
+
+		first := tok.Text[0]
+		if ! (('a' <= first && first <= 'z') || ('A' <= first && first <= 'Z')) {
+			continue
+		}
+		meaningfulTokens = append(meaningfulTokens, tok)
 	}
 	for _, tok := range meaningfulTokens {
 		if modeDump {
@@ -82,7 +84,7 @@ func main() {
 	}
 }
 
-func showCount(meaningfulTokens []*prose.Token) {
+func showCount(meaningfulTokens []prose.Token) {
 	var wordCount = map[string]int{}
 	for _, tok := range meaningfulTokens {
 		lowerText := strings.ToLower(tok.Text)
@@ -90,7 +92,7 @@ func showCount(meaningfulTokens []*prose.Token) {
 	}
 
 	type sameFreqGroup []string
-	var frequency []sameFreqGroup = make([]sameFreqGroup, len(wordCount))
+	var frequency []sameFreqGroup = make([]sameFreqGroup, len(wordCount) * 2)
 	for w, n := range wordCount {
 		frequency[n] = append(frequency[n], w)
 	}
