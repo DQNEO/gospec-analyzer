@@ -78,15 +78,6 @@ func showCount(tokens []prose.Token) {
 	var total int
 	for n, grp := range frequency {
 		for _, w := range grp {
-			first := []byte(w)[0]
-			if first < 'a' || 'z' < first {
-				// not alphabet
-				continue
-			}
-			if len(w) <= 2 {
-				// too short
-				continue
-			}
 			total++
 			fmt.Printf("%4d\t%s\n", n, w)
 		}
