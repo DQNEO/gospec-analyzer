@@ -55,7 +55,18 @@ func main() {
 
 	// Iterate over the gdoc's tokens:
 	tokens := doc.Tokens()
+	var meaningfulTokens []*prose.Token
+	// exclude meaningless tokens
 	for _, tok := range tokens {
+		if len(tok.Text) == 1 {
+			switch tok.Text {
+			case ".",",","'", "\"":
+				continue
+			}
+		}
+		meaningfulTokens = append(meaningfulTokens, &tok)
+	}
+	for _, tok := range meaningfulTokens {
 		if modeDump {
 			// Go NNP B-GPE
 			// is VBZ O
@@ -67,13 +78,13 @@ func main() {
 		}
 	}
 	if modeCount {
-		showCount(tokens)
+		showCount(meaningfulTokens)
 	}
 }
 
-func showCount(tokens []prose.Token) {
+func showCount(meaningfulTokens []*prose.Token) {
 	var wordCount = map[string]int{}
-	for _, tok := range tokens {
+	for _, tok := range meaningfulTokens {
 		lowerText := strings.ToLower(tok.Text)
 		wordCount[lowerText]++
 	}
