@@ -46,26 +46,29 @@ func main() {
 		panic(err)
 	}
 
-	var wordCount = map[string]int{}
-
 	// Iterate over the gdoc's tokens:
-	for _, tok := range doc.Tokens() {
-		word := strings.ToLower(tok.Text)
-		wordCount[word]++
+	tokens := doc.Tokens()
+	for _, tok := range tokens {
 		if modeDump {
 			// Go NNP B-GPE
 			// is VBZ O
 			// an DT O
 			// ...
-			fmt.Println(tok.Text, tok.Tag, tok.Label)
+			fmt.Printf("%20s %5s %10s\n", tok.Text, tok.Tag, tok.Label)
 		}
 	}
 	if modeCount {
-		showCount(wordCount)
+		showCount(tokens)
 	}
 }
 
-func showCount(wordCount map[string]int) {
+func showCount(tokens []prose.Token) {
+	var wordCount = map[string]int{}
+	for _, tok := range tokens {
+		word := strings.ToLower(tok.Text)
+		wordCount[word]++
+	}
+
 	type sameFreqGroup []string
 	var frequency []sameFreqGroup = make([]sameFreqGroup, len(wordCount))
 	for w, n := range wordCount {
