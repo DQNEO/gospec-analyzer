@@ -13,6 +13,7 @@ var specFile = os.Getenv("GOPATH") + "/src/github.com/DQNEO/go-samples/nlp/gospe
 func showUsage() {
 	help := `
 Usage:
+	text:  get raw text by parsing HTML
 	dump : show tokens
 	count: show statistics
 `
@@ -26,8 +27,11 @@ func main() {
 	arg := os.Args[1]
 
 	var modeDump bool
+	var modeText bool
 	var modeCount bool
 	switch arg {
+	case "text":
+		modeText = true
 	case "dump":
 		modeDump = true
 	case "count":
@@ -38,7 +42,10 @@ func main() {
 	}
 
 	text := extractText(specFile)
-	//fmt.Print(text)
+	if modeText {
+		fmt.Print(text)
+		return
+	}
 
 	// NLP
 	doc, err := prose.NewDocument(text)
