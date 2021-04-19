@@ -61,7 +61,9 @@ func main() {
 			// is VBZ O
 			// an DT O
 			// ...
-			fmt.Printf("%20s %5s %10s\n", tok.Text, tok.Tag, tok.Label)
+			//fmt.Printf("%20s %5s %10s\n", tok.Text, tok.Tag, tok.Label)
+			lowerText := strings.ToLower(tok.Text)
+			fmt.Printf("%s\t%s\t%s\n", lowerText, tok.Tag, tok.Label)
 		}
 	}
 	if modeCount {
@@ -72,8 +74,8 @@ func main() {
 func showCount(tokens []prose.Token) {
 	var wordCount = map[string]int{}
 	for _, tok := range tokens {
-		word := strings.ToLower(tok.Text)
-		wordCount[word]++
+		lowerText := strings.ToLower(tok.Text)
+		wordCount[lowerText]++
 	}
 
 	type sameFreqGroup []string
