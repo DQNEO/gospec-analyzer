@@ -10,8 +10,7 @@ import (
 	"strings"
 )
 
-func main() {
-	specFile := os.Getenv("GOPATH") + "/src/github.com/DQNEO/go-samples/nlp/gospec/spec.html"
+func extractText(specFile string) string {
 	f, err := os.Open(specFile)
 	if err != nil {
 		panic(err)
@@ -22,7 +21,14 @@ func main() {
 	}
 	gdoc.Find("pre").Remove()
 	noCodeText := gdoc.Text()
+	return noCodeText
+}
 
+func main() {
+	specFile := os.Getenv("GOPATH") + "/src/github.com/DQNEO/go-samples/nlp/gospec/spec.html"
+	noCodeText := extractText(specFile)
+	fmt.Print(noCodeText)
+	return
 	// NLP
 	doc, err := prose.NewDocument(noCodeText)
 	if err != nil {
