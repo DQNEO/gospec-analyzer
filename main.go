@@ -62,11 +62,28 @@ func main() {
 			continue
 		}
 
+
+		// Exclude tokens with punctuations
 		first := tok.Text[0]
 		if ! (('a' <= first && first <= 'z') || ('A' <= first && first <= 'Z')) {
 			continue
 		}
-		meaningfulTokens = append(meaningfulTokens, tok)
+		if strings.Contains(tok.Text, "[") {
+			continue
+		}
+		if strings.Contains(tok.Text, "(") {
+			continue
+		}
+
+		// Exclude tokens of DT (a,an,the,..)
+		switch tok.Tag {
+		case "DT": // determiner
+			continue
+		case "IN": // conjunction, subordinating or preposition
+			continue
+		default:
+			meaningfulTokens = append(meaningfulTokens, tok)
+		}
 	}
 	for _, tok := range meaningfulTokens {
 		if modeDump {
