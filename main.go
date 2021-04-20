@@ -84,6 +84,9 @@ func main() {
 			"DT", // determiner
 			"IN", // conjunction, subordinating or preposition
 			"CC", // conjunction, coordinating
+			"PRP", // pronoun, personal
+			"PRP$", // pronoun, possessive
+			"WDT", // wh-determiner
 			"MD": // verb, modal auxiliary
 			continue
 		default:
