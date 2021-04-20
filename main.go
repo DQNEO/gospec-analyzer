@@ -74,12 +74,17 @@ func main() {
 		if strings.Contains(tok.Text, "(") {
 			continue
 		}
+		if strings.Contains(tok.Text, "+") {
+			continue
+		}
 
 		// Exclude tokens of DT (a,an,the,..)
 		switch tok.Tag {
-		case "DT": // determiner
-			continue
-		case "IN": // conjunction, subordinating or preposition
+		case
+			"DT", // determiner
+			"IN", // conjunction, subordinating or preposition
+			"CC", // conjunction, coordinating
+			"MD": // verb, modal auxiliary
 			continue
 		default:
 			meaningfulTokens = append(meaningfulTokens, tok)
