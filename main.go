@@ -105,21 +105,27 @@ func main() {
 		}
 	}
 	if modeCount {
-		showCount(meaningfulTokens)
+		aggregate(meaningfulTokens)
 	}
 }
 
-func showCount(meaningfulTokens []prose.Token) {
-	var wordCount = map[string]int{}
+func aggregate(meaningfulTokens []prose.Token) {
+	var wordCount = map[string]map[string]int{}
 	for _, tok := range meaningfulTokens {
 		lowerText := strings.ToLower(tok.Text)
-		wordCount[lowerText]++
+		_, ok := wordCount[lowerText]
+		if !ok {
+			wordCount[lowerText] = make(map[string]int, 100)
+		}
+		wordCount[lowerText][tok.Tag]++
 	}
 
 	type sameFreqGroup []string
-	var frequency []sameFreqGroup = make([]sameFreqGroup, len(wordCount) * 2)
-	for w, n := range wordCount {
-		frequency[n] = append(frequency[n], w)
+	var frequency []sameFreqGroup = make([]sameFreqGroup, 10000)
+	for text, tagCount := range wordCount {
+		for tag, cnt := range tagCount {
+			frequency[cnt] = append(frequency[cnt], text + "\t" + tag)
+		}
 	}
 
 	var total int
