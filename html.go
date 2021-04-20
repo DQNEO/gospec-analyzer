@@ -16,6 +16,7 @@ func extractText(specFile string) string {
 	}
 	mainTag := gdoc.Find("main")
 	mainTag.Find("pre").Remove()
+	mainTag.Find("code").Remove()
 	text := mainTag.Text()
 	return text
 }
