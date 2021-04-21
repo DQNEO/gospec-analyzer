@@ -109,9 +109,35 @@ func main() {
 	}
 }
 
+func manipulateToken(origTok prose.Token) prose.Token {
+	// Manipulate token
+	tok := origTok
+	switch origTok.Tag {
+	case "NNS":
+		// dogs NNS -> dog NN
+		if strings.HasSuffix(origTok.Text, "s") {
+			tok.Tag = "NN"
+			tok.Text = strings.TrimSuffix(origTok.Text, "s")
+			println("Converting NNS " + origTok.Text + " => " + tok.Text)
+			return tok
+		}
+	case "VBZ":
+		// works VBZ -> work VB
+		if strings.HasSuffix(origTok.Text, "s") {
+			tok.Tag = "VB"
+			tok.Text = strings.TrimSuffix(origTok.Text, "s")
+			println("Converting VBZ " + origTok.Text + " => " + tok.Text)
+			return tok
+		}
+
+	}
+	return tok
+}
+
 func aggregate(meaningfulTokens []prose.Token) {
 	var wordCount = map[string]map[string]int{}
-	for _, tok := range meaningfulTokens {
+	for _, origTok := range meaningfulTokens {
+		tok := manipulateToken(origTok)
 		lowerText := strings.ToLower(tok.Text)
 		_, ok := wordCount[lowerText]
 		if !ok {
