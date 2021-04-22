@@ -114,6 +114,17 @@ func explainConversion(old *prose.Token, new *prose.Token) {
 		old.Tag, old.Text, new.Tag, new.Text)
 }
 
+func singulifyNoun(origTok *prose.Token) *prose.Token {
+	if strings.HasSuffix(origTok.Text, "s") {
+		tok := &prose.Token{}
+		tok.Tag = "NN"
+		tok.Text = strings.TrimSuffix(origTok.Text, "s")
+		explainConversion(origTok, tok)
+		return tok
+	}
+	return origTok
+}
+
 func manipulateToken(origTok prose.Token) prose.Token {
 	// Manipulate token
 	tok := origTok
@@ -127,13 +138,13 @@ func manipulateToken(origTok prose.Token) prose.Token {
 			tok.Text = "half"
 			explainConversion(&origTok, &tok)
 			return tok
-		}
-		if strings.HasSuffix(origTok.Text, "s") {
+		case "applies":
 			tok.Tag = "NN"
-			tok.Text = strings.TrimSuffix(origTok.Text, "s")
+			tok.Text = "apply"
 			explainConversion(&origTok, &tok)
 			return tok
 		}
+		return *singulifyNoun(&origTok)
 	case "VBZ":
 		switch origTok.Text {
 		case "is", "has":
