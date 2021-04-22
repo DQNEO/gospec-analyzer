@@ -109,6 +109,11 @@ func main() {
 	}
 }
 
+func explainConversion(old *prose.Token, new *prose.Token) {
+	fmt.Fprintf(os.Stderr, "Converting [%4s] %20s => [%4s] %20s\n",
+		old.Tag, old.Text, new.Tag, new.Text)
+}
+
 func manipulateToken(origTok prose.Token) prose.Token {
 	// Manipulate token
 	tok := origTok
@@ -118,7 +123,7 @@ func manipulateToken(origTok prose.Token) prose.Token {
 		if strings.HasSuffix(origTok.Text, "s") {
 			tok.Tag = "NN"
 			tok.Text = strings.TrimSuffix(origTok.Text, "s")
-			println("Converting NNS or NNPS " + origTok.Text + " => " + tok.Text)
+			explainConversion(&origTok, &tok)
 			return tok
 		}
 	case "VBZ":
@@ -130,7 +135,7 @@ func manipulateToken(origTok prose.Token) prose.Token {
 		if strings.HasSuffix(origTok.Text, "s") {
 			tok.Tag = "VB"
 			tok.Text = strings.TrimSuffix(origTok.Text, "s")
-			println("Converting VBZ " + origTok.Text + " => " + tok.Text)
+			explainConversion(&origTok, &tok)
 			return tok
 		}
 
