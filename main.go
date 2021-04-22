@@ -113,16 +113,20 @@ func manipulateToken(origTok prose.Token) prose.Token {
 	// Manipulate token
 	tok := origTok
 	switch origTok.Tag {
-	case "NNS":
+	case "NNS", "NNPS":
 		// dogs NNS -> dog NN
 		if strings.HasSuffix(origTok.Text, "s") {
 			tok.Tag = "NN"
 			tok.Text = strings.TrimSuffix(origTok.Text, "s")
-			println("Converting NNS " + origTok.Text + " => " + tok.Text)
+			println("Converting NNS or NNPS " + origTok.Text + " => " + tok.Text)
 			return tok
 		}
 	case "VBZ":
-		// works VBZ -> work VB
+		switch origTok.Text {
+		case "is", "has":
+			return tok
+		}
+		// "works" VBZ -> "work" VB
 		if strings.HasSuffix(origTok.Text, "s") {
 			tok.Tag = "VB"
 			tok.Text = strings.TrimSuffix(origTok.Text, "s")
