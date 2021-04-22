@@ -120,6 +120,14 @@ func manipulateToken(origTok prose.Token) prose.Token {
 	switch origTok.Tag {
 	case "NNS", "NNPS":
 		// dogs NNS -> dog NN
+
+		switch origTok.Text {
+		case "halves":
+			tok.Tag = "NN"
+			tok.Text = "half"
+			explainConversion(&origTok, &tok)
+			return tok
+		}
 		if strings.HasSuffix(origTok.Text, "s") {
 			tok.Tag = "NN"
 			tok.Text = strings.TrimSuffix(origTok.Text, "s")
