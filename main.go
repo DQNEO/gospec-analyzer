@@ -88,12 +88,17 @@ func main() {
 		// Exclude tokens of DT (a,an,the,..)
 		switch tok.Tag {
 		case
+			"CD", // cardinal number
 			"DT", // determiner
 			"IN", // conjunction, subordinating or preposition
 			"CC", // conjunction, coordinating
 			"PRP", // pronoun, personal
 			"PRP$", // pronoun, possessive
+			"TO", // infinitival to
 			"WDT", // wh-determiner
+			"WP", // wh-pronoun, personal
+			"WP$", // wh-pronoun, possessive
+			"WRB", // wh-adverb
 			"MD": // verb, modal auxiliary
 			continue
 		default:
@@ -140,10 +145,16 @@ func manipulateToken(origTok prose.Token) prose.Token {
 	case "NNS", "NNPS":
 		// dogs NNS -> dog NN
 		return *singulifyToken(&origTok)
-	case "VBZ":
+	case "VBD", "VBG" ,"VBN", "VBP", "VBZ":
 		tok.Text = porter2.Stem(origTok.Text)
 		tok.Tag = "VB"
 		return tok
+	case "JJS":
+		if strings.HasSuffix(origTok.Text, "est") {
+			tok.Text = strings.TrimSuffix(origTok.Text, "est")
+			tok.Tag = "JJ"
+			return tok
+		}
 	}
 	return tok
 }
