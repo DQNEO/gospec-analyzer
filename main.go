@@ -117,7 +117,7 @@ func main() {
 		}
 	}
 	if modeCount {
-		aggregate(meaningfulTokens)
+		countByTags(meaningfulTokens)
 	}
 }
 
@@ -159,7 +159,7 @@ func manipulateToken(origTok prose.Token) prose.Token {
 	return tok
 }
 
-func aggregate(meaningfulTokens []prose.Token) {
+func countByTags(meaningfulTokens []prose.Token) {
 	var wordCount = map[string]map[string]int{}
 	for _, origTok := range meaningfulTokens {
 		tok := manipulateToken(origTok)
