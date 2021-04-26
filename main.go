@@ -119,21 +119,27 @@ func explainConversion(old *prose.Token, new *prose.Token) {
 		old.Tag, old.Text, new.Tag, new.Text)
 }
 
+func singulifyWord(word string) string {
+	var r string
+	switch {
+	case strings.HasSuffix(word, "ies"):
+		// "entries" => "entry"
+		r = strings.TrimSuffix(word, "ies") + "y"
+	case strings.HasSuffix(word, "es"):
+		// @TODO "resumes" => "resume"
+		// "classes" => "class"
+		r = strings.TrimSuffix(word, "es")
+	default:
+		r = strings.TrimSuffix(word, "s")
+	}
+	return r
+}
+
 func singulifyToken(origTok *prose.Token) *prose.Token {
 	if strings.HasSuffix(origTok.Text, "s") {
 		tok := &prose.Token{}
 		tok.Tag = "NN"
-		switch {
-		case strings.HasSuffix(origTok.Text, "ies"):
-			// "entries" => "entry"
-			tok.Text = strings.TrimSuffix(origTok.Text, "ies") + "y"
-		case strings.HasSuffix(origTok.Text, "es"):
-			// @TODO "resumes" => "resume"
-			// "classes" => "class"
-			tok.Text = strings.TrimSuffix(origTok.Text, "es")
-		default:
-			tok.Text = strings.TrimSuffix(origTok.Text, "s")
-		}
+		tok.Text = singulifyWord(origTok.Text)
 		explainConversion(origTok, tok)
 		return tok
 	} else {
