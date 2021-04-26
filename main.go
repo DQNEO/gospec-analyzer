@@ -32,6 +32,7 @@ func main() {
 	var modeDump bool
 	var modeText bool
 	var modeCount bool
+	var modeUniq bool
 	switch arg {
 	case "text":
 		modeText = true
@@ -39,6 +40,8 @@ func main() {
 		modeDump = true
 	case "count":
 		modeCount = true
+	case "uniq":
+		modeUniq = true
 	default:
 		showUsage()
 		return
@@ -119,6 +122,9 @@ func main() {
 	if modeCount {
 		countByTags(meaningfulTokens)
 	}
+	if modeUniq {
+		countByWord(meaningfulTokens)
+	}
 }
 
 func explainConversion(old *prose.Token, new *prose.Token) {
@@ -187,4 +193,8 @@ func countByTags(meaningfulTokens []prose.Token) {
 		}
 	}
 	//fmt.Printf("%4d\tTotal\n", total)
+}
+
+func countByWord(meaningfulTokens []prose.Token) {
+
 }
