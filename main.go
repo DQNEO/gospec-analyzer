@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/DQNEO/go-samples/nlp/gospec/spec2text"
 	"os"
 	"strings"
 
@@ -40,8 +41,11 @@ func main() {
 		showUsage()
 		return
 	}
-
-	text := extractText(specFile)
+	f, err := os.Open(specFile)
+	if err != nil {
+		panic(err)
+	}
+	text := spec2text.GetTextFromHTML(f)
 	if modeText {
 		fmt.Print(text)
 		return

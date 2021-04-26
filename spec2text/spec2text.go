@@ -1,16 +1,12 @@
-package main
+package spec2text
 
 import (
 	"github.com/PuerkitoBio/goquery"
-	"os"
+	"io"
 )
 
-func extractText(specFile string) string {
-	f, err := os.Open(specFile)
-	if err != nil {
-		panic(err)
-	}
-	gdoc, err := goquery.NewDocumentFromReader(f)
+func GetTextFromHTML(html io.Reader) string {
+	gdoc, err := goquery.NewDocumentFromReader(html)
 	if err != nil {
 		panic(err)
 	}
