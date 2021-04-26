@@ -8,6 +8,7 @@ import (
 
 	"github.com/jdkato/prose/v2"
 	"github.com/jinzhu/inflection"
+	"github.com/surgebase/porter2"
 )
 
 var specFile = os.Getenv("GOPATH") + "/src/github.com/DQNEO/go-samples/nlp/gospec/spec.html"
@@ -138,33 +139,11 @@ func manipulateToken(origTok prose.Token) prose.Token {
 	switch origTok.Tag {
 	case "NNS", "NNPS":
 		// dogs NNS -> dog NN
-
-		switch origTok.Text {
-		case "halves":
-			tok.Tag = "NN"
-			tok.Text = "half"
-			explainConversion(&origTok, &tok)
-			return tok
-		case "applies":
-			tok.Tag = "NN"
-			tok.Text = "apply"
-			explainConversion(&origTok, &tok)
-			return tok
-		}
 		return *singulifyToken(&origTok)
 	case "VBZ":
-		switch origTok.Text {
-		case "is", "has":
-			return tok
-		}
-		// "works" VBZ -> "work" VB
-		if strings.HasSuffix(origTok.Text, "s") {
-			tok.Tag = "VB"
-			tok.Text = strings.TrimSuffix(origTok.Text, "s")
-			explainConversion(&origTok, &tok)
-			return tok
-		}
-
+		tok.Text = porter2.Stem(origTok.Text)
+		tok.Tag = "VB"
+		return tok
 	}
 	return tok
 }
