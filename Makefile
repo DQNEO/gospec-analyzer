@@ -5,7 +5,7 @@ all: out/spec.txt out/tokens.txt out/count.txt
 gospec: *.go
 	go build
 
-out/spec.txt: html.go spec.html
+out/spec.txt: spec2text/*.go spec.html
 	./gospec text > out/spec.txt
 
 out/tokens.txt: gospec spec.html
