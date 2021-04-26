@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/DQNEO/go-samples/nlp/gospec/spec2text"
+	"github.com/DQNEO/go-samples/nlp/gospec/wordprocessor"
 	"os"
 	"strings"
 
@@ -119,27 +120,11 @@ func explainConversion(old *prose.Token, new *prose.Token) {
 		old.Tag, old.Text, new.Tag, new.Text)
 }
 
-func singulifyWord(word string) string {
-	var r string
-	switch {
-	case strings.HasSuffix(word, "ies"):
-		// "entries" => "entry"
-		r = strings.TrimSuffix(word, "ies") + "y"
-	case strings.HasSuffix(word, "es"):
-		// @TODO "resumes" => "resume"
-		// "classes" => "class"
-		r = strings.TrimSuffix(word, "es")
-	default:
-		r = strings.TrimSuffix(word, "s")
-	}
-	return r
-}
-
 func singulifyToken(origTok *prose.Token) *prose.Token {
 	if strings.HasSuffix(origTok.Text, "s") {
 		tok := &prose.Token{}
 		tok.Tag = "NN"
-		tok.Text = singulifyWord(origTok.Text)
+		tok.Text = wordprocessor.Singulify(origTok.Text)
 		explainConversion(origTok, tok)
 		return tok
 	} else {
