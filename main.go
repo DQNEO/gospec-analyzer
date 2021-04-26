@@ -31,10 +31,14 @@ func main() {
 
 	var modeDump, modeText, modeCount, modeUniq bool
 	switch arg {
-	case "text":modeText = true
-	case "dump":modeDump = true
-	case "count":modeCount = true
-	case "uniq":modeUniq = true
+	case "text":
+		modeText = true
+	case "dump":
+		modeDump = true
+	case "count":
+		modeCount = true
+	case "uniq":
+		modeUniq = true
 	default:
 		showUsage()
 		return
@@ -65,10 +69,9 @@ func main() {
 			continue
 		}
 
-
 		// Exclude tokens with punctuations
 		first := tok.Text[0]
-		if ! (('a' <= first && first <= 'z') || ('A' <= first && first <= 'Z')) {
+		if !(('a' <= first && first <= 'z') || ('A' <= first && first <= 'Z')) {
 			continue
 		}
 		if strings.Contains(tok.Text, "[") {
@@ -84,18 +87,18 @@ func main() {
 		// Exclude tokens of DT (a,an,the,..)
 		switch tok.Tag {
 		case
-			"CD", // cardinal number
-			"DT", // determiner
-			"IN", // conjunction, subordinating or preposition
-			"CC", // conjunction, coordinating
-			"PRP", // pronoun, personal
+			"CD",   // cardinal number
+			"DT",   // determiner
+			"IN",   // conjunction, subordinating or preposition
+			"CC",   // conjunction, coordinating
+			"PRP",  // pronoun, personal
 			"PRP$", // pronoun, possessive
-			"TO", // infinitival to
-			"WDT", // wh-determiner
-			"WP", // wh-pronoun, personal
-			"WP$", // wh-pronoun, possessive
-			"WRB", // wh-adverb
-			"MD": // verb, modal auxiliary
+			"TO",   // infinitival to
+			"WDT",  // wh-determiner
+			"WP",   // wh-pronoun, personal
+			"WP$",  // wh-pronoun, possessive
+			"WRB",  // wh-adverb
+			"MD":   // verb, modal auxiliary
 			continue
 		default:
 			meaningfulTokens = append(meaningfulTokens, tok)
@@ -144,7 +147,7 @@ func manipulateToken(origTok prose.Token) prose.Token {
 	case "NNS", "NNPS":
 		// dogs NNS -> dog NN
 		return *singulifyToken(&origTok)
-	case "VBD", "VBG" ,"VBN", "VBP", "VBZ":
+	case "VBD", "VBG", "VBN", "VBP", "VBZ":
 		tok.Text = porter2.Stem(origTok.Text)
 		tok.Tag = "VB"
 		return tok
@@ -174,7 +177,7 @@ func countByTags(meaningfulTokens []prose.Token) {
 	var frequency []sameFreqGroup = make([]sameFreqGroup, 10000)
 	for text, tagCount := range wordCount {
 		for tag, cnt := range tagCount {
-			frequency[cnt] = append(frequency[cnt], text + "\t" + tag)
+			frequency[cnt] = append(frequency[cnt], text+"\t"+tag)
 		}
 	}
 
