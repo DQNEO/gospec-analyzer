@@ -123,22 +123,22 @@ func singulifyToken(origTok *prose.Token) *prose.Token {
 	if strings.HasSuffix(origTok.Text, "s") {
 		tok := &prose.Token{}
 		tok.Tag = "NN"
-		if strings.HasSuffix(origTok.Text, "ies") {
+		switch {
+		case strings.HasSuffix(origTok.Text, "ies"):
 			// "entries" => "entry"
 			tok.Text = strings.TrimSuffix(origTok.Text, "ies") + "y"
-			explainConversion(origTok, tok)
-		} else if strings.HasSuffix(origTok.Text, "es") {
+		case strings.HasSuffix(origTok.Text, "es"):
 			// @TODO "resumes" => "resume"
 			// "classes" => "class"
 			tok.Text = strings.TrimSuffix(origTok.Text, "es")
-			explainConversion(origTok, tok)
-		} else {
+		default:
 			tok.Text = strings.TrimSuffix(origTok.Text, "s")
-			explainConversion(origTok, tok)
 		}
+		explainConversion(origTok, tok)
 		return tok
+	} else {
+		return origTok
 	}
-	return origTok
 }
 
 func manipulateToken(origTok prose.Token) prose.Token {
