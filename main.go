@@ -119,23 +119,20 @@ func explainConversion(old *prose.Token, new *prose.Token) {
 		old.Tag, old.Text, new.Tag, new.Text)
 }
 
-func singulifyNoun(origTok *prose.Token) *prose.Token {
+func singulifyToken(origTok *prose.Token) *prose.Token {
 	if strings.HasSuffix(origTok.Text, "s") {
 		tok := &prose.Token{}
-
+		tok.Tag = "NN"
 		if strings.HasSuffix(origTok.Text, "ies") {
 			// "entries" => "entry"
-			tok.Tag = "NN"
 			tok.Text = strings.TrimSuffix(origTok.Text, "ies") + "y"
 			explainConversion(origTok, tok)
 		} else if strings.HasSuffix(origTok.Text, "es") {
 			// @TODO "resumes" => "resume"
 			// "classes" => "class"
-			tok.Tag = "NN"
 			tok.Text = strings.TrimSuffix(origTok.Text, "es")
 			explainConversion(origTok, tok)
 		} else {
-			tok.Tag = "NN"
 			tok.Text = strings.TrimSuffix(origTok.Text, "s")
 			explainConversion(origTok, tok)
 		}
@@ -163,7 +160,7 @@ func manipulateToken(origTok prose.Token) prose.Token {
 			explainConversion(&origTok, &tok)
 			return tok
 		}
-		return *singulifyNoun(&origTok)
+		return *singulifyToken(&origTok)
 	case "VBZ":
 		switch origTok.Text {
 		case "is", "has":
