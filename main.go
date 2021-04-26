@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"github.com/DQNEO/go-samples/nlp/gospec/spec2text"
-	"github.com/DQNEO/go-samples/nlp/gospec/wordprocessor"
 	"os"
 	"strings"
 
-	"github.com/jdkato/prose"
+	"github.com/jdkato/prose/v2"
+	"github.com/jinzhu/inflection"
 )
 
 var specFile = os.Getenv("GOPATH") + "/src/github.com/DQNEO/go-samples/nlp/gospec/spec.html"
@@ -124,7 +124,7 @@ func singulifyToken(origTok *prose.Token) *prose.Token {
 	if strings.HasSuffix(origTok.Text, "s") {
 		tok := &prose.Token{}
 		tok.Tag = "NN"
-		tok.Text = wordprocessor.Singulify(origTok.Text)
+		tok.Text = inflection.Singular(origTok.Text)
 		explainConversion(origTok, tok)
 		return tok
 	} else {
