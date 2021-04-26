@@ -186,6 +186,5 @@ func aggregate(meaningfulTokens []prose.Token) {
 			fmt.Printf("%4d\t%s\n", n, w)
 		}
 	}
-	fmt.Printf("%4d\tTotal\n", total)
-
+	//fmt.Printf("%4d\tTotal\n", total)
 }
