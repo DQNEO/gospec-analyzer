@@ -29,19 +29,12 @@ func main() {
 	}
 	arg := os.Args[1]
 
-	var modeDump bool
-	var modeText bool
-	var modeCount bool
-	var modeUniq bool
+	var modeDump, modeText, modeCount, modeUniq bool
 	switch arg {
-	case "text":
-		modeText = true
-	case "dump":
-		modeDump = true
-	case "count":
-		modeCount = true
-	case "uniq":
-		modeUniq = true
+	case "text":modeText = true
+	case "dump":modeDump = true
+	case "count":modeCount = true
+	case "uniq":modeUniq = true
 	default:
 		showUsage()
 		return
