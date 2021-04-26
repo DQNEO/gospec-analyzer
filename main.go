@@ -42,6 +42,7 @@ func main() {
 		return
 	}
 	f, err := os.Open(specFile)
+	defer f.Close()
 	if err != nil {
 		panic(err)
 	}
