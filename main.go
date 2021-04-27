@@ -192,5 +192,22 @@ func countByTags(meaningfulTokens []prose.Token) {
 }
 
 func countByWord(meaningfulTokens []prose.Token) {
+	var wordCount = map[string]int{}
+	for _, origTok := range meaningfulTokens {
+		tok := manipulateToken(origTok)
+		lowerText := strings.ToLower(tok.Text)
+		cnt := wordCount[lowerText]
+		wordCount[lowerText] = cnt + 1
+	}
 
+	frequency := make([]string, 10000)
+	for text, cnt := range wordCount {
+		frequency[cnt] = text
+	}
+
+	for cnt, grp := range frequency {
+		for _, w := range grp {
+			fmt.Printf("%4d\t%s\n", cnt, w)
+		}
+	}
 }
