@@ -199,12 +199,15 @@ func countByWord(meaningfulTokens []prose.Token) {
 		wordCount[lowerText] = cnt + 1
 	}
 
-	frequency := make([]string, 10000)
+	frequency := make([][]string, 10000)
 	for text, cnt := range wordCount {
-		frequency[cnt] = text
+		frequency[cnt] = append(frequency[cnt], text)
 	}
 
 	for cnt, grp := range frequency {
+		if grp == nil {
+			continue
+		}
 		for _, w := range grp {
 			fmt.Printf("%4d\t%s\n", cnt, w)
 		}
