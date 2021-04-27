@@ -115,6 +115,21 @@ func main() {
 			fmt.Printf("%s\t%s\t%s\n", lowerText, tok.Tag, tok.Label)
 		}
 	}
+
+	var importantTokens []prose.Token
+	for _, tok := range meaningfulTokens {
+		switch tok.Text {
+		case
+		"is", "are", "be","has",
+		"not","same", "only",
+		"use",
+		"name",
+		"first", "one","zero":
+			continue
+		default:
+			importantTokens = append(importantTokens, tok)
+		}
+	}
 	if modeCount {
 		countByTags(meaningfulTokens)
 		return
