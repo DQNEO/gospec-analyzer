@@ -1,18 +1,18 @@
 .PHONY: all
 
-all: out/spec.txt out/tokens.txt out/count.txt out/uniq.txt
+all: docs/spec.txt docs/tokens.txt docs/count.txt docs/uniq.txt
 
 gospec: *.go
 	go build
 
-out/spec.txt: spec2text/*.go spec.html
-	./gospec text > out/spec.txt
+docs/spec.txt: spec2text/*.go spec.html
+	./gospec text > docs/spec.txt
 
-out/tokens.txt: gospec out/spec.txt
-	./gospec dump > out/tokens.txt
+docs/tokens.txt: gospec docs/spec.txt
+	./gospec dump > docs/tokens.txt
 
-out/count.txt: gospec out/spec.txt
-	./gospec count > out/count.txt
+docs/count.txt: gospec docs/spec.txt
+	./gospec count > docs/count.txt
 
-out/uniq.txt: gospec out/spec.txt
-	./gospec uniq > out/uniq.txt
+docs/uniq.txt: gospec docs/spec.txt
+	./gospec uniq > docs/uniq.txt
