@@ -117,9 +117,11 @@ func main() {
 	}
 	if modeCount {
 		countByTags(meaningfulTokens)
+		return
 	}
 	if modeUniq {
 		countByWord(meaningfulTokens)
+		return
 	}
 }
 
