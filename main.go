@@ -181,14 +181,11 @@ func countByTags(meaningfulTokens []prose.Token) {
 		}
 	}
 
-	var total int
 	for n, grp := range frequency {
 		for _, w := range grp {
-			total++
 			fmt.Printf("%4d\t%s\n", n, w)
 		}
 	}
-	//fmt.Printf("%4d\tTotal\n", total)
 }
 
 func countByWord(meaningfulTokens []prose.Token) {
