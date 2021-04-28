@@ -7,7 +7,7 @@ Go Language Specification is written in English, and not all people on the earth
 This tool provides some features and data for better understanding of English sentences.
 
 ## Usage
-See Makefile for its usage.
+See Makefile
 
 ## Analyzed output
 
