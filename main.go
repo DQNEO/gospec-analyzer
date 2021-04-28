@@ -19,6 +19,7 @@ Usage:
 `
 	fmt.Print(help)
 }
+
 func main() {
 	if len(os.Args) == 1 {
 		showUsage()
@@ -36,25 +37,8 @@ func main() {
 		showUsage()
 		return
 	}
-	tsv, err := io.ReadAll(os.Stdin)
-	if err != nil {
-		panic(err)
-	}
-	lines := strings.Split(string(tsv), "\n")
-	var tokens []prose.Token
-	for _, line := range lines {
-		if len(line) == 0 { // EOF
-			break
-		}
-		fields := strings.Split(line, "\t")
-		tk := prose.Token{
-			Text:   fields[0],
-			Tag:  fields[1],
-			Label: fields[2],
-		}
-		tokens = append(tokens, tk)
-	}
 
+	tokens := loadTokens(os.Stdin)
 	var meaningfulTokens []prose.Token
 	// exclude meaningless tokens
 	for _, tok := range tokens {
@@ -119,6 +103,28 @@ func main() {
 		countByWord(meaningfulTokens)
 		return
 	}
+}
+
+func loadTokens(r io.Reader) []prose.Token {
+	tsv, err := io.ReadAll(r)
+	if err != nil {
+		panic(err)
+	}
+	lines := strings.Split(string(tsv), "\n")
+	var tokens []prose.Token = make([]prose.Token, 0, len(lines))
+	for _, line := range lines {
+		if len(line) == 0 { // EOF
+			break
+		}
+		fields := strings.Split(line, "\t")
+		tk := prose.Token{
+			Text:   fields[0],
+			Tag:  fields[1],
+			Label: fields[2],
+		}
+		tokens = append(tokens, tk)
+	}
+	return tokens
 }
 
 func explainConversion(old *prose.Token, new *prose.Token) {
