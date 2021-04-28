@@ -18,5 +18,8 @@ func main() {
 		return
 	}
 	fname := os.Args[1]
-	prose.Tokenize(fname)
+	tokens := prose.Tokenize(fname)
+	for _, tok := range tokens {
+		fmt.Printf("%s\t%s\t%s\n", tok.Text, tok.Tag, tok.Label)
+	}
 }
