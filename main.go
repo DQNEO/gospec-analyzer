@@ -14,8 +14,8 @@ import (
 func showUsage() {
 	help := `
 Usage:
-	dump : show tokens
 	count: show statistics
+	uniq: show statistics uniq by word
 `
 	fmt.Print(help)
 }
