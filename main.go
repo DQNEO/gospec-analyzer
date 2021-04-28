@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
+	"io"
 	"os"
 	"strings"
 
@@ -38,18 +38,25 @@ func main() {
 		showUsage()
 		return
 	}
-	text, err := ioutil.ReadAll(os.Stdin)
+	tsv, err := io.ReadAll(os.Stdin)
 	if err != nil {
 		panic(err)
 	}
-	// NLP
-	doc, err := prose.NewDocument(string(text))
-	if err != nil {
-		panic(err)
+	lines := strings.Split(string(tsv), "\n")
+	var tokens []prose.Token
+	for _, line := range lines {
+		if len(line) == 0 { // EOF
+			break
+		}
+		fields := strings.Split(line, "\t")
+		tk := prose.Token{
+			Text:   fields[0],
+			Tag:  fields[1],
+			Label: fields[2],
+		}
+		tokens = append(tokens, tk)
 	}
 
-	// Iterate over the gdoc's tokens:
-	tokens := doc.Tokens()
 	var meaningfulTokens []prose.Token
 	// exclude meaningless tokens
 	for _, tok := range tokens {
