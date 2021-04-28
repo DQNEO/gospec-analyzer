@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/DQNEO/go-samples/nlp/gospec/spec2text"
+	"io/ioutil"
 	"os"
 	"strings"
 
@@ -11,12 +11,9 @@ import (
 	"github.com/surgebase/porter2"
 )
 
-var specFile = os.Getenv("GOPATH") + "/src/github.com/DQNEO/go-samples/nlp/gospec/spec.html"
-
 func showUsage() {
 	help := `
 Usage:
-	text:  get raw text by parsing HTML
 	dump : show tokens
 	count: show statistics
 `
@@ -29,10 +26,8 @@ func main() {
 	}
 	arg := os.Args[1]
 
-	var modeDump, modeText, modeCount, modeUniq bool
+	var modeDump, modeCount, modeUniq bool
 	switch arg {
-	case "text":
-		modeText = true
 	case "dump":
 		modeDump = true
 	case "count":
@@ -43,19 +38,12 @@ func main() {
 		showUsage()
 		return
 	}
-	f, err := os.Open(specFile)
-	defer f.Close()
+	text, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {
 		panic(err)
 	}
-	text := spec2text.GetTextFromHTML(f)
-	if modeText {
-		fmt.Print(text)
-		return
-	}
-
 	// NLP
-	doc, err := prose.NewDocument(text)
+	doc, err := prose.NewDocument(string(text))
 	if err != nil {
 		panic(err)
 	}
