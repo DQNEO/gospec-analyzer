@@ -26,10 +26,8 @@ func main() {
 	}
 	arg := os.Args[1]
 
-	var modeDump, modeCount, modeUniq bool
+	var modeCount, modeUniq bool
 	switch arg {
-	case "dump":
-		modeDump = true
 	case "count":
 		modeCount = true
 	case "uniq":
@@ -99,18 +97,6 @@ func main() {
 			meaningfulTokens = append(meaningfulTokens, tok)
 		}
 	}
-	for _, tok := range meaningfulTokens {
-		if modeDump {
-			// Go NNP B-GPE
-			// is VBZ O
-			// an DT O
-			// ...
-			//fmt.Printf("%20s %5s %10s\n", tok.Text, tok.Tag, tok.Label)
-			lowerText := strings.ToLower(tok.Text)
-			fmt.Printf("%s\t%s\t%s\n", lowerText, tok.Tag, tok.Label)
-		}
-	}
-
 	var importantTokens []prose.Token
 	for _, tok := range meaningfulTokens {
 		switch tok.Text {
