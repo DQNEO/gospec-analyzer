@@ -61,23 +61,23 @@ func main() {
 			continue
 		}
 
+		var meaninglessTokens = map[string]bool{
+			"CD":true,   // cardinal number
+			"DT":true,   // determiner
+			"IN":true,   // conjunction, subordinating or preposition
+			"CC":true,   // conjunction, coordinating
+			"PRP":true,  // pronoun, personal
+			"PRP$":true, // pronoun, possessive
+			"TO":true,   // infinitival to
+			"WDT":true,  // wh-determiner
+			"WP":true,   // wh-pronoun, personal
+			"WP$":true,  // wh-pronoun, possessive
+			"WRB":true,  // wh-adverb
+			"MD":true,   // verb, modal auxiliary
+		}
+
 		// Exclude tokens of DT (a,an,the,..)
-		switch tok.Tag {
-		case
-			"CD",   // cardinal number
-			"DT",   // determiner
-			"IN",   // conjunction, subordinating or preposition
-			"CC",   // conjunction, coordinating
-			"PRP",  // pronoun, personal
-			"PRP$", // pronoun, possessive
-			"TO",   // infinitival to
-			"WDT",  // wh-determiner
-			"WP",   // wh-pronoun, personal
-			"WP$",  // wh-pronoun, possessive
-			"WRB",  // wh-adverb
-			"MD":   // verb, modal auxiliary
-			continue
-		default:
+		if !meaninglessTokens[tok.Tag] {
 			meaningfulTokens = append(meaningfulTokens, tok)
 		}
 	}
