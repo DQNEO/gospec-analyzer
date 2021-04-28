@@ -8,13 +8,13 @@ docs/spec.txt: spec.html
 	./s2t spec.html > docs/spec.txt
 
 gospec: *.go
-	go build
+	go build -o gospec .
 
 docs/tokens.txt: gospec docs/spec.txt
-	./gospec dump > docs/tokens.txt
+	./gospec dump < docs/spec.txt > docs/tokens.txt
 
 docs/count.txt: gospec docs/spec.txt
-	./gospec count > docs/count.txt
+	./gospec count < docs/spec.txt> docs/count.txt
 
 docs/uniq.txt: gospec docs/spec.txt
-	./gospec uniq > docs/uniq.txt
+	./gospec uniq < docs/spec.txt > docs/uniq.txt
