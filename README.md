@@ -8,3 +8,8 @@ This tool provides some features and data for better understanding of English se
 
 ## Usage
 See Makefile for its usage.
+
+## Analyzed output
+
+You can see the output in https://github.com/DQNEO/gospec .
+
