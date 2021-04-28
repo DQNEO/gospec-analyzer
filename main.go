@@ -11,6 +11,36 @@ import (
 	"github.com/surgebase/porter2"
 )
 
+var meaninglessTokens = map[string]bool{
+	"CD":true,   // cardinal number
+	"DT":true,   // determiner
+	"IN":true,   // conjunction, subordinating or preposition
+	"CC":true,   // conjunction, coordinating
+	"PRP":true,  // pronoun, personal
+	"PRP$":true, // pronoun, possessive
+	"TO":true,   // infinitival to
+	"WDT":true,  // wh-determiner
+	"WP":true,   // wh-pronoun, personal
+	"WP$":true,  // wh-pronoun, possessive
+	"WRB":true,  // wh-adverb
+	"MD":true,   // verb, modal auxiliary
+}
+
+var basicWords = map[string]bool{
+	"is":  true,
+	"are": true,
+	"be":  true,
+	"has": true,
+	"not":  true,
+	"same": true,
+	"only": true,
+	"use": true,
+	"name": true,
+	"first": true,
+	"one":   true,
+	"zero":  true,
+}
+
 func showUsage() {
 	help := `
 Usage:
@@ -61,21 +91,6 @@ func main() {
 			continue
 		}
 
-		var meaninglessTokens = map[string]bool{
-			"CD":true,   // cardinal number
-			"DT":true,   // determiner
-			"IN":true,   // conjunction, subordinating or preposition
-			"CC":true,   // conjunction, coordinating
-			"PRP":true,  // pronoun, personal
-			"PRP$":true, // pronoun, possessive
-			"TO":true,   // infinitival to
-			"WDT":true,  // wh-determiner
-			"WP":true,   // wh-pronoun, personal
-			"WP$":true,  // wh-pronoun, possessive
-			"WRB":true,  // wh-adverb
-			"MD":true,   // verb, modal auxiliary
-		}
-
 		// Exclude tokens of DT (a,an,the,..)
 		if !meaninglessTokens[tok.Tag] {
 			meaningfulTokens = append(meaningfulTokens, tok)
@@ -83,15 +98,9 @@ func main() {
 	}
 	var importantTokens []prose.Token
 	for _, tok := range meaningfulTokens {
-		switch tok.Text {
-		case
-		"is", "are", "be","has",
-		"not","same", "only",
-		"use",
-		"name",
-		"first", "one","zero":
-			continue
-		default:
+		if basicWords[tok.Text] {
+			// log
+		} else {
 			importantTokens = append(importantTokens, tok)
 		}
 	}
