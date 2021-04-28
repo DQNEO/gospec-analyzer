@@ -42,7 +42,7 @@ func main() {
 	var meaningfulTokens []prose.Token
 	// exclude meaningless tokens
 	for _, tok := range tokens {
-		if len(tok.Text) == 1 { // exclue one letter
+		if len(tok.Text) == 1 { // exclude one letter token
 			continue
 		}
 
