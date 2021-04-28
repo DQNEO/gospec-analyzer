@@ -1,5 +1,5 @@
 .PHONY: all
-all: s2t docs/spec.txt docs/tokens.txt docs/count.txt docs/uniq.txt
+all: docs/spec.txt docs/tokens.tsv # docs/count.txt docs/uniq.txt
 
 s2t: spec.html spec2text/*/*
 	go build -o s2t ./spec2text/cmd
@@ -7,11 +7,14 @@ s2t: spec.html spec2text/*/*
 docs/spec.txt: spec.html
 	./s2t spec.html > docs/spec.txt
 
+prs: prose/*/*
+	go build -o prs ./prose/cmd
+
+docs/tokens.tsv: prs docs/spec.txt
+	./prs docs/spec.txt > docs/tokens.tsv
+
 gospec: *.go
 	go build -o gospec .
-
-docs/tokens.txt: gospec docs/spec.txt
-	./gospec dump < docs/spec.txt > docs/tokens.txt
 
 docs/count.txt: gospec docs/spec.txt
 	./gospec count < docs/spec.txt> docs/count.txt

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/DQNEO/go-samples/nlp/gospec/spec2text"
+	"github.com/DQNEO/gospec-analyzer/spec2text"
 )
 
 func usage() {
