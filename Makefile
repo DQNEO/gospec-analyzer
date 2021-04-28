@@ -13,6 +13,9 @@ prs: prose/*/*
 docs/tokens.tsv: prs docs/spec.txt
 	./prs docs/spec.txt > docs/tokens.tsv
 
+docs/tokens.json: prs docs/spec.txt
+	./prs --json docs/spec.txt > docs/tokens.json
+
 gospec: *.go
 	go build -o gospec .
 
