@@ -42,28 +42,10 @@ func main() {
 	var meaningfulTokens []prose.Token
 	// exclude meaningless tokens
 	for _, tok := range tokens {
-		if len(tok.Text) == 1 { // exclude one letter token
-			continue
-		}
-
-		// Exclude tokens with punctuations
-		first := tok.Text[0]
-		if !(('a' <= first && first <= 'z') || ('A' <= first && first <= 'Z')) {
-			continue
-		}
-		if strings.Contains(tok.Text, "[") {
-			continue
-		}
-		if strings.Contains(tok.Text, "(") {
-			continue
-		}
-		if strings.Contains(tok.Text, "+") {
-			continue
-		}
-
-		// Exclude tokens of DT (a,an,the,..)
-		if !meaninglessTokens[tok.Tag] {
+		if isMeaningful(&tok) {
 			meaningfulTokens = append(meaningfulTokens, tok)
+		} else {
+			println("skip: " + tok.Text)
 		}
 	}
 	var importantTokens []prose.Token
@@ -104,6 +86,31 @@ func loadTokens(r io.Reader) []prose.Token {
 		tokens = append(tokens, tk)
 	}
 	return tokens
+}
+
+func isMeaningful(tok *prose.Token) bool {
+
+	if len(tok.Text) == 1 { // exclude one letter token
+		return false
+	}
+
+	// Exclude tokens with punctuations
+	first := tok.Text[0]
+	if !(('a' <= first && first <= 'z') || ('A' <= first && first <= 'Z')) {
+		return false
+	}
+	if strings.Contains(tok.Text, "[") {
+		return false
+	}
+	if strings.Contains(tok.Text, "(") {
+		return false
+	}
+	if strings.Contains(tok.Text, "+") {
+		return false
+	}
+
+	// Exclude tokens of DT (a,an,the,..)
+	return !meaninglessTokens[tok.Tag]
 }
 
 func explainConversion(old *prose.Token, new *prose.Token) {
