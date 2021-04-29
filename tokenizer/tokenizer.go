@@ -2,17 +2,17 @@ package tokenizer
 
 import (
 	"fmt"
-	jprose "github.com/jdkato/prose/v2"
+	"github.com/jdkato/prose/v2"
 	"os"
 )
 
-func Tokenize(textFile string) []jprose.Token {
+func Tokenize(textFile string) []prose.Token {
 	text, err := os.ReadFile(textFile)
 	if err != nil {
 		panic(err)
 	}
 	// NLP
-	doc, err := jprose.NewDocument(string(text))
+	doc, err := prose.NewDocument(string(text))
 	if err != nil {
 		panic(err)
 	}
@@ -20,6 +20,6 @@ func Tokenize(textFile string) []jprose.Token {
 	return doc.Tokens()
 }
 
-func String(tok *jprose.Token) string {
+func String(tok *prose.Token) string {
 	return fmt.Sprintf("%s\t%s\t%s", tok.Text, tok.Tag, tok.Label)
 }
