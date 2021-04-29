@@ -52,10 +52,10 @@ func main() {
 // exclude punctuations
 func filter1(tokens []prose.Token) {
 	for _, tok := range tokens {
-		if isWord(&tok) {
-			fmt.Println(tokenizer.String(&tok))
-		} else {
+		if isPunct(&tok) {
 			println("skip: " + tokenizer.String(&tok))
+		} else {
+			fmt.Println(tokenizer.String(&tok))
 		}
 	}
 }
@@ -63,10 +63,10 @@ func filter1(tokens []prose.Token) {
 // exclude trivial tokens
 func filter2(tokens []prose.Token) {
 	for _, tok := range tokens {
-		if isMeaningful(&tok) {
-			fmt.Println(tokenizer.String(&tok))
-		} else {
+		if isMeaningless(&tok) {
 			println("skip: " + tokenizer.String(&tok))
+		} else {
+			fmt.Println(tokenizer.String(&tok))
 		}
 	}
 }
@@ -74,10 +74,10 @@ func filter2(tokens []prose.Token) {
 // exclude basic words
 func filter3(tokens []prose.Token) {
 	for _, tok := range tokens {
-		if !basicWords[tok.Text] {
-			fmt.Println(tokenizer.String(&tok))
-		} else {
+		if basicWords[tok.Text] {
 			println("skip: " + tokenizer.String(&tok))
+		} else {
+			fmt.Println(tokenizer.String(&tok))
 		}
 	}
 }
@@ -104,33 +104,33 @@ func loadTokens(r io.Reader) []prose.Token {
 	return tokens
 }
 
-func isWord(tok *prose.Token) bool {
+func isPunct(tok *prose.Token) bool {
 
 	if len(tok.Text) == 1 { // exclude one letter token
-		return false
+		return true
 	}
 
 	// Exclude tokens with punctuations
 	first := tok.Text[0]
 	if !(('a' <= first && first <= 'z') || ('A' <= first && first <= 'Z')) {
-		return false
+		return true
 	}
 	if strings.Contains(tok.Text, "[") {
-		return false
+		return true
 	}
 	if strings.Contains(tok.Text, "(") {
-		return false
+		return true
 	}
 	if strings.Contains(tok.Text, "+") {
-		return false
+		return true
 	}
 
-	return true
+	return false
 }
 
-func isMeaningful(tok *prose.Token) bool {
+func isMeaningless(tok *prose.Token) bool {
 	// Exclude tokens of DT (a,an,the,..)
-	return !meaninglessTokens[tok.Tag]
+	return meaninglessTokens[tok.Tag]
 }
 
 func explainConversion(old *prose.Token, new *prose.Token) {
