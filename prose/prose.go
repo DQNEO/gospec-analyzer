@@ -1,6 +1,7 @@
 package prose
 
 import (
+	"fmt"
 	jprose "github.com/jdkato/prose/v2"
 	"os"
 )
@@ -17,4 +18,8 @@ func Tokenize(textFile string) []jprose.Token {
 	}
 
 	return doc.Tokens()
+}
+
+func String(tok *jprose.Token) string {
+	return fmt.Sprintf("%s\t%s\t%s", tok.Text, tok.Tag, tok.Label)
 }

@@ -35,7 +35,7 @@ func main() {
 	switch outputMode {
 	case ModeTsv:
 		for _, tok := range tokens {
-			fmt.Printf("%s\t%s\t%s\n", tok.Text, tok.Tag, tok.Label)
+			fmt.Println(prose.String(&tok))
 		}
 	case ModeJson:
 		b, err := json.Marshal(tokens)
