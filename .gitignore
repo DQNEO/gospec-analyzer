@@ -1,5 +1,5 @@
 /docs
 /gospec
 /vendor/
-s2t
-/prs
+/bin/s2t
+/bin/prose
