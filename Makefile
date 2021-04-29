@@ -40,7 +40,7 @@ docs/normalized.txt: gospec docs/tokens4.txt
 	cat docs/normalized.log | sort | uniq > docs/normalized.uniq.log
 
 docs/count.txt: gospec docs/tokens4.txt
-	./gospec count < docs/tokens4.txt > docs/count.txt
+	./gospec count < docs/tokens4.txt > docs/count.txt 2>/dev/null
 
 docs/uniq.txt: gospec docs/tokens4.txt
-	./gospec uniq < docs/tokens4.txt> docs/uniq.txt
+	./gospec uniq < docs/tokens4.txt> docs/uniq.txt 2>/dev/null
