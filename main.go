@@ -18,6 +18,7 @@ Usage:
 	filter1: exclude punctuations
 	filter2: exclude meaningless tokens
 	filter3: exclude basic words
+	filter4: exclude technical terms
 	normalize: normalize word variations
 	count: show statistics
 	uniq: show statistics uniq by word
@@ -34,11 +35,13 @@ func main() {
 
 	switch arg {
 	case "filter1":
-		filter1(loadTokens(os.Stdin))
+		filter(loadTokens(os.Stdin), isPunct)
 	case "filter2":
-		filter2(loadTokens(os.Stdin))
+		filter(loadTokens(os.Stdin), isMeaningless)
 	case "filter3":
-		filter3(loadTokens(os.Stdin))
+		filter(loadTokens(os.Stdin), isBasicWord)
+	case "filter4":
+		filter(loadTokens(os.Stdin), isTechnicalTerm)
 	case "normalize":
 		normalize(loadTokens(os.Stdin))
 	case "count":
@@ -49,39 +52,6 @@ func main() {
 		countByWord(tokens)
 	default:
 		showUsage()
-	}
-}
-
-// exclude punctuations
-func filter1(tokens []prose.Token) {
-	for _, tok := range tokens {
-		if isPunct(&tok) {
-			println("skip: " + tokenizer.String(&tok))
-		} else {
-			fmt.Println(tokenizer.String(&tok))
-		}
-	}
-}
-
-// exclude trivial tokens
-func filter2(tokens []prose.Token) {
-	for _, tok := range tokens {
-		if isMeaningless(&tok) {
-			println("skip: " + tokenizer.String(&tok))
-		} else {
-			fmt.Println(tokenizer.String(&tok))
-		}
-	}
-}
-
-// exclude basic words
-func filter3(tokens []prose.Token) {
-	for _, tok := range tokens {
-		if basicWords[tok.Text] {
-			println("skip: " + tokenizer.String(&tok))
-		} else {
-			fmt.Println(tokenizer.String(&tok))
-		}
 	}
 }
 
@@ -105,6 +75,17 @@ func loadTokens(r io.Reader) []prose.Token {
 		tokens = append(tokens, tk)
 	}
 	return tokens
+}
+
+// exclude unneeded things
+func filter(tokens []prose.Token, fn func(*prose.Token) bool) {
+	for _, tok := range tokens {
+		if fn(&tok) {
+			println("skip: " + tokenizer.String(&tok))
+		} else {
+			fmt.Println(tokenizer.String(&tok))
+		}
+	}
 }
 
 func isPunct(tok *prose.Token) bool {
@@ -134,6 +115,14 @@ func isPunct(tok *prose.Token) bool {
 func isMeaningless(tok *prose.Token) bool {
 	// Exclude tokens of DT (a,an,the,..)
 	return meaninglessTokens[tok.Tag]
+}
+
+func isBasicWord(tok *prose.Token) bool {
+	return basicWords[tok.Text]
+}
+
+func isTechnicalTerm(tok *prose.Token) bool {
+	return technicalTerm[tok.Text]
 }
 
 func normalize(tokens []prose.Token) {
