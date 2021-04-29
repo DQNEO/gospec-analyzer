@@ -9,12 +9,13 @@ import (
 	"github.com/jdkato/prose/v2"
 	"github.com/jinzhu/inflection"
 	"github.com/surgebase/porter2"
+	"github.com/DQNEO/gospec-analyzer/tokenizer"
 )
 
 func showUsage() {
 	help := `
 Usage:
-	filter1: filter meaningful tokens
+	filter1: exclude meaningful tokens
 	count: show statistics
 	uniq: show statistics uniq by word
 `
@@ -66,12 +67,13 @@ func filter1(tokens []prose.Token) {
 			println("skip: " + tok.Text)
 		}
 	}
-	var importantTokens []prose.Token
+
+	// exclude basic words
 	for _, tok := range meaningfulTokens {
 		if basicWords[tok.Text] {
 			// log
 		} else {
-			importantTokens = append(importantTokens, tok)
+			fmt.Println(tokenizer.String(&tok))
 		}
 	}
 }
