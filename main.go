@@ -18,6 +18,7 @@ Usage:
 	filter1: exclude punctuations
 	filter2: exclude meaningless tokens
 	filter3: exclude basic words
+	normalize: normalize word variations
 	count: show statistics
 	uniq: show statistics uniq by word
 `
@@ -38,6 +39,8 @@ func main() {
 		filter2(loadTokens(os.Stdin))
 	case "filter3":
 		filter3(loadTokens(os.Stdin))
+	case "normalize":
+		normalize(loadTokens(os.Stdin))
 	case "count":
 		tokens := loadTokens(os.Stdin)
 		countByTags(tokens)
@@ -133,7 +136,16 @@ func isMeaningless(tok *prose.Token) bool {
 	return meaninglessTokens[tok.Tag]
 }
 
-func explainConversion(old *prose.Token, new *prose.Token) {
+func normalize(tokens []prose.Token) {
+	for _, tok := range tokens {
+		newTok := manipulateToken(tok)
+		fmt.Printf("%s => %s\t%s\n",
+			tokenizer.String(&tok), newTok.Text, newTok.Tag)
+	}
+}
+
+func explainConversion(old *prose.Token, new *
+	prose.Token) {
 	fmt.Fprintf(os.Stderr, "Converting [%4s] %20s => [%4s] %20s\n",
 		old.Tag, old.Text, new.Tag, new.Text)
 }
