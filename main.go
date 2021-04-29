@@ -15,7 +15,9 @@ import (
 func showUsage() {
 	help := `
 Usage:
-	filter1: exclude meaningful tokens
+	filter1: exclude punctuations
+	filter2: exclude meaningless tokens
+	filter3: exclude basic words
 	count: show statistics
 	uniq: show statistics uniq by word
 `
@@ -29,51 +31,53 @@ func main() {
 	}
 	arg := os.Args[1]
 
-	var modeCount, modeUniq, modeFilter1 bool
 	switch arg {
 	case "filter1":
-		modeFilter1 = true
+		filter1(loadTokens(os.Stdin))
+	case "filter2":
+		filter2(loadTokens(os.Stdin))
+	case "filter3":
+		filter3(loadTokens(os.Stdin))
 	case "count":
-		modeCount = true
+		tokens := loadTokens(os.Stdin)
+		countByTags(tokens)
 	case "uniq":
-		modeUniq = true
+		tokens := loadTokens(os.Stdin)
+		countByWord(tokens)
 	default:
 		showUsage()
-		return
-	}
-
-	tokens := loadTokens(os.Stdin)
-	if modeFilter1 {
-		filter1(tokens)
-		return
-	}
-	if modeCount {
-		countByTags(tokens)
-		return
-	}
-	if modeUniq {
-		countByWord(tokens)
-		return
 	}
 }
 
+// exclude punctuations
 func filter1(tokens []prose.Token) {
-	var meaningfulTokens []prose.Token
-	// exclude meaningless tokens
 	for _, tok := range tokens {
-		if isMeaningful(&tok) {
-			meaningfulTokens = append(meaningfulTokens, tok)
+		if isWord(&tok) {
+			fmt.Println(tokenizer.String(&tok))
 		} else {
-			println("skip: " + tok.Text)
+			println("skip: " + tokenizer.String(&tok))
 		}
 	}
+}
 
-	// exclude basic words
-	for _, tok := range meaningfulTokens {
-		if basicWords[tok.Text] {
-			// log
-		} else {
+// exclude trivial tokens
+func filter2(tokens []prose.Token) {
+	for _, tok := range tokens {
+		if isMeaningful(&tok) {
 			fmt.Println(tokenizer.String(&tok))
+		} else {
+			println("skip: " + tokenizer.String(&tok))
+		}
+	}
+}
+
+// exclude basic words
+func filter3(tokens []prose.Token) {
+	for _, tok := range tokens {
+		if !basicWords[tok.Text] {
+			fmt.Println(tokenizer.String(&tok))
+		} else {
+			println("skip: " + tokenizer.String(&tok))
 		}
 	}
 }
@@ -100,7 +104,7 @@ func loadTokens(r io.Reader) []prose.Token {
 	return tokens
 }
 
-func isMeaningful(tok *prose.Token) bool {
+func isWord(tok *prose.Token) bool {
 
 	if len(tok.Text) == 1 { // exclude one letter token
 		return false
@@ -121,6 +125,10 @@ func isMeaningful(tok *prose.Token) bool {
 		return false
 	}
 
+	return true
+}
+
+func isMeaningful(tok *prose.Token) bool {
 	// Exclude tokens of DT (a,an,the,..)
 	return !meaninglessTokens[tok.Tag]
 }
