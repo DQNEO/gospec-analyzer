@@ -2,4 +2,4 @@
 /gospec
 /vendor/
 /bin/s2t
-/bin/prose
+/bin/tokenizer

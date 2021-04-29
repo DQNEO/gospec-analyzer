@@ -7,14 +7,14 @@ bin/s2t: spec.html spec2text/*/*
 docs/spec.txt: bin/s2t spec.html
 	bin/s2t spec.html > docs/spec.txt
 
-bin/prose: prose/*/*
-	go build -o bin/prose ./prose/cmd
+bin/tokenizer: tokenizer
+	go build -o bin/tokenizer ./tokenizer/cmd
 
-docs/tokens.txt: bin/prose docs/spec.txt
-	bin/prose docs/spec.txt > docs/tokens.txt
+docs/tokens.txt: bin/tokenizer docs/spec.txt
+	bin/tokenizer docs/spec.txt > docs/tokens.txt
 
-docs/tokens.json: bin/prose docs/spec.txt
-	bin/prose --json docs/spec.txt > docs/tokens.json
+docs/tokens.json: bin/tokenizer docs/spec.txt
+	bin/tokenizer --json docs/spec.txt > docs/tokens.json
 
 gospec: *.go
 	go build -o gospec .

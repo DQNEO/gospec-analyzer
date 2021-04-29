@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"os"
 	"encoding/json"
-	"github.com/DQNEO/gospec-analyzer/prose"
+	"github.com/DQNEO/gospec-analyzer/tokenizer"
 )
 
 func usage() {
 	fmt.Println("Usage:")
-	fmt.Println("	prs textfile > tokens.tsv")
-	fmt.Println("	prs --json textfile > tokens.json")
+	fmt.Println("	tokenizer textfile > tokens.tsv")
+	fmt.Println("	tokenizer --json textfile > tokens.json")
 }
 
 type mode int
@@ -30,12 +30,12 @@ func main() {
 	}
 
 	fname := os.Args[1]
-	tokens := prose.Tokenize(fname)
+	tokens := tokenizer.Tokenize(fname)
 
 	switch outputMode {
 	case ModeTsv:
 		for _, tok := range tokens {
-			fmt.Println(prose.String(&tok))
+			fmt.Println(tokenizer.String(&tok))
 		}
 	case ModeJson:
 		b, err := json.Marshal(tokens)
