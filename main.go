@@ -14,6 +14,7 @@ import (
 func showUsage() {
 	help := `
 Usage:
+	filter1: filter meaningful tokens
 	count: show statistics
 	uniq: show statistics uniq by word
 `
@@ -27,8 +28,10 @@ func main() {
 	}
 	arg := os.Args[1]
 
-	var modeCount, modeUniq bool
+	var modeCount, modeUniq, modeFilter1 bool
 	switch arg {
+	case "filter1":
+		modeFilter1 = true
 	case "count":
 		modeCount = true
 	case "uniq":
@@ -39,6 +42,21 @@ func main() {
 	}
 
 	tokens := loadTokens(os.Stdin)
+	if modeFilter1 {
+		filter1(tokens)
+		return
+	}
+	if modeCount {
+		countByTags(tokens)
+		return
+	}
+	if modeUniq {
+		countByWord(tokens)
+		return
+	}
+}
+
+func filter1(tokens []prose.Token) {
 	var meaningfulTokens []prose.Token
 	// exclude meaningless tokens
 	for _, tok := range tokens {
@@ -55,14 +73,6 @@ func main() {
 		} else {
 			importantTokens = append(importantTokens, tok)
 		}
-	}
-	if modeCount {
-		countByTags(meaningfulTokens)
-		return
-	}
-	if modeUniq {
-		countByWord(meaningfulTokens)
-		return
 	}
 }
 
