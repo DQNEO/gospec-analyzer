@@ -114,7 +114,7 @@ func isPunct(tok *prose.Token) bool {
 
 func isMeaningless(tok *prose.Token) bool {
 	// Exclude tokens of DT (a,an,the,..)
-	return meaninglessTokens[tok.Tag]
+	return meaninglessTokens[strings.ToUpper(tok.Tag)]
 }
 
 func isBasicWord(tok *prose.Token) bool {
