@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/jdkato/prose/v2"
 	"os"
+	"strings"
 )
 
 func Tokenize(textFile string) []prose.Token {
@@ -21,5 +22,6 @@ func Tokenize(textFile string) []prose.Token {
 }
 
 func String(tok *prose.Token) string {
-	return fmt.Sprintf("%s\t%s\t%s", tok.Text, tok.Tag, tok.Label)
+	return fmt.Sprintf("%s\t%s\t%s",
+		tok.Text, strings.ToLower(tok.Tag), strings.ToLower(tok.Label))
 }
