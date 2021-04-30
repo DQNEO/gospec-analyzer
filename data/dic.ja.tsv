@@ -776,7 +776,7 @@ sliced
 copi		
 cause		
 multi-valued	多値の	
-branch	枝	
+branch	枝、分岐	
 context	文脈、背景	
 usual		
 consid		
@@ -814,7 +814,7 @@ newline
 produc		
 belong		
 consist		
-absent		
+absent	有る、存在する	
 left-hand		
 general	一般	
 were		E
@@ -949,7 +949,7 @@ label
 selector		
 error		
 composite	複合	
-possibly	可能性として	
+possibly	ことによると、可能性としてあり得ることに	
 receive		
 present	ある	
 implementation	実装	
@@ -1028,7 +1028,7 @@ initialization	初期化
 order	順序	
 identical	同一の(である)	
 first		E
-specifi	特定する	
+specifi	特定する、指定する、規定する	
 complex	複素数	
 number		E
 key		E
