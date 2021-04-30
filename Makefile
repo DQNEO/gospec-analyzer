@@ -1,5 +1,5 @@
 .PHONY: all
-all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/normalized.txt  docs/count.txt docs/uniq.txt
+all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/normalized.txt  docs/count.txt docs/uniq.txt
 
 bin/s2t: spec2text/*/*
 	go build -o $@ ./spec2text/cmd
@@ -34,6 +34,9 @@ docs/tokens3.txt: docs/tokens2.txt gospec
 docs/tokens4.txt: docs/tokens3.txt gospec
 	./gospec filter4 < $< > $@ 2> docs/tokens4.log
 	cat docs/tokens4.log | sort | uniq > docs/tokens4.uniq.log
+
+docs/tokens-uniq.txt: docs/tokens4.txt
+	cat $< | sort | uniq | tr '[:upper:]' '[:lower:]' > $@
 
 docs/normalized.txt: docs/tokens4.txt gospec
 	./gospec normalize < $< > $@ 2> docs/normalized.log
