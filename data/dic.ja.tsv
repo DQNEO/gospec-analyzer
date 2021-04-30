@@ -1,4 +1,4 @@
-EN	JA	Flag
+EN	JA	Flag (E: 初歩単語、T: 専門用語)
 alternation	〔二者間の〕交代	
 accented		
 multi-variable	多値	
@@ -814,7 +814,7 @@ newline
 produc		
 belong		
 consist		
-absent	有る、存在する	
+absent	無い、存在しない	
 left-hand		
 general	一般	
 were		E
@@ -1054,7 +1054,7 @@ operator	演算子
 pointer		T
 untyped	型なしの	
 have		E
-follow	追従する	
+follow	次に続く、追従する	
 block		T
 one		E
 map		T
