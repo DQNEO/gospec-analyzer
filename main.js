@@ -7,7 +7,7 @@ $(document).ready(() => {
         //console.log(sel);
         //console.log(content);
         //console.log(word)
-        const stem = word2stem[word]
+        const stem = word2stem[word.toLowerCase()]
         if (stem) {
             console.log(stem)
         } else {
