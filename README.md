@@ -11,5 +11,5 @@ See Makefile
 
 ## Analyzed output
 
-You can see the output in https://github.com/DQNEO/gospec .
+Output data is managed in another repo https://github.com/DQNEO/gospec .
 
