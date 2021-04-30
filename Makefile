@@ -57,3 +57,10 @@ docs/spec.html: spec.html
 docs/style.css: style.css
 	cp $< $@
 
+bin/tsv2json: tsv2json/*/*
+	go build -o $@ ./tsv2json/cmd
+
+docs/dic.ja.json: data/dic.ja.tsv bin/tsv2json
+	bin/tsv2json $< > $@
+
+
