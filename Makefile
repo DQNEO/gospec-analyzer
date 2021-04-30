@@ -1,5 +1,5 @@
 .PHONY: all
-all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/normalized.txt  docs/count.txt docs/uniq.txt
+all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/normalized.txt  docs/count.txt docs/uniq.txt web
 
 bin/s2t: spec2text/* spec2text/*/*
 	go build -o $@ ./spec2text/cmd
@@ -49,7 +49,8 @@ docs/uniq.txt: docs/tokens4.txt gospec
 	./gospec uniq < $< > $@ 2>/dev/null
 
 docs/dic.ja.json: data/dic.ja.tsv bin/tsv2json
-	bin/tsv2json $< > $@
+	echo 'var dic = ' > $@
+	bin/tsv2json $< >> $@
 
 .PHONEY: web
 web: docs/spec.html docs/style.css
