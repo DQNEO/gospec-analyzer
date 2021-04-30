@@ -1,7 +1,7 @@
 .PHONY: all
 all: docs/spec.txt docs/tokens2.txt docs/tokens0.json docs/normalized.txt  docs/count.txt docs/uniq.txt
 
-bin/s2t: spec2text/*/* spec.html
+bin/s2t: spec2text/*/*
 	go build -o $@ ./spec2text/cmd
 
 docs/spec.txt: spec.html bin/s2t
