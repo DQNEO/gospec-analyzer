@@ -47,3 +47,13 @@ docs/count.txt: docs/tokens4.txt gospec
 
 docs/uniq.txt: docs/tokens4.txt gospec
 	./gospec uniq < $< > $@ 2>/dev/null
+
+.PHONEY: web
+web: docs/spec.html docs/style.css
+
+docs/spec.html: spec.html
+	cp $< $@
+
+docs/style.css: style.css
+	cp $< $@
+
