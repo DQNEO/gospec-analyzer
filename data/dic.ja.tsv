@@ -104,7 +104,7 @@ sieve	 篩(ふるい)
 keywords		
 sender		
 protect		
-alternative	変わりの	
+alternative	代わりのもの、選択肢	
 separ		
 modify		
 re-us		
@@ -656,7 +656,7 @@ remainder	余り
 larger		
 right-hand		
 similar		
-production		
+production	生成規則	
 destination	行き先、目的地	
 embed		
 handl		
@@ -732,7 +732,7 @@ divisor
 punctuation	句読点	
 upper		
 made		
-term		
+term	項、用語	
 TRUE		
 level		
 utf-8-encoded		T
