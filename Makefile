@@ -38,7 +38,7 @@ docs/tokens4.txt: docs/tokens3.txt gospec
 docs/tokens-uniq.txt: docs/tokens4.txt
 	cat $< | sort | uniq | tr '[:upper:]' '[:lower:]' > $@
 
-docs/normalized.txt: docs/tokens4.txt gospec
+docs/normalized.txt: docs/tokens-uniq.txt gospec
 	./gospec normalize < $< > $@ 2> docs/normalized.log
 	cat docs/normalized.log | sort | uniq > docs/normalized.uniq.log
 

@@ -128,8 +128,12 @@ func isTechnicalTerm(tok *prose.Token) bool {
 func normalize(tokens []prose.Token) {
 	for _, tok := range tokens {
 		newTok := manipulateToken(tok)
-		fmt.Printf("%s => %s\t%s\n",
-			tokenizer.String(&tok), newTok.Text, newTok.Tag)
+		fmt.Printf(
+			"%-15s\t%4s => %-15s\t%4s\t:%s\n",
+			tok.Text, tok.Tag,
+			newTok.Text, newTok.Tag,
+			tok.Label,
+			)
 	}
 }
 
@@ -142,7 +146,7 @@ func explainConversion(old *prose.Token, new *
 func singulifyToken(origTok *prose.Token) *prose.Token {
 	if strings.HasSuffix(origTok.Text, "s") {
 		tok := &prose.Token{}
-		tok.Tag = "NN"
+		tok.Tag = "nn"
 		tok.Text = inflection.Singular(origTok.Text)
 		explainConversion(origTok, tok)
 		return tok
@@ -155,17 +159,17 @@ func manipulateToken(origTok prose.Token) prose.Token {
 	// Manipulate token
 	tok := origTok
 	switch origTok.Tag {
-	case "NNS", "NNPS":
+	case "nns", "nnps":
 		// dogs NNS -> dog NN
 		return *singulifyToken(&origTok)
-	case "VBD", "VBG", "VBN", "VBP", "VBZ":
+	case "vbd", "vbg", "vbn", "vbp", "vbz":
 		tok.Text = porter2.Stem(origTok.Text)
-		tok.Tag = "VB"
+		tok.Tag = "vb"
 		return tok
-	case "JJS":
+	case "jjs":
 		if strings.HasSuffix(origTok.Text, "est") {
 			tok.Text = strings.TrimSuffix(origTok.Text, "est")
-			tok.Tag = "JJ"
+			tok.Tag = "jj"
 			return tok
 		}
 	}
