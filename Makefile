@@ -1,5 +1,5 @@
 .PHONY: all
-all: docs/spec.txt docs/tokens2.txt docs/tokens0.json docs/normalized.txt  docs/count.txt docs/uniq.txt
+all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/normalized.txt  docs/count.txt docs/uniq.txt
 
 bin/s2t: spec2text/*/*
 	go build -o $@ ./spec2text/cmd
@@ -10,16 +10,16 @@ docs/spec.txt: spec.html bin/s2t
 bin/tokenizer: tokenizer/*/*
 	go build -o $@ ./tokenizer/cmd
 
-docs/tokens0.txt: docs/spec.txt bin/tokenizer
+docs/tokens-all.txt: docs/spec.txt bin/tokenizer
 	bin/tokenizer $< > $@
 
-docs/tokens0.json: docs/spec.txt bin/tokenizer
+docs/tokens-all.json: docs/spec.txt bin/tokenizer
 	bin/tokenizer --json $< > $@
 
 gospec: *.go
 	go build -o gospec .
 
-docs/tokens1.txt: docs/tokens0.txt gospec
+docs/tokens1.txt: docs/tokens-all.txt gospec
 	./gospec filter1 < $< > $@ 2> docs/tokens1.log
 	cat docs/tokens1.log | sort | uniq > docs/tokens1.uniq.log
 
