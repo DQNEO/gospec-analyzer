@@ -1,13 +1,13 @@
 .PHONY: all
 all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/normalized.txt  docs/count.txt docs/uniq.txt
 
-bin/s2t: spec2text/*/*
+bin/s2t: spec2text/* spec2text/*/*
 	go build -o $@ ./spec2text/cmd
 
 docs/spec.txt: spec.html bin/s2t
 	bin/s2t $< > $@
 
-bin/tokenizer: tokenizer/*/*
+bin/tokenizer: tokenizer/* tokenizer/*/*
 	go build -o $@ ./tokenizer/cmd
 
 docs/tokens-all.txt: docs/spec.txt bin/tokenizer
