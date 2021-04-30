@@ -128,7 +128,7 @@ mix
 reproducible	再現可能	
 occupy	占める	
 impossible		
-manual		
+manual	マニュアル、手動	
 exit		
 dereferenc		
 measure		
@@ -279,7 +279,7 @@ emb
 alone		
 produce	産出する	
 nothing		
-efficient		
+efficient	効率のよい	
 typeswitchcase		
 ebnf		
 bootstrapping		
@@ -411,7 +411,7 @@ graphic
 integral	整数の、積分の	
 modulo		
 violat	違反する	
-parse		
+parse	構文解析する	
 insertion		
 accent		
 ordinary		
@@ -453,7 +453,7 @@ continue
 indication		
 exp		
 callable		
-extended		
+extended	拡張された	
 identifi		
 union		
 carriage		
@@ -548,7 +548,7 @@ regardless
 normally		
 ready		
 one-dimensional		
-concurrently		
+concurrently	並行して	
 forclause		
 tokens		
 flow		
@@ -565,7 +565,7 @@ well
 recvexpr		
 identifierlist		
 zero-size		
-extend		
+extend	拡張する	
 readability		
 additionally		
 nested		
@@ -582,11 +582,11 @@ panick
 support		
 stand		
 ambiguity		
-notation		
+notation	記法	
 give		
 identity		
 lexically		
-concurrent		
+concurrent	並行	
 main		
 mechanism		
 guarantee		
@@ -594,7 +594,7 @@ trigger
 accessible		
 relat		
 serv		
-grammar		
+grammar	文法	
 said		
 possible		
 known		
@@ -634,7 +634,7 @@ precisely	正確に
 define	定義する	
 certain		
 compatibility		
-property		
+property	特徴、性質	
 receife		
 tool		
 assume		
@@ -683,18 +683,18 @@ directly	直接
 succeed	後続する/成功する	
 individually	個々に	
 truncat		
-further		
+further	さらなる	
 satisfi	満たす、満足させる	
 line		
 brace		
-ieee-754		
+ieee-754		T
 specific		
 forever		
 reach		
 involv		
 readi		
-been		
-several		
+been		E
+several		E
 interpret		
 document		
 therefore		
@@ -704,7 +704,7 @@ addition	追加
 behavior	ふるまい	
 package-level		
 various		
-specification		
+specification	仕様、仕様書	
 fit		
 accept	受け付ける、受理する	
 anywhere		
@@ -781,7 +781,7 @@ usual
 consid		
 alignment	揃えること	
 depth		
-allow		
+allow	許可する、可能にする	
 indirection	間接的アクセス	
 exception		
 definition	定義	
@@ -815,14 +815,14 @@ belong
 consist		
 absent		
 left-hand		
-general		
+general	一般	
 were		E
 bit		
 surround	囲う	
 explicitly	明示的に	
 exponent		
 actual		
-specify		
+specify	特定する、指定する、規定する	
 match		
 close		
 unsigned		
@@ -839,7 +839,7 @@ received
 sent		
 underscore		
 shorthand		
-typed	型あり	
+typed	型あり、型付けされた	
 last		
 thus		
 store		
@@ -891,7 +891,7 @@ begin
 negative	負の	
 includ		
 evaluation	評価	
-dependency	依存	
+dependency	依存、依存関係	
 side		
 signature	シグネチャ	
 so		
@@ -955,17 +955,17 @@ implementation	実装
 provid	与える	
 comparable	比較可能	
 select		
-time		
+time		E
 address		
 digit		
-blank		
+blank	"_"	
 condition	条件	
 refer	参照する	
-end		
-program		
-rule		
-example		
-scope		
+end		E
+program		E
+rule		E
+example		E
+scope		T
 go		T
 predeclared	事前宣言された	
 assignable	代入可能	
@@ -980,10 +980,10 @@ rune	神秘文字
 unicode		T
 empty	空の	
 equal	等しい	
-send		
+send		E
 appli	適用する	
 conversion	変換	
-different		
+different		E
 yield	産出する、出力する	
 corresponding	対応する	
 instance	実例	
@@ -991,66 +991,66 @@ doe
 numeric	数の、数値の	
 new		E
 default		T
-code		
+code		T
 part		
 assign	代入する	
 import		T
 clause	句、節	
 zero		E
 appear	現れる	
-under		
+under		E
 execut	実行(する)	
-byte		
-such		
-point		
+byte		T
+such		E
+point		E
 initi	初期化	
-also		
+also		E
 single	単一の	
 source	元の	
-only		
+only		E
 defin	定義（する）	
 otherwise	さもなければ	
 run-time	実行時の(に)	
-length		
+length		E
 boolean	真偽の	
 convert	変換する	
 given	与えられた	
 range	範囲	
 execution	実行	
 contain	含む	
-panic		
+panic		T
 denot	指す、示す、表す	
 built-in	組み込みの	
-file		
+file		E
 assignment	代入	
 initialization	初期化	
 order	順序	
 identical	同一の(である)	
-first		
+first		E
 specifi	特定する	
 complex	複素数	
-number		
-key		
+number		E
+key		E
 form	形式、形作る	
-other		
-receiver		
-has		
+other		E
+receiver		T
+has		E
 iteration	反復、繰り返し	
 floating-point	浮動小数点	
 list	リスト、列挙する	
-struct		
+struct	構造、構造体	
 parameter	仮引数	
-there		
+there		E
 character	文字	
-switch		
-all		
+switch		T
+all		E
 declar	宣言	
-repres		
+repres	表現する	
 evalu	評価する	
 argument	引数	
 operation	演算	
 operator	演算子	
-pointer		
+pointer		T
 untyped	型なしの	
 have		E
 follow	追従する	
