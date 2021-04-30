@@ -7,12 +7,17 @@ $(document).ready(() => {
         //console.log(sel);
         //console.log(content);
         //console.log(word)
-
-        const found = dic[word]
-        if (found) {
-            console.log(found)
+        const stem = word2stem[word]
+        if (stem) {
+            console.log(stem)
         } else {
-            console.log("not found")
+            console.log("word not found")
+        }
+        const meaning = dic[stem]
+        if (meaning) {
+            console.log(meaning)
+        } else {
+            console.log("meaning not found")
         }
     })
 })

@@ -1,5 +1,5 @@
 .PHONY: all
-all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/normalized.txt  docs/count.txt docs/uniq.txt docs/dic.ja.json web
+all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/word2stem.txt docs/word2stem.json docs/count.txt docs/uniq.txt docs/dic.ja.json web
 
 bin/s2t: spec2text/* spec2text/*/*
 	go build -o $@ ./spec2text/cmd
@@ -38,9 +38,13 @@ docs/tokens4.txt: docs/tokens3.txt gospec
 docs/tokens-uniq.txt: docs/tokens4.txt
 	cat $< | sort | uniq | tr '[:upper:]' '[:lower:]' > $@
 
-docs/normalized.txt: docs/tokens-uniq.txt gospec
-	./gospec normalize < $< > $@ 2> docs/normalized.log
-	cat docs/normalized.log | sort | uniq > docs/normalized.uniq.log
+docs/word2stem.txt: docs/tokens-uniq.txt gospec
+	./gospec normalize < $< > $@ 2> docs/word2stem.log
+	cat docs/word2stem.log | sort | uniq > docs/word2stem.uniq.log
+
+docs/word2stem.json: docs/tokens-uniq.txt gospec
+	echo 'var word2stem = ' > $@
+	./gospec normalizejson < $< >> $@ 2>/dev/null
 
 docs/count.txt: docs/tokens4.txt gospec
 	./gospec count < $< > $@ 2>/dev/null

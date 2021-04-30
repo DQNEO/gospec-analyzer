@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"os"
@@ -44,6 +45,8 @@ func main() {
 		filter(loadTokens(os.Stdin), isTechnicalTerm)
 	case "normalize":
 		normalize(loadTokens(os.Stdin))
+	case "normalizejson":
+		normalizeJson(loadTokens(os.Stdin))
 	case "count":
 		tokens := loadTokens(os.Stdin)
 		countByTags(tokens)
@@ -133,8 +136,21 @@ func normalize(tokens []prose.Token) {
 			tok.Text, tok.Tag,
 			newTok.Text, newTok.Tag,
 			tok.Label,
-			)
+		)
 	}
+}
+
+func normalizeJson(tokens []prose.Token) {
+	var assoc map[string]string = make(map[string]string, len(tokens))
+	for _, tok := range tokens {
+		newTok := manipulateToken(tok)
+		assoc[tok.Text] = newTok.Text
+	}
+	bytes , err := json.MarshalIndent(assoc, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	os.Stdout.Write(bytes)
 }
 
 func explainConversion(old *prose.Token, new *
