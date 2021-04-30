@@ -1,4 +1,5 @@
 EN	JA	Flag
+alternation	〔二者間の〕交代	
 accented		
 multi-variable	多値	
 typically	一般的に、典型的に	
@@ -420,7 +421,7 @@ lower-case
 independent		
 re-used		
 guard		
-increas		
+increas	増加する、昇順の	
 meaning		
 float		
 data		
@@ -460,10 +461,10 @@ carriage
 unchanged		
 quotient		
 bracket		
-horizontal		
+horizontal	水平	
 elsewhere		
 redeclaration		
-identify		
+identify	同定する、特定する	
 complet		
 iter		
 associ		
@@ -683,7 +684,7 @@ directly	直接
 succeed	後続する/成功する	
 individually	個々に	
 truncat		
-further	さらなる	
+further	さらなる、それ以上	
 satisfi	満たす、満足させる	
 line		
 brace		
@@ -741,7 +742,7 @@ system
 export		
 category		
 ignor		
-enclos		
+enclos	囲う	
 invalid		
 qualified		
 however		
@@ -770,7 +771,7 @@ previous	前の
 exist		
 yet		
 determin	決定する	
-precedence		
+precedence	優先順位	
 sliced		
 copi		
 cause		
@@ -803,7 +804,7 @@ legal	(文法的に)適格
 alias	別名	
 defer		
 logical	論理の、論理的	
-lexical		
+lexical	字句的	
 utf-8		
 occurs		
 backslash		
