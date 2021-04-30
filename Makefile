@@ -48,6 +48,9 @@ docs/count.txt: docs/tokens4.txt gospec
 docs/uniq.txt: docs/tokens4.txt gospec
 	./gospec uniq < $< > $@ 2>/dev/null
 
+docs/dic.ja.json: data/dic.ja.tsv bin/tsv2json
+	bin/tsv2json $< > $@
+
 .PHONEY: web
 web: docs/spec.html docs/style.css
 
@@ -59,8 +62,4 @@ docs/style.css: style.css
 
 bin/tsv2json: tsv2json/*/*
 	go build -o $@ ./tsv2json/cmd
-
-docs/dic.ja.json: data/dic.ja.tsv bin/tsv2json
-	bin/tsv2json $< > $@
-
 
