@@ -10,7 +10,7 @@ $(document).ready(() => {
 
         const found = dic[word]
         if (found) {
-            alert(found)
+            console.log(found)
         } else {
             console.log("not found")
         }
