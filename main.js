@@ -2,22 +2,25 @@ $(document).ready(() => {
     $("body").on("dblclick", () => {
         const sel = document.getSelection();
         const content = sel.anchorNode.textContent.toString()
+        if (!content) {
+            return
+        }
         const word = content.substring(sel.anchorOffset,sel.focusOffset);
 
         //console.log(sel);
         //console.log(content);
         //console.log(word)
-        const stem = word2stem[word.toLowerCase()]
-        if (stem) {
-            console.log(stem)
-        } else {
-            console.log("word not found")
+        const lword = word.toLowerCase()
+        const stem = word2stem[lword]
+        if (!stem) {
+            console.log(lword + ": word not found")
+            return
         }
         const meaning = dic[stem]
-        if (meaning) {
-            console.log(meaning)
-        } else {
-            console.log("meaning not found")
+        if (!meaning) {
+            console.log(stem + ": not defined in the dic")
+            return
         }
+        console.log(stem + " : " + meaning )
     })
 })
