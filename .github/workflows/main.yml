@@ -39,5 +39,11 @@ jobs:
       - name: Run a multi-line script
         run: |
           make web
+          git config --global user.email "dqneoo@gmail.com"
+          git config --global user.name "DQNEO"
           git status
           git diff
+          git checkout -b update-dictionary
+          git add data
+          git commit -m "[Auto commit by Github Action] Update data dir"
+          git push -f --set-upstream origin update-dictionary
