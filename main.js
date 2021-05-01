@@ -52,8 +52,8 @@ for (const node of allTextNodes) {
     span.textContent = word;
     fragment.appendChild(span);
     fragment.appendChild(document.createTextNode(" "));
-    
-    const trimmedWord = word.replace(/['",.]/, '');
+
+    const trimmedWord = word.replace(/['",.:]/g, '');
 
     const lword = trimmedWord.toLowerCase();
     const stem = word2stem[lword];
