@@ -64,6 +64,7 @@ docs/dic.ja.json: data/dic.ja.tsv bin/tsv2json
 web: docs/spec.html docs/style.css docs/main.js docs/dic.ja.json
 
 docs/spec.html: spec.html
+	mkdir -p docs
 	cp $< $@
 
 docs/style.css: style.css
@@ -73,5 +74,6 @@ docs/main.js: main.js
 	cp $< $@
 
 bin/tsv2json: tsv2json/*/*
+	go mod vendor
 	go build -o $@ ./tsv2json/cmd
 
