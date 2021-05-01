@@ -13,15 +13,15 @@ embeddedfield
 significantly	著しく	
 golang.org		
 superset	上位集合	
-constituent		
-reflection		
+constituent	構成要素	
+reflection	リフレクション、反映	
 descriptor	記述子	
 lt		
 rare	まれ	
-segment		
+segment	切片	
 integrated	統合された	
 easy		
-divid		
+divid	割る、分割する	
 garbage-collected		
 here		
 general-purpose	汎用の	
@@ -29,22 +29,22 @@ speak
 generator		
 parsing	構文解析の	
 copy		
-power		
+power	累乗	
 resume	再開する	
 n-bit		
-subset	下位集合	
-routine		
-repeat		
-incdec		
+subset	部分集合	
+routine		T
+repeat		E
+incdec		T
 queue	キュー	
 substitution	置き換え	
 bootstrap		
 skips		
-selection		
+selection	選択	
 read		
 ensure	保証する	
 semantically	意味論的に	
-facility		
+facility	施設、設備	
 and		
 fall		
 directory		
@@ -59,33 +59,33 @@ printing
 repository		
 sequential	連続して起こる	
 surviv	生存する	
-minimum		
+minimum	最小の	
 inhabit	済む	
 written		
 hierarchy	階層	
 common		
 importpaths		
-illustr		
+illustr	描写する、示す	
 deterministically	決定論的に	
-simplicity		
+simplicity	単純さ、簡単さ	
 assignability	代入可能性	
-round-to-even		
+round-to-even	偶数への丸め、偶数丸め	
 inverse	逆の	
 termination	終端	
 rais		
 less		
 impli	暗黙の	
-non-complex		
+non-complex	複素数でない（実数の）	
 event		
-immaterial		
-fully		
-pars		
+immaterial	重要でない	
+fully	完全に	
+pars	構文解析する	
 compile		
-encount		
-higher-dimensional		
-twice		
+encount	出会う	
+higher-dimensional	より高次元の	
+twice	2回	
 automatic		
-linguistic		
+linguistic	言語上の	
 correspond	照応する	
 cyclic	循環的	
 issue		
@@ -96,15 +96,15 @@ rewritten
 no-op		
 varspec		
 first-in-first-out	先入先出法	
-computation		
+computation	計算	
 table		
 snippet		
-multiplication		
+multiplication	乗算	
 top-to-bottom		
 sieve	 篩(ふるい)	
-keywords		
-sender		
-protect		
+keywords	予約語	
+sender	送信者	
+protect	守る	
 alternative	代わりのもの、選択肢	
 separ		
 modify		
@@ -115,7 +115,7 @@ wrap
 uniform		
 overlap	重なる/重なり	
 reflect		
-disassemble		
+disassemble	分解する	
 top		
 nnn		
 done		
@@ -124,7 +124,7 @@ multi-byte
 overrid		
 hypothetical	仮定の	
 conditional	条件的	
-concrete		
+concrete	具体的な/具象的な	
 mix		
 reproducible	再現可能	
 occupy	占める	
@@ -147,7 +147,7 @@ side-effect	副作用
 detail		
 backus-naur	バッカスナウア	
 shortvardecl		
-uniqueness		
+uniqueness	一意性	
 inherit	継承する	
 brace-bound		
 indicate	指し示す	
@@ -285,15 +285,15 @@ typeswitchcase
 ebnf		
 bootstrapping		
 terminator	終端子	
-immutable		
+immutable	不変の	
 fewer		
 deriv		
 allocation	割当	
 wish		
-interpretation		
+interpretation	解釈	
 object		
-truncation		
-accurately		
+truncation	切り捨て	
+accurately	正確に	
 management		
 influence		
 vet		
@@ -432,16 +432,16 @@ ignore
 invoke		
 target		
 attempt		
-associativity		
+associativity	結合性	
 implementation-specific	実装依存/実装固有	
 initialize	初期化する	
 relationship		
 chosen		
 real		
 come		
-erroneous		
+erroneous	誤った、間違いの	
 earli		
-consequence		
+consequence	結果	
 state		
 parenthesis		
 introduc		
@@ -463,71 +463,71 @@ quotient
 bracket		
 horizontal	水平	
 elsewhere		
-redeclaration		
+redeclaration	再宣言	
 identify	同定する、特定する	
 complet		
 iter		
 associ		
 referenc		
-concatenation		
+concatenation	結合、連接	
 exact		
 truth		
-avoid		
+avoid	避ける、回避する	
 maximum		
 execute		
 report		
 architectur		
 simpl		
 buffered		
-unqualified		
+unqualified	修飾されていない	
 dividend		
 differ		
 opening		
-irrelevant		
+irrelevant	無関係の	
 lu		
 requirement		
 scale		
-equality		
+equality	同一性、等式	
 hint		
-contrast		
+contrast	対比する、対比	
 link		
 instal		
 nil		
 represent		
 replacement		
 assist		
-radix		
-prevent		
+radix	基数	
+prevent	防ぐ	
 repeated		
 transitively		
-consequently		
+consequently	結果として	
 structured		
 importpath		
-accord		
+accord	一致する、調和する	
 decrement		
-obtain		
+obtain	得る	
 original		
 blocks		
 local		
 necessary		
-bidirectional		
+bidirectional	双方向の	
 limit		
 rely		
 make		
-unescaped		
+unescaped	エスケープされていない	
 iota		
 scoped		
 transfer		
 happen		
 panicking		
 encoding		
-unspecified		
+unspecified	特定されていない	
 just		
 infinite		
 content		
 previously		
 initializer		
-mask		
+mask	マスク、隠す	
 hidden		
 large		
 numbered		
@@ -538,17 +538,17 @@ combin
 complement		
 determine		
 compile-time		
-associate		
-recursively		
+associate	結びつける	
+recursively	再帰的に	
 write		
-intermediate		
+intermediate	中間の、中級の	
 hand		
 location		
-retriev		
-regardless		
+retriev	受信する、受け取る	
+regardless	〜に関わらず	
 normally		
 ready		
-one-dimensional		
+one-dimensional	1次元の	
 concurrently	並行して	
 forclause		
 tokens		
@@ -575,22 +575,22 @@ recvstmt
 anonymous		
 infinity		
 ad		
-component		
+component	構成要素	
 encod		
 substring		
 treat		
 panick		
 support		
 stand		
-ambiguity		
+ambiguity	曖昧さ	
 notation	記法	
 give		
-identity		
-lexically		
+identity	同一性	
+lexically	辞書的に、語彙的に	
 concurrent	並行	
 main		
 mechanism		
-guarantee		
+guarantee	保証する	
 trigger		
 accessible		
 relat		
@@ -626,7 +626,7 @@ implementation-dependent	実装依存
 elide		
 include		
 generat	生成する	
-temporary		
+temporary	一時的な	
 long		
 particular		
 word		
@@ -634,41 +634,41 @@ compiled
 precisely	正確に	
 define	定義する	
 certain		
-compatibility		
+compatibility	互換性	
 property	特徴、性質	
 receife		
 tool		
-assume		
+assume	仮定する	
 current		
 class		
 introduce	導入する	
 bitwise	bitに関する	
 step		
-mantissa		
+mantissa	仮数（浮動小数点の小数部）	
 rather		
-double		
-construction		
+double	2倍にする	
+construction	構築	
 remov		
 instruction	命令	
-analysis		
+analysis	解析	
 item		
 save		
 remainder	余り	
 larger		
-right-hand		
-similar		
+right-hand	右の、右辺の	
+similar	似ている、同様の	
 production	生成規則	
 destination	行き先、目的地	
-embed		
+embed	埋め込む	
 handl		
 universe		
 vice		
-automatically		
+automatically	自動的に	
 unable		
 post		
-restrict		
+restrict	制限する	
 innermost	最も内側の	
-unary		
+unary	単項の	
 init		
 op		
 describ	記述する	
@@ -678,42 +678,42 @@ mark
 create		
 memory		
 missing		
-comput		
+comput	計算する	
 count		
 directly	直接	
 succeed	後続する/成功する	
 individually	個々に	
-truncat		
+truncat	切り捨てる	
 further	さらなる、それ以上	
 satisfi	満たす、満足させる	
 line		
-brace		
+brace	括弧	
 ieee-754		T
-specific		
+specific	特定の	
 forever		
 reach		
 involv		
 readi		
 been		E
 several		E
-interpret		
+interpret	解釈する	
 document		
 therefore		
 arbitrary	任意の	
-compos		
+compos	構成する	
 addition	追加	
 behavior	ふるまい	
 package-level		
-various		
+various	さまざまな	
 specification	仕様、仕様書	
 fit		
 accept	受け付ける、受理する	
-anywhere		
+anywhere	どこでも	
 ieee		
 effect		
 constspec		
 full		
-terminate		
+terminate	終了させる	
 predeclar		
 single-valued		
 elid		
