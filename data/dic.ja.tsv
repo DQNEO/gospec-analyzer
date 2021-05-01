@@ -354,7 +354,7 @@ encode
 legally		
 assumption		
 stay		
-too		
+too		E
 completeness		
 convenience		
 independently		
@@ -366,7 +366,7 @@ permissible
 minimal		
 lm		
 multi-way		
-mind		
+mind		E
 differently		
 indirectly		
 three-digit		
@@ -886,7 +886,7 @@ pass
 next		
 second		E
 unique	一意	
-valid		
+valid	有効な、正しい	
 sign		
 begin		
 negative	負の	
@@ -907,9 +907,9 @@ hexadecimal	16進数
 respective	それぞれ	
 decimal		
 right		
-restriction		
+restriction	制限	
 omit	省略する	
-letter		
+letter	文字	
 exactly	正確に	
 invok	呼び出す	
 parenthes	丸かっこ	
@@ -922,7 +922,7 @@ precision	精度
 representable	表現可能	
 short		
 multiple	複数の	
-token		
+token	トークン	
 size		
 dynamic	動的	
 start		
@@ -931,14 +931,14 @@ illegal	文法違反
 special		
 quote		
 creat		
-base		
+base	基となる、基底の	
 distinct	区別された/独立した	
 compiler		
 communication		
 implicitly	暗黙的に	
 proceed	進める	
 deferred	遅延実行された	
-goroutine		
+goroutine		T
 more		
 then		
 left		
