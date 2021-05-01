@@ -39,9 +39,10 @@ jobs:
           cp data/dic.ja.tsv data/dic.ja.tsv.old
           make web
           git config --global user.email "dqneoo@gmail.com"
-          git config --global user.name "DQNEO"
+          git config --global user.name "Github Action"
           git status
           diff data/dic.ja.tsv data/dic.ja.tsv.old && exit 0
+          rm data/dic.ja.tsv.old
           git checkout -b update-dictionary
           git add data
           git commit -m "[Auto commit by Github Action] Update data dir"
