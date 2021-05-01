@@ -47,8 +47,11 @@ docs/word2stem.txt: docs/tokens-uniq.txt gospec
 	cat docs/word2stem.log | sort | uniq > docs/word2stem.uniq.log
 
 docs/word2stem.json: docs/tokens-uniq.txt gospec
+	./gospec normalizejson < $< > $@ 2>/dev/null
+
+docs/word2stem.js: docs/word2stem.json
 	echo 'var word2stem = ' > $@
-	./gospec normalizejson < $< >> $@ 2>/dev/null
+	cat $< >> $@
 
 docs/count.txt: docs/tokens4.txt gospec
 	./gospec count < $< > $@ 2>/dev/null
@@ -56,12 +59,15 @@ docs/count.txt: docs/tokens4.txt gospec
 docs/uniq.txt: docs/tokens4.txt gospec
 	./gospec uniq < $< > $@ 2>/dev/null
 
-docs/dic.ja.js: data/dic.ja.tsv bin/tsv2json
+docs/dic.ja.json: data/dic.ja.tsv bin/tsv2json
+	bin/tsv2json $< > $@
+
+docs/dic.ja.js: docs/dic.ja.json
 	echo 'var dic = ' > $@
-	bin/tsv2json $< >> $@
+	cat $< >> $@
 
 .PHONEY: web
-web: docs/spec.html docs/style.css docs/main.js docs/dic.ja.json
+web: docs/spec.html docs/style.css docs/main.js docs/dic.ja.js docs/word2stem.js
 
 docs/spec.html: spec.html
 	mkdir -p docs
