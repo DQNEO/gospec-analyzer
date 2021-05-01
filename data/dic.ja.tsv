@@ -224,11 +224,11 @@ negation	否定
 finally		
 reverse		
 compact	コンパクトな	
-behav		
+behav	振る舞う	
 becom		
 failure		
-leftmost		
-room		
+leftmost	最も左の	
+room	余地	
 types—may		
 unimported		
 nd		
@@ -627,9 +627,9 @@ elide
 include		
 generat	生成する	
 temporary	一時的な	
-long		
+long		E
 particular		
-word		
+word		E
 compiled		
 precisely	正確に	
 define	定義する	
