@@ -56,7 +56,7 @@ docs/count.txt: docs/tokens4.txt gospec
 docs/uniq.txt: docs/tokens4.txt gospec
 	./gospec uniq < $< > $@ 2>/dev/null
 
-docs/dic.ja.json: data/dic.ja.tsv bin/tsv2json
+docs/dic.ja.js: data/dic.ja.tsv bin/tsv2json
 	echo 'var dic = ' > $@
 	bin/tsv2json $< >> $@
 
