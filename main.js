@@ -1,33 +1,3 @@
-const style = document.createElement("style");
-style.innerText = `
-.word {
-  position: relative;
-  cursor: pointer;
-}
-.word:hover {
-  color: gray;
-}
-.word-label {
-  display: none;
-}
-.word-label {
-  position: absolute;
-  top: -1.2rem;
-  left: 0;
-  color: rgba(180, 83, 9, 1);
-  background-color: rgba(254, 243, 199, 1);
-  font-size: 0.8rem;
-  padding: 0.2rem;
-  font-style: normal;
-  word-break: keep-all;
-  white-space: nowrap;
-}
-.word:hover .word-label {
-  display: block;
-}
-`;
-document.head.appendChild(style);
-
 function textNodesUnder(el) {
   const a = [];
   let n;

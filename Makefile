@@ -76,6 +76,9 @@ docs/spec.html: spec.html
 docs/style.css: style.css
 	cp $< $@
 
+docs/dictionary.css: dictionary.css
+	cp $< $@
+
 docs/main.js: main.js
 	cp $< $@
 
