@@ -84,7 +84,7 @@ compile
 encount	出会う	
 higher-dimensional	より高次元の	
 twice	2回	
-automatic		
+automatic	自動の	
 linguistic	言語上の	
 correspond	照応する	
 cyclic	循環的	
@@ -158,7 +158,7 @@ portable
 types—array		
 fma		
 surrogate		
-design		
+design	設計（する）	
 fusion	融合	
 reachable	到達可能	
 plain		
@@ -223,7 +223,7 @@ express
 negation	否定	
 finally		
 reverse		
-compact		
+compact	コンパクトな	
 behav		
 becom		
 failure		
@@ -264,7 +264,7 @@ exclude	除外する
 backward		
 ordering		
 ll		
-development		
+development	開発	
 process		
 creation		
 initialization—variable		
@@ -294,7 +294,7 @@ interpretation	解釈
 object		
 truncation	切り捨て	
 accurately	正確に	
-management		
+management	管理	
 influence		
 vet		
 low		
@@ -377,7 +377,7 @@ subsequent
 assembly		
 width		
 overwrite		
-environment		
+environment	環境	
 two-digit		
 related		
 fused		
@@ -697,7 +697,7 @@ readi
 been		E
 several		E
 interpret	解釈する	
-document		
+document	文書	
 therefore		
 arbitrary	任意の	
 compos	構成する	
@@ -750,7 +750,7 @@ raw
 rounding		
 way		
 depend		
-programming		
+programming	プログラミング	
 receiv		
 packagename		
 disallow	許可しない	
@@ -869,7 +869,7 @@ comment
 non-interface		
 alloc	確保する	
 most		
-language		E
+language	言語	
 see		
 compar	比較する	
 uninitialized		
