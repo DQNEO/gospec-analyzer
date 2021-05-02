@@ -1,4 +1,4 @@
-EN	JA	Flag (E: 初歩単語、T: 専門用語)
+EN	JA	翻訳不要 (E: 初歩単語、T: 専門用語)
 alternation	〔二者間の〕交代	
 accented		
 multi-variable	多値	
@@ -7,7 +7,7 @@ ellipsis	省略記号(...)
 group		
 enter		
 stream		
-camelcase		
+camelcase	キャメルケース	
 moreover	その上	
 embeddedfield		
 significantly	著しく	
@@ -123,7 +123,7 @@ subexpression
 multi-byte		
 overrid		
 hypothetical	仮定の	
-conditional	条件的	
+conditional	条件付き、条件的	
 concrete	具体的な/具象的な	
 mix		
 reproducible	再現可能	
@@ -301,7 +301,7 @@ low
 conventional	慣習的	
 multi-dimensional		
 carri		
-communicate		
+communicate	通信する	
 travers	走査する	
 top-level		
 calcul		
@@ -382,7 +382,7 @@ two-digit
 related		
 fused		
 formal		
-right-hand-side		
+right-hand-side	右辺	
 unparenthesized		
 spec		
 entire		
@@ -402,7 +402,7 @@ function-local
 specifier		
 fuse		
 spell		
-phase		
+phase	段階	
 binding		
 functions—happen		
 constrain		
@@ -428,7 +428,7 @@ data
 extent		
 input		
 skip		
-ignore		
+ignore	無視する	
 invoke		
 target		
 attempt		
@@ -503,7 +503,7 @@ transitively
 consequently	結果として	
 structured		
 importpath		
-accord	一致する、調和する	
+accord	according to 〜に応じて	
 decrement		
 obtain	得る	
 original		
@@ -536,7 +536,7 @@ increment
 unbuffered		
 combin		
 complement		
-determine		
+determine	決定する	
 compile-time		
 associate	結びつける	
 recursively	再帰的に	
@@ -591,7 +591,7 @@ concurrent	並行
 main		
 mechanism		
 guarantee	保証する	
-trigger		
+trigger	引き起こす	
 accessible		
 relat		
 serv		
@@ -630,14 +630,14 @@ temporary	一時的な
 long		E
 particular		
 word		E
-compiled		
+compiled		T
 precisely	正確に	
 define	定義する	
 certain		
 compatibility	互換性	
 property	特徴、性質	
 receife		
-tool		
+tool		E
 assume	仮定する	
 current		
 class		
@@ -655,7 +655,7 @@ item
 save		
 remainder	余り	
 larger		
-right-hand	右の、右辺の	
+right-hand	右辺	
 similar	似ている、同様の	
 production	生成規則	
 destination	行き先、目的地	
@@ -715,9 +715,9 @@ constspec
 full		
 terminate	終了させる	
 predeclar		
-single-valued		
+single-valued	単一値	
 elid		
-labeled		
+labeled	ラベル付き	
 static	静的な	
 octal		
 syntax	文法	
@@ -758,7 +758,7 @@ respectively	それぞれ
 share		
 similarly	同様に	
 requir		
-associated		
+associated	関連付けられた	
 standard		
 closed		
 discov		
@@ -784,7 +784,7 @@ alignment	揃えること
 depth		
 allow	許可する、可能にする	
 indirection	間接的アクセス	
-exception		
+exception	例外	
 definition	定義	
 together		
 do		
@@ -797,7 +797,7 @@ reference	参照
 round		
 instead		
 invocation	呼び出し	
-arithmetic		
+arithmetic	算術	
 initial	初期	
 regular	普通の、正規の	
 legal	(文法的に)適格	
@@ -815,7 +815,7 @@ produc
 belong		
 consist		
 absent	無い、存在しない	
-left-hand		
+left-hand	左辺	
 general	一般	
 were		E
 bit		
@@ -824,7 +824,7 @@ explicitly	明示的に
 exponent		
 actual		
 specify	特定する、指定する、規定する	
-match		
+match	一致する	
 close		
 unsigned		
 apply		
@@ -861,10 +861,10 @@ never
 escape		
 terminating	終端	
 semicolon		
-permit		
+permit	許す	
 storage		
 exported		
-implicit		
+implicit	暗黙の	
 comment		
 non-interface		
 alloc	確保する	
@@ -912,7 +912,7 @@ omit	省略する
 letter	文字	
 exactly	正確に	
 invok	呼び出す	
-parenthes	丸かっこ	
+parenthes	丸かっこ(で囲う）	
 non-constant		
 text		
 section		
@@ -936,13 +936,13 @@ distinct	区別された/独立した
 compiler		
 communication		
 implicitly	暗黙的に	
-proceed	進める	
+proceed	進む	
 deferred	遅延実行された	
 goroutine		T
 more		
 then		
 left		
-construct	作る、構築する	
+construct	作る、構成体	
 run		
 sequence	並び	
 label		
@@ -974,7 +974,7 @@ implement	実装する
 take	とる	
 always		E
 explicit	明示的な	
-equivalent	等価な	
+equivalent	等価	
 shift		T
 capacity	容量	
 rune	神秘文字	
