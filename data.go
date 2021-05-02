@@ -14,18 +14,3 @@ var meaninglessTokens = map[string]bool{
 	"WRB":true,  // wh-adverb
 	"MD":true,   // verb, modal auxiliary
 }
-
-var basicWords = map[string]bool{
-	"is":  true,
-	"are": true,
-	"be":  true,
-	"has": true,
-	"not":  true,
-	"same": true,
-	"only": true,
-	"use": true,
-	"name": true,
-	"first": true,
-	"one":   true,
-	"zero":  true,
-}

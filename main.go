@@ -30,7 +30,11 @@ Usage:
 
 //go:embed data/technicalterms.txt
 var technicalTermsString string
+//go:embed data/basicwords.txt
+var basicWordsString string
+
 var technicalTerm map[string]bool
+var basicWords  map[string]bool
 
 func main() {
 	if len(os.Args) == 1 {
@@ -45,6 +49,14 @@ func main() {
 	case "filter2":
 		filter(loadTokens(os.Stdin), isMeaningless)
 	case "filter3":
+		terms := strings.Split(basicWordsString, "\n")
+		basicWords = make(map[string]bool, 1000)
+		for _, t := range terms {
+			if t == "" {
+				continue
+			}
+			basicWords[t] = true
+		}
 		filter(loadTokens(os.Stdin), isBasicWord)
 	case "filter4":
 		terms := strings.Split(technicalTermsString, "\n")
