@@ -1,25 +1,27 @@
 .word {
   position: relative;
-  cursor: pointer;
+  cursor: default;
 }
+
 .word:hover {
-  color: gray;
+  background-color: #e0e8ff;
 }
-.word-label {
+
+.word-translation {
   display: none;
-}
-.word-label {
   position: absolute;
-  top: -1.2rem;
+  top: -3.0rem;
   left: 0;
-  color: rgba(180, 83, 9, 1);
-  background-color: rgba(254, 243, 199, 1);
+  color: #3e4042;
+  background-color: #f8f8f8;
+  border: 1px solid #eee;
   font-size: 0.8rem;
-  padding: 0.2rem;
+  padding: 0.5rem;
+  margin: 0.5rem;
   font-style: normal;
   word-break: keep-all;
   white-space: nowrap;
 }
-.word:hover .word-label {
+.word:hover .word-translation {
   display: block;
 }
