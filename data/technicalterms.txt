@@ -1,0 +1,6 @@
+go
+golang.org
+function
+package
+slice
+method

@@ -29,12 +29,3 @@ var basicWords = map[string]bool{
 	"one":   true,
 	"zero":  true,
 }
-
-var technicalTerm = map[string]bool {
-	"go": true,
-	"golang.org": true,
-	"function": true,
-	"package": true,
-	"slice": true,
-	"method": true,
-}

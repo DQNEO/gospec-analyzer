@@ -6,6 +6,7 @@ import (
 	"io"
 	"os"
 	"strings"
+	_ "embed"
 
 	"github.com/jdkato/prose/v2"
 	"github.com/jinzhu/inflection"
@@ -27,6 +28,10 @@ Usage:
 	fmt.Print(help)
 }
 
+//go:embed data/technicalterms.txt
+var technicalTermsString string
+var technicalTerm map[string]bool
+
 func main() {
 	if len(os.Args) == 1 {
 		showUsage()
@@ -42,6 +47,14 @@ func main() {
 	case "filter3":
 		filter(loadTokens(os.Stdin), isBasicWord)
 	case "filter4":
+		terms := strings.Split(technicalTermsString, "\n")
+		technicalTerm = make(map[string]bool, 1000)
+		for _, t := range terms {
+			if t == "" {
+				continue
+			}
+			technicalTerm[t] = true
+		}
 		filter(loadTokens(os.Stdin), isTechnicalTerm)
 	case "normalize":
 		normalize(loadTokens(os.Stdin))
