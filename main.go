@@ -125,7 +125,7 @@ func isBasicWord(tok *prose.Token) bool {
 }
 
 func isTechnicalTerm(tok *prose.Token) bool {
-	return technicalTerm[tok.Text]
+	return technicalTerm[strings.ToLower(tok.Text)]
 }
 
 func normalize(tokens []prose.Token) {
