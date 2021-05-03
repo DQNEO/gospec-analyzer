@@ -212,7 +212,7 @@ incur
 qualifier		
 offset		
 dereference		
-documentation		
+documentation	文書	
 unordered		
 structurally		
 compris		
@@ -559,22 +559,22 @@ implementation-defined
 discuss		
 advance		
 wait		
-reserv		
-well		
+reserv	予約する	
+well		E
 recvexpr		
-identifierlist		
+identifierlist		T
 zero-size		
 extend	拡張する	
-readability		
+readability	可読性	
 additionally		
-nested		
-later		
-recvstmt		
-anonymous		
-infinity		
-ad		
+nested	入れ子	
+later		E
+recvstmt		T
+anonymous	無名	
+infinity	無限大	
+ad	たす	
 component	構成要素	
-encod		
+encod	符号化する	
 substring		
 treat	取り扱う	
 panick		
@@ -587,7 +587,7 @@ identity	同一性
 lexically	辞書的に、語彙的に	
 concurrent	並行	
 main		
-mechanism		
+mechanism	仕組み、機構	
 guarantee	保証する	
 trigger	引き起こす	
 accessible		
@@ -597,16 +597,16 @@ grammar	文法
 said		
 possible		
 known		
-qualifi		
-typeswitchguard		
+qualifi	修飾する	
+typeswitchguard		T
 note		
 purpose		
 combine		
-entity		
+entity	実体、存在物	
 require		
 else		
 buffer		
-consider		
+consider	考える、みなす	
 vary		
 remain		
 kind		
@@ -621,7 +621,7 @@ immediately	直後に、直接的に
 due		
 assert		
 implementation-dependent	実装依存	
-elide		
+elide	省略する	
 include		
 generat	生成する	
 temporary	一時的な	
@@ -711,12 +711,12 @@ effect
 constspec		
 full		
 terminate	終了させる	
-predeclar		
+predeclar	事前に宣言する	
 single-valued	単一値	
 elid		
 labeled	ラベル付き	
 static	静的な	
-octal		
+octal	８進数	
 syntax	文法	
 complete	完全な	
 nth	N番目の	
@@ -808,7 +808,7 @@ fractional
 newline	改行	
 produc		
 belong		
-consist		
+consist	構成される	
 absent	無い、存在しない	
 left-hand	左辺	
 general	一般	
@@ -839,7 +839,7 @@ last
 thus		
 store		E
 caus		
-binary	２進数の	
+binary	２進数	
 representation	表現	
 act	振る舞う	
 individual	個々の、それぞれの	
@@ -899,7 +899,7 @@ body
 imaginary	虚数の	
 hexadecimal	16進数	
 respective	それぞれ	
-decimal		
+decimal	10進数	
 right		
 restriction	制限	
 omit	省略する	
@@ -925,7 +925,7 @@ illegal	文法違反
 special		
 quote		
 creat		
-base	基となる、基底の	
+base	基となる、基底(の)	
 distinct	区別された/独立した	
 compiler		T
 communication	通信	
@@ -937,7 +937,7 @@ then		E
 left		E
 construct	作る、構成体	
 run		
-sequence	並び	
+sequence	連なり、並び	
 label		
 selector		T
 error		
@@ -1013,7 +1013,7 @@ order	順序
 identical	同一の(である)	
 first		E
 specifi	特定する、指定する、規定する	
-complex	複素数	
+complex	複素数、複文の	
 number		E
 key		E
 form	形式、形態、形作る	
@@ -1037,7 +1037,7 @@ untyped	型なしの
 have		E
 follow	下記の、次に続く、追従する	
 one		E
-set	セット、集合	
+set	セットする、集合	
 name		E
 integer	整数	
 operand	被演算子	
