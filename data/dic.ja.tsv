@@ -96,7 +96,7 @@ varspec
 first-in-first-out	先入先出法	
 computation	計算	
 table		
-snippet		
+snippet	断片	
 multiplication	乗算	
 top-to-bottom		
 sieve	 篩(ふるい)	
@@ -104,7 +104,7 @@ keywords	予約語
 sender	送信者	
 protect	守る	
 alternative	代わりのもの、選択肢	
-separ		
+separ	分割する	
 modify		
 re-us		
 program-defined		
@@ -221,7 +221,7 @@ express
 negation	否定	
 finally		
 reverse		
-compact	コンパクトな	
+compact	コンパクト	
 behav	振る舞う	
 becom		
 failure		
@@ -307,7 +307,7 @@ successful
 lead		
 curly		
 information		
-non-terminal	非終端な	
+non-terminal	非終端記号	
 attribute		
 constraint	制約	
 already		
@@ -321,7 +321,7 @@ architecture
 tuple	タプル(複合型)	
 sum		
 cost		
-insert		
+insert	挿入する	
 redeclare	再宣言する	
 precise		
 organization		
@@ -333,7 +333,7 @@ byte-wise
 path		
 wide		
 non-variadic		
-canonic		
+canonic	正規化する	
 light-weight		
 affect		
 get		
@@ -341,14 +341,14 @@ value-receiver
 version		
 int		
 sequentially		
-lower		
+lower	下方の、小文字の	
 addressability		
 add		
 receive-only		
 non-decimal		
 build		
 architecture-independent		
-encode		
+encode	符号化する	
 legally		
 assumption		
 stay		
@@ -371,7 +371,7 @@ three-digit
 redeclar		
 site		
 incoming		
-subsequent		
+subsequent	その後の	
 assembly		
 width		
 overwrite		
@@ -411,11 +411,11 @@ integral	整数の、積分の
 modulo		
 violat	違反する	
 parse	構文解析する	
-insertion		
+insertion	挿入	
 accent		
 ordinary		
 derive	派生する	
-lower-case		
+lower-case	小文字	
 independent		
 re-used		
 guard		
@@ -532,7 +532,7 @@ numbered
 visible		
 increment		
 unbuffered		
-combin		
+combin	合体する、組み合わせる	
 complement		
 determine	決定する	
 compile-time		
@@ -576,7 +576,7 @@ ad
 component	構成要素	
 encod		
 substring		
-treat		
+treat	取り扱う	
 panick		
 support		
 stand		
@@ -592,7 +592,7 @@ guarantee	保証する
 trigger	引き起こす	
 accessible		
 relat		
-serv		
+serv	働く、用をなす	
 grammar	文法	
 said		
 possible		
@@ -637,8 +637,9 @@ receife
 tool		E
 assume	仮定する	
 current		
-class		
+class	分類	
 introduce	導入する	
+introduction	はじめに、導入	
 bitwise	bitに関する	
 step		
 mantissa	仮数（浮動小数点の小数部）	
@@ -727,7 +728,7 @@ importing
 back		
 divisor		
 punctuation	句読点	
-upper		
+upper	上方の、大文字の	
 made		
 term	項、用語	
 TRUE		
@@ -747,7 +748,7 @@ way
 depend		
 programming	プログラミング	
 receiv		
-packagename		
+packagename		T
 disallow	許可しない	
 respectively	それぞれ	
 share		
@@ -768,7 +769,7 @@ determin	決定する
 precedence	優先順位	
 sliced		
 copi		
-cause		
+cause	起こす	
 multi-valued	多値の	
 branch	枝、分岐	
 context	文脈、背景	
@@ -796,15 +797,15 @@ initial	初期
 regular	普通の、正規の	
 legal	(文法的に)適格	
 alias	別名	
-defer		
+defer		T
 logical	論理の、論理的	
 lexical	字句的	
-utf-8		
-occurs		
+utf-8		T
+occurs	起こる、発生する	
 backslash		
 space		
 fractional		
-newline		
+newline	改行	
 produc		
 belong		
 consist		
@@ -827,8 +828,8 @@ discard
 non-empty		
 optional	必須でない	
 was		
-primary		
-prefix		
+primary	主要な、初等の、第一の	
+prefix	接頭辞	
 received		
 sent		
 underscore		
@@ -836,15 +837,15 @@ shorthand
 typed	型あり、型付けされた	
 last		
 thus		
-store		
+store		E
 caus		
 binary	２進数の	
 representation	表現	
-act		
-individual		
-final		
+act	振る舞う	
+individual	個々の、それぞれの	
+final		E
 chang		
-tag		
+tag		T
 non-negative		
 declare	宣言する	
 occur	起こる	
@@ -858,32 +859,32 @@ permit	許す
 storage		
 exported		
 implicit	暗黙の	
-comment		
+comment		T
 non-interface		
 alloc	確保する	
 most		
 language	言語	
-see		
+see		E
 compar	比較する	
 uninitialized		
 successive	連続した	
 control	制御する	
 entry		
-overflow		
+overflow		T
 simple		E
 access		
 addressable	アドレス可能	
 least		
 bound		
 pass		
-next		
+next		E
 second		E
 unique	一意	
 valid	有効な、正しい	
 sign		
-begin		
+begin		E
 negative	負の	
-includ		
+includ		E
 evaluation	評価	
 dependency	依存、依存関係	
 side		
@@ -892,10 +893,10 @@ so
 hold		
 assertion	アサーション	
 once		
-non-blank		
-embedded		
+non-blank	"_" でない	
+embedded	組み込み	
 body		
-imaginary	虚の	
+imaginary	虚数の	
 hexadecimal	16進数	
 respective	それぞれ	
 decimal		
@@ -907,16 +908,16 @@ exactly	正確に
 invok	呼び出す	
 parenthes	丸かっこ(で囲う）	
 non-constant		
-text		
+text		E
 section		
-cannot		
+cannot		E
 bind	束ねる/くっつける	
 precision	精度	
 representable	表現可能	
 short		
 multiple	複数の	
 token	トークン	
-size		
+size		E
 dynamic	動的	
 start		
 comparison	比較	
@@ -926,19 +927,19 @@ quote
 creat		
 base	基となる、基底の	
 distinct	区別された/独立した	
-compiler		
-communication		
+compiler		T
+communication	通信	
 implicitly	暗黙的に	
 proceed	進む	
 deferred	遅延実行された	
-more		
-then		
-left		
+more		E
+then		E
+left		E
 construct	作る、構成体	
 run		
 sequence	並び	
 label		
-selector		
+selector		T
 error		
 composite	複合	
 possibly	ことによると、可能性としてあり得ることに	
@@ -950,7 +951,7 @@ comparable	比較可能
 select		
 time		E
 address		
-digit		
+digit	数字、数値	
 blank	"_"	
 condition	条件	
 refer	参照する	
@@ -966,7 +967,7 @@ always		E
 explicit	明示的な	
 equivalent	等価	
 capacity	容量	
-rune	神秘文字	
+rune	ルーン(神秘文字)	
 empty	空の	
 equal	等しい	
 send		E
@@ -979,7 +980,7 @@ instance	実例
 doe		
 numeric	数の、数値の	
 new		E
-part		
+part		E
 assign	代入する	
 clause	句、節	
 zero		E
@@ -993,7 +994,7 @@ also		E
 single	単一の	
 source	元の	
 only		E
-defin	定義（する）	
+defin	定義する	
 otherwise	さもなければ	
 run-time	実行時の(に)	
 length		E
@@ -1015,7 +1016,7 @@ specifi	特定する、指定する、規定する
 complex	複素数	
 number		E
 key		E
-form	形式、形作る	
+form	形式、形態、形作る	
 other		E
 has		E
 iteration	反復、繰り返し	
@@ -1034,7 +1035,7 @@ operation	演算
 operator	演算子	
 untyped	型なしの	
 have		E
-follow	次に続く、追従する	
+follow	下記の、次に続く、追従する	
 one		E
 set	セット、集合	
 name		E
