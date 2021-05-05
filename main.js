@@ -23,12 +23,15 @@ function collectTextNodes() {
 }
 
 function lookupWord(word) {
-    const stem = word2stem[word.toLowerCase()];
+    const wordLower = word.toLowerCase()
+    const stem = word2stem[wordLower];
     if (!stem) {
+      console.log("word '" + wordLower + " is not in word2stem")
       return "";
     }
     const meaning = dic[stem];
     if (!meaning) {
+      console.log("stem '" + stem + " is not in dic")
       return "";
     }
     return meaning;
