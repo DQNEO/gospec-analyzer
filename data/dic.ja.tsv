@@ -484,7 +484,7 @@ opening
 irrelevant	無関係の	
 lu		
 requirement		
-scale		
+scale	規模を変更する	
 equality	同一性、等式	
 hint		
 contrast	対比する、対比	
@@ -700,13 +700,13 @@ arbitrary	任意の
 compos	構成する	
 addition	追加	
 behavior	ふるまい	
-package-level		
+package-level		T
 various	さまざまな	
 specification	仕様、仕様書	
 fit		
 accept	受け付ける、受理する	
 anywhere	どこでも	
-ieee		
+ieee		T
 effect		
 constspec		
 full		
@@ -720,10 +720,10 @@ octal	８進数
 syntax	文法	
 complete	完全な	
 nth	N番目の	
-guarante		
+guarante	保証する	
 left-to-right		
 place		
-variadic		
+variadic	可変長引数を伴う	
 importing		
 back		
 divisor		
@@ -737,14 +737,14 @@ optionally
 system		
 export		
 category		
-ignor		
+ignor	無視する	
 enclos	囲う	
 invalid		
-qualified		
+qualified	修飾された	
 however		
-raw		
+raw	生の	
 rounding		
-way		
+way		E
 depend		
 programming	プログラミング	
 receiv		
@@ -759,7 +759,7 @@ standard
 closed		
 discov		
 caller	呼び出し側	
-direction		
+direction	方向	
 channels		
 loop		
 previous	前の	
@@ -767,14 +767,14 @@ exist
 yet		
 determin	決定する	
 precedence	優先順位	
-sliced		
+sliced	スライスされた	
 copi		
 cause	起こす	
 multi-valued	多値の	
 branch	枝、分岐	
 context	文脈、背景	
 usual		
-consid		
+consid	みなす、考慮する	
 alignment	揃えること	
 depth		
 allow	許可する、可能にする	
@@ -804,7 +804,7 @@ utf-8		T
 occurs	起こる、発生する	
 backslash		
 space		
-fractional		
+fractional	小数の	
 newline	改行	
 produc		
 belong		
@@ -816,27 +816,27 @@ were		E
 bit		
 surround	囲う	
 explicitly	明示的に	
-exponent		
-actual		
+exponent	指数	
+actual	実際の	
 specify	特定する、指定する、規定する	
 match	一致する	
-close		
-unsigned		
-apply		
-break		
-discard		
-non-empty		
+close		E
+unsigned	符号なし	
+apply	適用する	
+break		E
+discard	捨てる	
+non-empty		E
 optional	必須でない	
-was		
+was		E
 primary	主要な、初等の、第一の	
 prefix	接頭辞	
-received		
-sent		
+received		E
+sent		E
 underscore		
-shorthand		
+shorthand	簡略表現	
 typed	型あり、型付けされた	
-last		
-thus		
+last		E
+thus	それゆえに、従って、	
 store		E
 caus		
 binary	２進数	
@@ -844,87 +844,87 @@ representation	表現
 act	振る舞う	
 individual	個々の、それぞれの	
 final		E
-chang		
+chang		E
 tag		T
-non-negative		
+non-negative	非負	
 declare	宣言する	
 occur	起こる	
 additional	追加の	
 termin	終端	
-never		
-escape		
+never		T
+escape		T
 terminating	終端	
-semicolon		
+semicolon		T
 permit	許す	
-storage		
-exported		
+storage	保存場所、保管スペース	
+exported		T
 implicit	暗黙の	
 comment		T
-non-interface		
+non-interface		T
 alloc	確保する	
-most		
+most		E
 language	言語	
 see		E
 compar	比較する	
-uninitialized		
+uninitialized	未初期化の	
 successive	連続した	
 control	制御する	
-entry		
+entry	項目	
 overflow		T
 simple		E
-access		
+access		E
 addressable	アドレス可能	
-least		
-bound		
-pass		
+least		E
+bound	制限する、結び付けられて	
+pass		E
 next		E
 second		E
 unique	一意	
 valid	有効な、正しい	
-sign		
+sign	符号	
 begin		E
 negative	負の	
 includ		E
 evaluation	評価	
 dependency	依存、依存関係	
-side		
+side		E
 signature	シグネチャ	
-so		
-hold		
+so		E
+hold	保有する、有効である	
 assertion	アサーション	
-once		
+once		E
 non-blank	"_" でない	
 embedded	組み込み	
-body		
+body		E
 imaginary	虚数の	
 hexadecimal	16進数	
 respective	それぞれ	
 decimal	10進数	
-right		
+right		E
 restriction	制限	
 omit	省略する	
 letter	文字	
 exactly	正確に	
 invok	呼び出す	
 parenthes	丸かっこ(で囲う）	
-non-constant		
+non-constant	非定数	
 text		E
-section		
+section	節	
 cannot		E
 bind	束ねる/くっつける	
 precision	精度	
 representable	表現可能	
-short		
+short		E
 multiple	複数の	
 token	トークン	
 size		E
 dynamic	動的	
-start		
+start		E
 comparison	比較	
 illegal	文法違反	
-special		
-quote		
-creat		
+special		E
+quote		T
+creat		E
 base	基となる、基底(の)	
 distinct	区別された/独立した	
 compiler		T
@@ -936,21 +936,21 @@ more		E
 then		E
 left		E
 construct	作る、構成体	
-run		
+run		E
 sequence	連なり、並び	
-label		
+label		T
 selector		T
-error		
+error		E
 composite	複合	
 possibly	ことによると、可能性としてあり得ることに	
-receive		
+receive		E
 present	ある	
 implementation	実装	
 provid	与える	
 comparable	比較可能	
-select		
+select		E
 time		E
-address		
+address		T
 digit	数字、数値	
 blank	"_"	
 condition	条件	
@@ -977,7 +977,7 @@ different		E
 yield	産出する、出力する	
 corresponding	対応する	
 instance	実例	
-doe		
+doe		E
 numeric	数の、数値の	
 new		E
 part		E
