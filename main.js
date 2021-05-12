@@ -1,10 +1,10 @@
 main();
 
 function main() {
-  const nodesToIgnore = new Set(["h2", "h3", "pre"]);
+  const nodesToIgnore = new Set(["PRE"]);
   const textNodes = collectTextNodes();
   for (const node of textNodes) {
-    if (nodesToIgnore.has(node.parentNode.localName)) {
+    if (nodesToIgnore.has(node.parentNode.nodeName)) {
       continue;
     }
     processNode(node);
@@ -23,15 +23,12 @@ function collectTextNodes() {
 }
 
 function lookupWord(word) {
-    const wordLower = word.toLowerCase()
-    const stem = word2stem[wordLower];
+    const stem = word2stem[word.toLowerCase()];
     if (!stem) {
-      console.log("word '" + wordLower + " is not in word2stem")
       return "";
     }
     const meaning = dic[stem];
     if (!meaning) {
-      console.log("stem '" + stem + " is not in dic")
       return "";
     }
     return meaning;
@@ -46,7 +43,7 @@ function processNode(node) {
     fragment.appendChild(span);
     fragment.appendChild(document.createTextNode(" "));
 
-    const trimmedWord = word.replace(/['",.:]/g, '');
+    const trimmedWord = word.replace(/['",.:;]/g, '');
     const meaning = lookupWord(trimmedWord);
     if (!meaning) {
       return;
@@ -60,5 +57,13 @@ function processNode(node) {
   if (fragment.children.length > 0 && fragment.lastChild.textContent === " ") {
     fragment.removeChild(fragment.lastChild);
   }
-  node.parentNode.replaceChild(fragment, node);
+  // workaround to avoid making h2 > pre and h3 > pre
+  if (node.parentNode.nodeName == "H2" || node.parentNode.nodeName == "H3") {
+    // wrap by div
+    const div = document.createElement("div");
+    div.appendChild(fragment);
+    node.parentNode.replaceChild(div, node);
+  } else {
+    node.parentNode.replaceChild(fragment, node);
+  }
 }
