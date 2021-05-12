@@ -778,7 +778,7 @@ consid	みなす、考慮する
 alignment	揃えること	
 depth		
 allow	許可する、可能にする	
-indirection	間接的アクセス	
+indirection	インダイレクション(※C言語のデリファレンスに相当)	
 exception	例外	
 definition	定義	
 together		
@@ -1050,7 +1050,7 @@ call	呼び出し
 identifier	識別子	
 element	要素	
 not		E
-variable	変数	
+variable	変数、ストレージ	
 statement	文	
 constant	定数	
 expression	式	
