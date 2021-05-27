@@ -1,0 +1,4 @@
+#!/bin/bash
+# a tool to preview web contents by a local http server
+(sleep 1; open http://localhost:5555/spec.html) &
+python3 -m http.server --directory docs 5555
