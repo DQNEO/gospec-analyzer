@@ -67,16 +67,24 @@ docs/dic.ja.js: docs/dic.ja.json
 	cat $< >> $@
 
 .PHONEY: web
-web: docs/spec.html docs/lib/godoc/style.css docs/main.js docs/dic.ja.js docs/word2stem.js docs/lib/godoc/jquery.js docs/lib/godoc/playground.js docs/lib/godoc/godocs.js
+web: docs/spec.html docs/lib/godoc/style.css docs/main.js docs/dic.ja.js docs/word2stem.js docs/lib/godoc/jquery.js docs/lib/godoc/playground.js docs/lib/godoc/godocs.js docs/lib/godoc/images/go-logo-blue.svg docs/lib/godoc/images/footer-gopher.jpg
 
 spec_noscript.html: spec_orig.html
 	perl -p -e 'BEGIN{undef $$/;}  s|<script>[^<]*</script>||smg' $< > $@
 
-docs/spec.html: spec.html
-	mkdir -p docs
-	cp $< $@
+docs/spec.html: spec_noscript.html
+	cat spec_noscript.html | gsed '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | gsed '7 a <script src="word2stem.js"></script>' | gsed '8 a <script src="dic.ja.js"></script>' | gsed '9 a <script src="main.js"></script>' > $@
 
 docs/lib/godoc/style.css: lib/godoc/style.css
+	mkdir -p docs/lib/godoc
+	cp $< $@
+
+docs/lib/godoc/images/go-logo-blue.svg: lib/godoc/images/go-logo-blue.svg
+	mkdir -p docs/lib/godoc
+	cp $< $@
+
+docs/lib/godoc/images/footer-gopher.jpg: lib/godoc/images/footer-gopher.jpg
+	mkdir -p docs/lib/godoc
 	cp $< $@
 
 docs/dictionary.css: dictionary.css
