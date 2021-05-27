@@ -8,7 +8,7 @@ data/dic.ja.tsv:
 bin/s2t: spec2text/* spec2text/*/*
 	go build -o $@ ./spec2text/cmd
 
-docs/spec.txt: spec.html bin/s2t
+docs/spec.txt: spec_orig.html bin/s2t
 	bin/s2t $< > $@
 
 bin/tokenizer: tokenizer/* tokenizer/*/*
