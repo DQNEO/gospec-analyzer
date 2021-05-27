@@ -67,7 +67,7 @@ docs/dic.ja.js: docs/dic.ja.json
 	cat $< >> $@
 
 .PHONEY: web
-web: docs/spec.html docs/lib/godoc/style.css docs/main.js docs/dic.ja.js docs/word2stem.js
+web: docs/spec.html docs/lib/godoc/style.css docs/main.js docs/dic.ja.js docs/word2stem.js docs/lib/godoc/jquery.js docs/lib/godoc/playground.js docs/lib/godoc/godocs.js
 
 docs/spec.html: spec.html
 	mkdir -p docs
@@ -86,3 +86,11 @@ bin/tsv2json: tsv2json/*/*
 	go mod vendor
 	go build -o $@ ./tsv2json/cmd
 
+docs/lib/godoc/jquery.js:
+	touch $@
+
+docs/lib/godoc/playground.js:
+	touch $@
+
+docs/lib/godoc/godocs.js:
+	touch $@
