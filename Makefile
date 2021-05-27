@@ -69,6 +69,9 @@ docs/dic.ja.js: docs/dic.ja.json
 .PHONEY: web
 web: docs/spec.html docs/lib/godoc/style.css docs/main.js docs/dic.ja.js docs/word2stem.js docs/lib/godoc/jquery.js docs/lib/godoc/playground.js docs/lib/godoc/godocs.js
 
+spec_noscript.html: spec_orig.html
+	perl -p -e 'BEGIN{undef $$/;}  s|<script>[^<]*</script>||smg' $< > $@
+
 docs/spec.html: spec.html
 	mkdir -p docs
 	cp $< $@
