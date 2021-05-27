@@ -1,4 +1,7 @@
-main();
+window.onload = () => {
+    console.log('window loaded');
+    main();
+};
 
 function main() {
   const nodesToIgnore = new Set(["PRE"]);

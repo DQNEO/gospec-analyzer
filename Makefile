@@ -67,13 +67,13 @@ docs/dic.ja.js: docs/dic.ja.json
 	cat $< >> $@
 
 .PHONEY: web
-web: docs/spec.html docs/style.css docs/main.js docs/dic.ja.js docs/word2stem.js
+web: docs/spec.html docs/lib/godoc/style.css docs/main.js docs/dic.ja.js docs/word2stem.js
 
 docs/spec.html: spec.html
 	mkdir -p docs
 	cp $< $@
 
-docs/style.css: style.css
+docs/lib/godoc/style.css: lib/godoc/style.css
 	cp $< $@
 
 docs/dictionary.css: dictionary.css
