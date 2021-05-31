@@ -1,7 +1,9 @@
 # force GNU sed
 ifeq ($(shell uname),Linux)
+	# for Linux
 	SED := sed
 else
+	# for MacOS assuming GNU sed is installed as "gsed"
 	SED := gsed
 endif
 
