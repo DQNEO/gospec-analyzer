@@ -1,3 +1,10 @@
+# force GNU sed
+ifeq ($(shell uname),Linux)
+	SED := sed
+else
+	SED := gsed
+endif
+
 .PHONY: all
 all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/word2stem.txt docs/word2stem.json docs/count.txt docs/uniq.txt docs/dic.ja.json web
 
@@ -74,7 +81,7 @@ spec_noscript.html: spec_orig.html
 
 docs/spec.html: spec_noscript.html
 	mkdir -p docs
-	cat spec_noscript.html | sed '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | sed '7 a <script src="word2stem.js"></script>' | sed '8 a <script src="dic.ja.js"></script>' | sed '9 a <script src="main.js"></script>' > $@
+	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | $(SED) '7 a <script src="word2stem.js"></script>' | $(SED) '8 a <script src="dic.ja.js"></script>' | $(SED) '9 a <script src="main.js"></script>' > $@
 	perl -pi -e 's#/lib/godoc/#./lib/godoc/#g' $@
 
 docs/lib/godoc/style.css: lib/godoc/style.css
