@@ -73,7 +73,7 @@ spec_noscript.html: spec_orig.html
 	perl -p -e 'BEGIN{undef $$/;}  s|<script>[^<]*</script>||smg' $< > $@
 
 docs/spec.html: spec_noscript.html
-	cat spec_noscript.html | gsed '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | gsed '7 a <script src="word2stem.js"></script>' | gsed '8 a <script src="dic.ja.js"></script>' | gsed '9 a <script src="main.js"></script>' > $@
+	cat spec_noscript.html | sed '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | sed '7 a <script src="word2stem.js"></script>' | sed '8 a <script src="dic.ja.js"></script>' | sed '9 a <script src="main.js"></script>' > $@
 	perl -pi -e 's#/lib/godoc/#./lib/godoc/#g' $@
 
 docs/lib/godoc/style.css: lib/godoc/style.css
