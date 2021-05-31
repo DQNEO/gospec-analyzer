@@ -73,6 +73,7 @@ spec_noscript.html: spec_orig.html
 	perl -p -e 'BEGIN{undef $$/;}  s|<script>[^<]*</script>||smg' $< > $@
 
 docs/spec.html: spec_noscript.html
+	mkdir -p docs
 	cat spec_noscript.html | sed '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | sed '7 a <script src="word2stem.js"></script>' | sed '8 a <script src="dic.ja.js"></script>' | sed '9 a <script src="main.js"></script>' > $@
 	perl -pi -e 's#/lib/godoc/#./lib/godoc/#g' $@
 
@@ -81,11 +82,11 @@ docs/lib/godoc/style.css: lib/godoc/style.css
 	cp $< $@
 
 docs/lib/godoc/images/go-logo-blue.svg: lib/godoc/images/go-logo-blue.svg
-	mkdir -p docs/lib/godoc
+	mkdir -p docs/lib/godoc/images
 	cp $< $@
 
 docs/lib/godoc/images/footer-gopher.jpg: lib/godoc/images/footer-gopher.jpg
-	mkdir -p docs/lib/godoc
+	mkdir -p docs/lib/godoc/images
 	cp $< $@
 
 docs/dictionary.css: dictionary.css
