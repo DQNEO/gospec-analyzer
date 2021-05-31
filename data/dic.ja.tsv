@@ -785,7 +785,7 @@ together
 do		
 sequenc		
 promot	昇格(する)	
-preced		
+preced	先行する	
 inner	内側の	
 even		
 reference	参照	
@@ -1029,7 +1029,7 @@ character	文字
 all		E
 declar	宣言	
 repres	表現する	
-evalu	評価する	
+evalu	評価する（される）	
 argument	引数	
 operation	演算	
 operator	演算子	
