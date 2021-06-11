@@ -363,7 +363,7 @@ or
 permissible		
 minimal		
 lm		
-multi-way		
+multi-way	多分岐	
 mind		E
 differently		
 indirectly		
@@ -464,7 +464,7 @@ elsewhere
 redeclaration	再宣言	
 identify	同定する、特定する	
 complet		
-iter		
+iter	繰り返す、反復する	
 associ		
 referenc		
 concatenation	結合、連接	
@@ -806,7 +806,7 @@ backslash
 space		
 fractional	小数の	
 newline	改行	
-produc		
+produc	産出、産出する	
 belong		
 consist	構成される	
 absent	無い、存在しない	
@@ -819,7 +819,7 @@ explicitly	明示的に
 exponent	指数	
 actual	実際の	
 specify	特定する、指定する、規定する	
-match	一致する	
+match	一致する、マッチさせる	
 close		E
 unsigned	符号なし	
 apply	適用する	
@@ -898,7 +898,7 @@ embedded	組み込み
 body		E
 imaginary	虚数の	
 hexadecimal	16進数	
-respective	それぞれ	
+respective	それぞれの	
 decimal	10進数	
 right		E
 restriction	制限	
@@ -1031,7 +1031,7 @@ declar	宣言
 repres	表現する	
 evalu	評価する（される）	
 argument	引数	
-operation	演算	
+operation	演算、操作	
 operator	演算子	
 untyped	型なしの	
 have		E
