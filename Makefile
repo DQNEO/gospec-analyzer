@@ -17,6 +17,10 @@ data/dic.ja.tsv:
 bin/s2t: spec2text/* spec2text/*/*
 	go build -o $@ ./spec2text/cmd
 
+.PHONY: download_spec_html
+download_spec_html:
+	wget -O spec_orig.html 'https://tip.golang.org/ref/spec'
+
 docs/spec.txt: spec_orig.html bin/s2t
 	bin/s2t $< > $@
 
