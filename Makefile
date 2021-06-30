@@ -89,6 +89,8 @@ docs/spec.html: spec_noscript.html
 	mkdir -p docs
 	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | $(SED) '7 a <script src="word2stem.js"></script>' | $(SED) '8 a <script src="dic.ja.js"></script>' | $(SED) '9 a <script src="main.js"></script>' > $@
 	perl -pi -e 's#/lib/godoc/#./lib/godoc/#g' $@
+	perl -pi -e 'BEGIN{undef $$/;}  s|(<h1>\s+The)|$$1 <span id="word_wise">Word Wise</span>|' $@
+	perl -pi -e 's|<title>.*</title>|<title>Word Wise Go Spec</title>|' $@
 
 docs/lib/godoc/style.css: lib/godoc/style.css
 	mkdir -p docs/lib/godoc
