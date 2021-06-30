@@ -4,7 +4,6 @@
 
 .word {
   position: relative;
-  cursor: default;
 }
 
 .word:hover {
@@ -14,18 +13,19 @@
 .word-translation {
   display: none;
   position: absolute;
-  top: -3.0rem;
+  top: -1.8rem;
   left: 0;
   color: #3e4042;
   background-color: #f8f8f8;
   border: 1px solid #eee;
   font-size: 0.8rem;
-  padding: 0.5rem;
-  margin: 0.5rem;
+  padding: 0.3rem;
   font-style: normal;
   word-break: keep-all;
   white-space: nowrap;
+  box-shadow: 1px 1px #ccc
 }
+
 .word:hover .word-translation {
   display: block;
 }
