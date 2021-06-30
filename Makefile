@@ -80,7 +80,7 @@ docs/dic.ja.js: docs/dic.ja.json
 	cat $< >> $@
 
 .PHONEY: web
-web: docs/spec.html docs/lib/godoc/style.css docs/main.js docs/dic.ja.js docs/word2stem.js docs/lib/godoc/jquery.js docs/lib/godoc/playground.js docs/lib/godoc/godocs.js docs/lib/godoc/images/go-logo-blue.svg docs/lib/godoc/images/footer-gopher.jpg
+web: docs/spec.html docs/lib/godoc/style.css docs/dictionary.css docs/main.js docs/dic.ja.js docs/word2stem.js docs/lib/godoc/jquery.js docs/lib/godoc/playground.js docs/lib/godoc/godocs.js docs/lib/godoc/images/go-logo-blue.svg docs/lib/godoc/images/footer-gopher.jpg
 
 spec_noscript.html: spec_orig.html
 	perl -p -e 'BEGIN{undef $$/;}  s|<script>[^<]*</script>||smg' $< > $@
@@ -89,7 +89,7 @@ docs/spec.html: spec_noscript.html
 	mkdir -p docs
 	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | $(SED) '7 a <script src="word2stem.js"></script>' | $(SED) '8 a <script src="dic.ja.js"></script>' | $(SED) '9 a <script src="main.js"></script>' > $@
 	perl -pi -e 's#/lib/godoc/#./lib/godoc/#g' $@
-	perl -pi -e 'BEGIN{undef $$/;}  s|(<h1>\s+The)|$$1 <span id="word_wise">Word Wise</span>|' $@
+	perl -pi -e 'BEGIN{undef $$/;}  s|(<h1>\s+The)|$$1 <span id="word-wise">Word Wise</span>|' $@
 	perl -pi -e 's|<title>.*</title>|<title>Word Wise Go Spec</title>|' $@
 
 docs/lib/godoc/style.css: lib/godoc/style.css

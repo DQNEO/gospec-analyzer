@@ -1,3 +1,7 @@
+#word-wise {
+  color: magenta;
+}
+
 .word {
   position: relative;
   cursor: default;
