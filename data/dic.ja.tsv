@@ -143,7 +143,7 @@ extract	抽出する
 entirely		
 side-effect	副作用	
 detail		
-backus-naur	バッカス・ナウア (ジョン・バッカスさんとピーター・ナウアさんの名前から）	
+backus-naur	バッカス・ナウア (考案者のジョン・バッカスさんとピーター・ナウアさん）	
 shortvardecl		
 uniqueness	一意性	
 inherit	継承する	
@@ -575,7 +575,7 @@ infinity	無限大
 ad	たす	
 component	構成要素	
 encod	符号化する	
-substring		
+substring	部分文字列	
 treat	取り扱う	
 panick		
 support		
