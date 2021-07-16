@@ -14,8 +14,8 @@ all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt do
 data/dic.ja.tsv:
 	wget -O data/dic.ja.tsv 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLRyGpO5qAUt2YGejK3tkELmnrGKHX0iALEFIgdN0vKCOZU0j9lseDLf3s8UA8waZnL3uAWsDk1Xp7/pub?gid=406497718&single=true&output=tsv'
 
-.PHONY: download_spec_html
-download_spec_html:
+.PHONY: spec_orig.html
+spec_orig.html:
 	wget -O spec_orig.html 'https://tip.golang.org/ref/spec'
 
 bin/s2t: spec2text/* spec2text/*/*

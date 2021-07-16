@@ -15,7 +15,7 @@
 <script src="/lib/godoc/jquery.js" defer></script>
 
 <script src="/lib/godoc/playground.js" defer></script>
-<script>var goVersion = "devel go1.17-770f1de Thu Jun 10 20:20:58 2021 +0000";</script>
+<script>var goVersion = "\"devel go1.17-aa4e0f5 Fri Jul 16 02:43:48 2021 +0000\"";</script>
 <script src="/lib/godoc/godocs.js" defer></script>
 
 <body class="Site">
@@ -55,7 +55,7 @@
 
 
 
-  <h2>Version of Jun 2, 2021</h2>
+  <h2>Version of Jul 1, 2021</h2>
 
 
 
@@ -4732,7 +4732,7 @@ The following built-in functions are not permitted in statement context:
 
 <pre>
 append cap complex imag len make new real
-unsafe.Alignof unsafe.Offsetof unsafe.Sizeof
+unsafe.Add unsafe.Alignof unsafe.Offsetof unsafe.Sizeof unsafe.Slice
 </pre>
 
 <pre>
@@ -6844,7 +6844,8 @@ The rules for <a href="/pkg/unsafe#Pointer">valid uses</a> of <code>Pointer</cod
 
 <p>
 The function <code>Slice</code> returns a slice whose underlying array starts at <code>ptr</code>
-and whose length and capacity are <code>len</code>:
+and whose length and capacity are <code>len</code>.
+<code>Slice(ptr, len)</code> is equivalent to
 </p>
 
 <pre>
@@ -6852,10 +6853,17 @@ and whose length and capacity are <code>len</code>:
 </pre>
 
 <p>
+except that, as a special case, if <code>ptr</code>
+is <code>nil</code> and <code>len</code> is zero,
+<code>Slice</code> returns <code>nil</code>.
+</p>
+
+<p>
 The <code>len</code> argument must be of integer type or an untyped <a href="#Constants">constant</a>.
 A constant <code>len</code> argument must be non-negative and <a href="#Representability">representable</a> by a value of type <code>int</code>;
 if it is an untyped constant it is given type <code>int</code>.
-If <code>ptr</code> is <code>nil</code> or <code>len</code> is negative at run time,
+At run time, if <code>len</code> is negative,
+or if <code>ptr</code> is <code>nil</code> and <code>len</code> is not zero,
 a <a href="#Run_time_panics">run-time panic</a> occurs.
 </p>
 
@@ -6896,8 +6904,9 @@ A struct or array type has size zero if it contains no fields (or elements, resp
 </p>
 
 
-</div><!-- .container -->
-</main><!-- #page -->
+
+</div>
+</main>
 <footer>
   <div class="Footer Footer--wide">
     <img class="Footer-gopher" src="/lib/godoc/images/footer-gopher.jpg" alt="The Go Gopher">
@@ -6910,5 +6919,4 @@ A struct or array type has size zero if it contains no fields (or elements, resp
     <a class="Footer-supportedBy" href="https://google.com">Supported by Google</a>
   </div>
 </footer>
-
 
