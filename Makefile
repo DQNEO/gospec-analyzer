@@ -91,6 +91,7 @@ docs/spec.html: spec_noscript.html
 	perl -pi -e 's#/lib/godoc/#./lib/godoc/#g' $@
 	perl -pi -e 'BEGIN{undef $$/;}  s|(<h1>\s+The)|$$1 <span id="word-wise">Word Wise</span>|' $@
 	perl -pi -e 's|<title>.*</title>|<title>Word Wise Go Spec</title>|' $@
+	perl -pi -e 's|(class="container")|$$1 ontouchstart|' $@
 
 docs/lib/godoc/style.css: lib/godoc/style.css
 	mkdir -p docs/lib/godoc
