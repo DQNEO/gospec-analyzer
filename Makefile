@@ -79,7 +79,7 @@ docs/dic.ja.js: docs/dic.ja.json
 	echo 'var dic = ' > $@
 	cat $< >> $@
 
-.PHONEY: web
+.PHONY: web
 web: docs/spec.html docs/lib/godoc/style.css docs/dictionary.css docs/main.js docs/dic.ja.js docs/word2stem.js docs/lib/godoc/jquery.js docs/lib/godoc/playground.js docs/lib/godoc/godocs.js docs/lib/godoc/images/go-logo-blue.svg docs/lib/godoc/images/footer-gopher.jpg
 
 spec_noscript.html: spec_orig.html
