@@ -121,5 +121,5 @@ docs/lib/godoc/jquery.js:
 docs/lib/godoc/playground.js:
 	touch $@
 
-docs/lib/godoc/godocs.js:
-	touch $@
+docs/lib/godoc/godocs.js: godocs.js
+	cp $< $@

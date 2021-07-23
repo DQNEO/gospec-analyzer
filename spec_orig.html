@@ -15,7 +15,7 @@
 <script src="/lib/godoc/jquery.js" defer></script>
 
 <script src="/lib/godoc/playground.js" defer></script>
-<script>var goVersion = "\"devel go1.17-aa4e0f5 Fri Jul 16 02:43:48 2021 +0000\"";</script>
+<script>var goVersion = "\"devel go1.17-052da57 Thu Jul 22 20:47:59 2021 +0000\"";</script>
 <script src="/lib/godoc/godocs.js" defer></script>
 
 <body class="Site">
@@ -4396,7 +4396,7 @@ s4 := (*[4]byte)(s)      // panics: len([4]byte) > len(s)
 
 var t []string
 t0 := (*[0]string)(t)    // t0 == nil
-t1 := (*[1]string)(t)    // panics: len([1]string) > len(s)
+t1 := (*[1]string)(t)    // panics: len([1]string) > len(t)
 </pre>
 
 <h3 id="Constant_expressions">Constant expressions</h3>
