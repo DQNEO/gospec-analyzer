@@ -12,10 +12,22 @@
 <link type="text/css" rel="stylesheet" href="/lib/godoc/style.css">
 <script>window.initFuncs = [];</script>
 
+<script>
+var _gaq = _gaq || [];
+_gaq.push(["_setAccount", "UA-11222381-2"]);
+window.trackPageview = function() {
+  _gaq.push(["_trackPageview", location.pathname+location.hash]);
+};
+window.trackPageview();
+window.trackEvent = function(category, action, opt_label, opt_value, opt_noninteraction) {
+  _gaq.push(["_trackEvent", category, action, opt_label, opt_value, opt_noninteraction]);
+};
+</script>
+
 <script src="/lib/godoc/jquery.js" defer></script>
 
 <script src="/lib/godoc/playground.js" defer></script>
-<script>var goVersion = "\"devel go1.17-052da57 Thu Jul 22 20:47:59 2021 +0000\"";</script>
+<script>var goVersion = "\"go1.16.7\"";</script>
 <script src="/lib/godoc/godocs.js" defer></script>
 
 <body class="Site">
@@ -48,20 +60,22 @@
 <div class="container">
 
 
-  <h1>
-    The Go Programming Language Specification
-    <span class="text-muted"></span>
-  </h1>
+
+
+  <h1>The Go Programming Language Specification</h1>
 
 
 
-  <h2>Version of Jul 1, 2021</h2>
+  <h2>Version of Sep 16, 2021</h2>
 
 
 
 
 
 <div id="nav"></div>
+
+
+
 
 
 
@@ -159,10 +173,10 @@ A byte order mark may be disallowed anywhere else in the source.
 The following terms are used to denote specific Unicode character classes:
 </p>
 <pre class="ebnf">
-<a id="newline">newline</a>        = /* the Unicode code point U+000A */ .
-<a id="unicode_char">unicode_char</a>   = /* an arbitrary Unicode code point except newline */ .
-<a id="unicode_letter">unicode_letter</a> = /* a Unicode code point classified as "Letter" */ .
-<a id="unicode_digit">unicode_digit</a>  = /* a Unicode code point classified as "Number, decimal digit" */ .
+newline        = /* the Unicode code point U+000A */ .
+unicode_char   = /* an arbitrary Unicode code point except newline */ .
+unicode_letter = /* a Unicode code point classified as "Letter" */ .
+unicode_digit  = /* a Unicode code point classified as "Number, decimal digit" */ .
 </pre>
 
 <p>
@@ -178,11 +192,11 @@ as Unicode letters, and those in the Number category Nd as Unicode digits.
 The underscore character <code>_</code> (U+005F) is considered a letter.
 </p>
 <pre class="ebnf">
-<a id="letter">letter</a>        = <a href="#unicode_letter" class="noline">unicode_letter</a> | "_" .
-<a id="decimal_digit">decimal_digit</a> = "0" … "9" .
-<a id="binary_digit">binary_digit</a>  = "0" | "1" .
-<a id="octal_digit">octal_digit</a>   = "0" … "7" .
-<a id="hex_digit">hex_digit</a>     = "0" … "9" | "A" … "F" | "a" … "f" .
+letter        = unicode_letter | "_" .
+decimal_digit = "0" … "9" .
+binary_digit  = "0" | "1" .
+octal_digit   = "0" … "7" .
+hex_digit     = "0" … "9" | "A" … "F" | "a" … "f" .
 </pre>
 
 <h2 id="Lexical_elements">Lexical elements</h2>
@@ -289,7 +303,7 @@ An identifier is a sequence of one or more letters and digits.
 The first character in an identifier must be a letter.
 </p>
 <pre class="ebnf">
-<a id="identifier">identifier</a> = <a href="#letter" class="noline">letter</a> { <a href="#letter" class="noline">letter</a> | <a href="#unicode_digit" class="noline">unicode_digit</a> } .
+identifier = letter { letter | unicode_digit } .
 </pre>
 <pre>
 a
@@ -350,16 +364,16 @@ a base prefix or between successive digits; such underscores do not change
 the literal's value.
 </p>
 <pre class="ebnf">
-<a id="int_lit">int_lit</a>        = <a href="#decimal_lit" class="noline">decimal_lit</a> | <a href="#binary_lit" class="noline">binary_lit</a> | <a href="#octal_lit" class="noline">octal_lit</a> | <a href="#hex_lit" class="noline">hex_lit</a> .
-<a id="decimal_lit">decimal_lit</a>    = "0" | ( "1" … "9" ) [ [ "_" ] <a href="#decimal_digits" class="noline">decimal_digits</a> ] .
-<a id="binary_lit">binary_lit</a>     = "0" ( "b" | "B" ) [ "_" ] <a href="#binary_digits" class="noline">binary_digits</a> .
-<a id="octal_lit">octal_lit</a>      = "0" [ "o" | "O" ] [ "_" ] <a href="#octal_digits" class="noline">octal_digits</a> .
-<a id="hex_lit">hex_lit</a>        = "0" ( "x" | "X" ) [ "_" ] <a href="#hex_digits" class="noline">hex_digits</a> .
+int_lit        = decimal_lit | binary_lit | octal_lit | hex_lit .
+decimal_lit    = "0" | ( "1" … "9" ) [ [ "_" ] decimal_digits ] .
+binary_lit     = "0" ( "b" | "B" ) [ "_" ] binary_digits .
+octal_lit      = "0" [ "o" | "O" ] [ "_" ] octal_digits .
+hex_lit        = "0" ( "x" | "X" ) [ "_" ] hex_digits .
 
-<a id="decimal_digits">decimal_digits</a> = <a href="#decimal_digit" class="noline">decimal_digit</a> { [ "_" ] <a href="#decimal_digit" class="noline">decimal_digit</a> } .
-<a id="binary_digits">binary_digits</a>  = <a href="#binary_digit" class="noline">binary_digit</a> { [ "_" ] <a href="#binary_digit" class="noline">binary_digit</a> } .
-<a id="octal_digits">octal_digits</a>   = <a href="#octal_digit" class="noline">octal_digit</a> { [ "_" ] <a href="#octal_digit" class="noline">octal_digit</a> } .
-<a id="hex_digits">hex_digits</a>     = <a href="#hex_digit" class="noline">hex_digit</a> { [ "_" ] <a href="#hex_digit" class="noline">hex_digit</a> } .
+decimal_digits = decimal_digit { [ "_" ] decimal_digit } .
+binary_digits  = binary_digit { [ "_" ] binary_digit } .
+octal_digits   = octal_digit { [ "_" ] octal_digit } .
+hex_digits     = hex_digit { [ "_" ] hex_digit } .
 </pre>
 
 <pre>
@@ -414,18 +428,18 @@ the literal value.
 </p>
 
 <pre class="ebnf">
-<a id="float_lit">float_lit</a>         = <a href="#decimal_float_lit" class="noline">decimal_float_lit</a> | <a href="#hex_float_lit" class="noline">hex_float_lit</a> .
+float_lit         = decimal_float_lit | hex_float_lit .
 
-<a id="decimal_float_lit">decimal_float_lit</a> = <a href="#decimal_digits" class="noline">decimal_digits</a> "." [ <a href="#decimal_digits" class="noline">decimal_digits</a> ] [ <a href="#decimal_exponent" class="noline">decimal_exponent</a> ] |
-                    <a href="#decimal_digits" class="noline">decimal_digits</a> <a href="#decimal_exponent" class="noline">decimal_exponent</a> |
-                    "." <a href="#decimal_digits" class="noline">decimal_digits</a> [ <a href="#decimal_exponent" class="noline">decimal_exponent</a> ] .
-<a id="decimal_exponent">decimal_exponent</a>  = ( "e" | "E" ) [ "+" | "-" ] <a href="#decimal_digits" class="noline">decimal_digits</a> .
+decimal_float_lit = decimal_digits "." [ decimal_digits ] [ decimal_exponent ] |
+                    decimal_digits decimal_exponent |
+                    "." decimal_digits [ decimal_exponent ] .
+decimal_exponent  = ( "e" | "E" ) [ "+" | "-" ] decimal_digits .
 
-<a id="hex_float_lit">hex_float_lit</a>     = "0" ( "x" | "X" ) <a href="#hex_mantissa" class="noline">hex_mantissa</a> <a href="#hex_exponent" class="noline">hex_exponent</a> .
-<a id="hex_mantissa">hex_mantissa</a>      = [ "_" ] <a href="#hex_digits" class="noline">hex_digits</a> "." [ <a href="#hex_digits" class="noline">hex_digits</a> ] |
-                    [ "_" ] <a href="#hex_digits" class="noline">hex_digits</a> |
-                    "." <a href="#hex_digits" class="noline">hex_digits</a> .
-<a id="hex_exponent">hex_exponent</a>      = ( "p" | "P" ) [ "+" | "-" ] <a href="#decimal_digits" class="noline">decimal_digits</a> .
+hex_float_lit     = "0" ( "x" | "X" ) hex_mantissa hex_exponent .
+hex_mantissa      = [ "_" ] hex_digits "." [ hex_digits ] |
+                    [ "_" ] hex_digits |
+                    "." hex_digits .
+hex_exponent      = ( "p" | "P" ) [ "+" | "-" ] decimal_digits .
 </pre>
 
 <pre>
@@ -472,7 +486,7 @@ integer or floating-point literal multiplied by the imaginary unit <i>i</i>.
 </p>
 
 <pre class="ebnf">
-<a id="imaginary_lit">imaginary_lit</a> = (<a href="#decimal_digits" class="noline">decimal_digits</a> | <a href="#int_lit" class="noline">int_lit</a> | <a href="#float_lit" class="noline">float_lit</a>) "i" .
+imaginary_lit = (decimal_digits | int_lit | float_lit) "i" .
 </pre>
 
 <p>
@@ -552,8 +566,8 @@ After a backslash, certain single-character escapes represent special values:
 \n   U+000A line feed or newline
 \r   U+000D carriage return
 \t   U+0009 horizontal tab
-\v   U+000b vertical tab
-\\   U+005c backslash
+\v   U+000B vertical tab
+\\   U+005C backslash
 \'   U+0027 single quote  (valid escape only within rune literals)
 \"   U+0022 double quote  (valid escape only within string literals)
 </pre>
@@ -562,15 +576,15 @@ After a backslash, certain single-character escapes represent special values:
 All other sequences starting with a backslash are illegal inside rune literals.
 </p>
 <pre class="ebnf">
-<a id="rune_lit">rune_lit</a>         = "'" ( <a href="#unicode_value" class="noline">unicode_value</a> | <a href="#byte_value" class="noline">byte_value</a> ) "'" .
-<a id="unicode_value">unicode_value</a>    = <a href="#unicode_char" class="noline">unicode_char</a> | <a href="#little_u_value" class="noline">little_u_value</a> | <a href="#big_u_value" class="noline">big_u_value</a> | <a href="#escaped_char" class="noline">escaped_char</a> .
-<a id="byte_value">byte_value</a>       = <a href="#octal_byte_value" class="noline">octal_byte_value</a> | <a href="#hex_byte_value" class="noline">hex_byte_value</a> .
-<a id="octal_byte_value">octal_byte_value</a> = `\` <a href="#octal_digit" class="noline">octal_digit</a> <a href="#octal_digit" class="noline">octal_digit</a> <a href="#octal_digit" class="noline">octal_digit</a> .
-<a id="hex_byte_value">hex_byte_value</a>   = `\` "x" <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a> .
-<a id="little_u_value">little_u_value</a>   = `\` "u" <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a> .
-<a id="big_u_value">big_u_value</a>      = `\` "U" <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a>
-                           <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a> <a href="#hex_digit" class="noline">hex_digit</a> .
-<a id="escaped_char">escaped_char</a>     = `\` ( "a" | "b" | "f" | "n" | "r" | "t" | "v" | `\` | "'" | `"` ) .
+rune_lit         = "'" ( unicode_value | byte_value ) "'" .
+unicode_value    = unicode_char | little_u_value | big_u_value | escaped_char .
+byte_value       = octal_byte_value | hex_byte_value .
+octal_byte_value = `\` octal_digit octal_digit octal_digit .
+hex_byte_value   = `\` "x" hex_digit hex_digit .
+little_u_value   = `\` "u" hex_digit hex_digit hex_digit hex_digit .
+big_u_value      = `\` "U" hex_digit hex_digit hex_digit hex_digit
+                           hex_digit hex_digit hex_digit hex_digit .
+escaped_char     = `\` ( "a" | "b" | "f" | "n" | "r" | "t" | "v" | `\` | "'" | `"` ) .
 </pre>
 
 <pre>
@@ -634,9 +648,9 @@ U+00FF.
 </p>
 
 <pre class="ebnf">
-<a id="string_lit">string_lit</a>             = <a href="#raw_string_lit" class="noline">raw_string_lit</a> | <a href="#interpreted_string_lit" class="noline">interpreted_string_lit</a> .
-<a id="raw_string_lit">raw_string_lit</a>         = "`" { <a href="#unicode_char" class="noline">unicode_char</a> | <a href="#newline" class="noline">newline</a> } "`" .
-<a id="interpreted_string_lit">interpreted_string_lit</a> = `"` { <a href="#unicode_value" class="noline">unicode_value</a> | <a href="#byte_value" class="noline">byte_value</a> } `"` .
+string_lit             = raw_string_lit | interpreted_string_lit .
+raw_string_lit         = "`" { unicode_char | newline } "`" .
+interpreted_string_lit = `"` { unicode_value | byte_value } `"` .
 </pre>
 
 <pre>
@@ -847,10 +861,10 @@ or specified using a <i>type literal</i>, which composes a type from existing ty
 </p>
 
 <pre class="ebnf">
-<a id="Type">Type</a>      = <a href="#TypeName" class="noline">TypeName</a> | <a href="#TypeLit" class="noline">TypeLit</a> | "(" <a href="#Type" class="noline">Type</a> ")" .
-<a id="TypeName">TypeName</a>  = <a href="#identifier" class="noline">identifier</a> | <a href="#QualifiedIdent" class="noline">QualifiedIdent</a> .
-<a id="TypeLit">TypeLit</a>   = <a href="#ArrayType" class="noline">ArrayType</a> | <a href="#StructType" class="noline">StructType</a> | <a href="#PointerType" class="noline">PointerType</a> | <a href="#FunctionType" class="noline">FunctionType</a> | <a href="#InterfaceType" class="noline">InterfaceType</a> |
-	    <a href="#SliceType" class="noline">SliceType</a> | <a href="#MapType" class="noline">MapType</a> | <a href="#ChannelType" class="noline">ChannelType</a> .
+Type      = TypeName | TypeLit | "(" Type ")" .
+TypeName  = identifier | QualifiedIdent .
+TypeLit   = ArrayType | StructType | PointerType | FunctionType | InterfaceType |
+	    SliceType | MapType | ChannelType .
 </pre>
 
 <p>
@@ -1011,9 +1025,9 @@ The number of elements is called the length of the array and is never negative.
 </p>
 
 <pre class="ebnf">
-<a id="ArrayType">ArrayType</a>   = "[" <a href="#ArrayLength" class="noline">ArrayLength</a> "]" <a href="#ElementType" class="noline">ElementType</a> .
-<a id="ArrayLength">ArrayLength</a> = <a href="#Expression" class="noline">Expression</a> .
-<a id="ElementType">ElementType</a> = <a href="#Type" class="noline">Type</a> .
+ArrayType   = "[" ArrayLength "]" ElementType .
+ArrayLength = Expression .
+ElementType = Type .
 </pre>
 
 <p>
@@ -1048,7 +1062,7 @@ The value of an uninitialized slice is <code>nil</code>.
 </p>
 
 <pre class="ebnf">
-<a id="SliceType">SliceType</a> = "[" "]" <a href="#ElementType" class="noline">ElementType</a> .
+SliceType = "[" "]" ElementType .
 </pre>
 
 <p>
@@ -1118,10 +1132,10 @@ be <a href="#Uniqueness_of_identifiers">unique</a>.
 </p>
 
 <pre class="ebnf">
-<a id="StructType">StructType</a>    = "struct" "{" { <a href="#FieldDecl" class="noline">FieldDecl</a> ";" } "}" .
-<a id="FieldDecl">FieldDecl</a>     = (<a href="#IdentifierList" class="noline">IdentifierList</a> <a href="#Type" class="noline">Type</a> | <a href="#EmbeddedField" class="noline">EmbeddedField</a>) [ <a href="#Tag" class="noline">Tag</a> ] .
-<a id="EmbeddedField">EmbeddedField</a> = [ "*" ] <a href="#TypeName" class="noline">TypeName</a> .
-<a id="Tag">Tag</a>           = <a href="#string_lit" class="noline">string_lit</a> .
+StructType    = "struct" "{" { FieldDecl ";" } "}" .
+FieldDecl     = (IdentifierList Type | EmbeddedField) [ Tag ] .
+EmbeddedField = [ "*" ] TypeName .
+Tag           = string_lit .
 </pre>
 
 <pre>
@@ -1238,8 +1252,8 @@ The value of an uninitialized pointer is <code>nil</code>.
 </p>
 
 <pre class="ebnf">
-<a id="PointerType">PointerType</a> = "*" <a href="#BaseType" class="noline">BaseType</a> .
-<a id="BaseType">BaseType</a>    = <a href="#Type" class="noline">Type</a> .
+PointerType = "*" BaseType .
+BaseType    = Type .
 </pre>
 
 <pre>
@@ -1256,12 +1270,12 @@ is <code>nil</code>.
 </p>
 
 <pre class="ebnf">
-<a id="FunctionType">FunctionType</a>   = "func" <a href="#Signature" class="noline">Signature</a> .
-<a id="Signature">Signature</a>      = <a href="#Parameters" class="noline">Parameters</a> [ <a href="#Result" class="noline">Result</a> ] .
-<a id="Result">Result</a>         = <a href="#Parameters" class="noline">Parameters</a> | <a href="#Type" class="noline">Type</a> .
-<a id="Parameters">Parameters</a>     = "(" [ <a href="#ParameterList" class="noline">ParameterList</a> [ "," ] ] ")" .
-<a id="ParameterList">ParameterList</a>  = <a href="#ParameterDecl" class="noline">ParameterDecl</a> { "," <a href="#ParameterDecl" class="noline">ParameterDecl</a> } .
-<a id="ParameterDecl">ParameterDecl</a>  = [ <a href="#IdentifierList" class="noline">IdentifierList</a> ] [ "..." ] <a href="#Type" class="noline">Type</a> .
+FunctionType   = "func" Signature .
+Signature      = Parameters [ Result ] .
+Result         = Parameters | Type .
+Parameters     = "(" [ ParameterList [ "," ] ] ")" .
+ParameterList  = ParameterDecl { "," ParameterDecl } .
+ParameterDecl  = [ IdentifierList ] [ "..." ] Type .
 </pre>
 
 <p>
@@ -1306,10 +1320,10 @@ The value of an uninitialized variable of interface type is <code>nil</code>.
 </p>
 
 <pre class="ebnf">
-<a id="InterfaceType">InterfaceType</a>      = "interface" "{" { ( <a href="#MethodSpec" class="noline">MethodSpec</a> | <a href="#InterfaceTypeName" class="noline">InterfaceTypeName</a> ) ";" } "}" .
-<a id="MethodSpec">MethodSpec</a>         = <a href="#MethodName" class="noline">MethodName</a> <a href="#Signature" class="noline">Signature</a> .
-<a id="MethodName">MethodName</a>         = <a href="#identifier" class="noline">identifier</a> .
-<a id="InterfaceTypeName">InterfaceTypeName</a>  = <a href="#TypeName" class="noline">TypeName</a> .
+InterfaceType      = "interface" "{" { ( MethodSpec | InterfaceTypeName ) ";" } "}" .
+MethodSpec         = MethodName Signature .
+MethodName         = identifier .
+InterfaceTypeName  = TypeName .
 </pre>
 
 <p>
@@ -1466,8 +1480,8 @@ The value of an uninitialized map is <code>nil</code>.
 </p>
 
 <pre class="ebnf">
-<a id="MapType">MapType</a>     = "map" "[" <a href="#KeyType" class="noline">KeyType</a> "]" <a href="#ElementType" class="noline">ElementType</a> .
-<a id="KeyType">KeyType</a>     = <a href="#Type" class="noline">Type</a> .
+MapType     = "map" "[" KeyType "]" ElementType .
+KeyType     = Type .
 </pre>
 
 <p>
@@ -1527,7 +1541,7 @@ The value of an uninitialized channel is <code>nil</code>.
 </p>
 
 <pre class="ebnf">
-<a id="ChannelType">ChannelType</a> = ( "chan" | "chan" "&lt;-" | "&lt;-" "chan" ) <a href="#ElementType" class="noline">ElementType</a> .
+ChannelType = ( "chan" | "chan" "&lt;-" | "&lt;-" "chan" ) ElementType .
 </pre>
 
 <p>
@@ -1795,8 +1809,8 @@ within matching brace brackets.
 </p>
 
 <pre class="ebnf">
-<a id="Block">Block</a> = "{" <a href="#StatementList" class="noline">StatementList</a> "}" .
-<a id="StatementList">StatementList</a> = { <a href="#Statement" class="noline">Statement</a> ";" } .
+Block = "{" StatementList "}" .
+StatementList = { Statement ";" } .
 </pre>
 
 <p>
@@ -1851,8 +1865,8 @@ and like the blank identifier it does not introduce a new binding.
 </p>
 
 <pre class="ebnf">
-<a id="Declaration">Declaration</a>   = <a href="#ConstDecl" class="noline">ConstDecl</a> | <a href="#TypeDecl" class="noline">TypeDecl</a> | <a href="#VarDecl" class="noline">VarDecl</a> .
-<a id="TopLevelDecl">TopLevelDecl</a>  = <a href="#Declaration" class="noline">Declaration</a> | <a href="#FunctionDecl" class="noline">FunctionDecl</a> | <a href="#MethodDecl" class="noline">MethodDecl</a> .
+Declaration   = ConstDecl | TypeDecl | VarDecl .
+TopLevelDecl  = Declaration | FunctionDecl | MethodDecl .
 </pre>
 
 <p>
@@ -1990,11 +2004,11 @@ right.
 </p>
 
 <pre class="ebnf">
-<a id="ConstDecl">ConstDecl</a>      = "const" ( <a href="#ConstSpec" class="noline">ConstSpec</a> | "(" { <a href="#ConstSpec" class="noline">ConstSpec</a> ";" } ")" ) .
-<a id="ConstSpec">ConstSpec</a>      = <a href="#IdentifierList" class="noline">IdentifierList</a> [ [ <a href="#Type" class="noline">Type</a> ] "=" <a href="#ExpressionList" class="noline">ExpressionList</a> ] .
+ConstDecl      = "const" ( ConstSpec | "(" { ConstSpec ";" } ")" ) .
+ConstSpec      = IdentifierList [ [ Type ] "=" ExpressionList ] .
 
-<a id="IdentifierList">IdentifierList</a> = <a href="#identifier" class="noline">identifier</a> { "," <a href="#identifier" class="noline">identifier</a> } .
-<a id="ExpressionList">ExpressionList</a> = <a href="#Expression" class="noline">Expression</a> { "," <a href="#Expression" class="noline">Expression</a> } .
+IdentifierList = identifier { "," identifier } .
+ExpressionList = Expression { "," Expression } .
 </pre>
 
 <p>
@@ -2107,8 +2121,8 @@ Type declarations come in two forms: alias declarations and type definitions.
 </p>
 
 <pre class="ebnf">
-<a id="TypeDecl">TypeDecl</a> = "type" ( <a href="#TypeSpec" class="noline">TypeSpec</a> | "(" { <a href="#TypeSpec" class="noline">TypeSpec</a> ";" } ")" ) .
-<a id="TypeSpec">TypeSpec</a> = <a href="#AliasDecl" class="noline">AliasDecl</a> | <a href="#TypeDef" class="noline">TypeDef</a> .
+TypeDecl = "type" ( TypeSpec | "(" { TypeSpec ";" } ")" ) .
+TypeSpec = AliasDecl | TypeDef .
 </pre>
 
 <h4 id="Alias_declarations">Alias declarations</h4>
@@ -2118,7 +2132,7 @@ An alias declaration binds an identifier to the given type.
 </p>
 
 <pre class="ebnf">
-<a id="AliasDecl">AliasDecl</a> = <a href="#identifier" class="noline">identifier</a> "=" <a href="#Type" class="noline">Type</a> .
+AliasDecl = identifier "=" Type .
 </pre>
 
 <p>
@@ -2143,7 +2157,7 @@ and binds an identifier to it.
 </p>
 
 <pre class="ebnf">
-<a id="TypeDef">TypeDef</a> = <a href="#identifier" class="noline">identifier</a> <a href="#Type" class="noline">Type</a> .
+TypeDef = identifier Type .
 </pre>
 
 <p>
@@ -2229,8 +2243,8 @@ binds corresponding identifiers to them, and gives each a type and an initial va
 </p>
 
 <pre class="ebnf">
-<a id="VarDecl">VarDecl</a>     = "var" ( <a href="#VarSpec" class="noline">VarSpec</a> | "(" { <a href="#VarSpec" class="noline">VarSpec</a> ";" } ")" ) .
-<a id="VarSpec">VarSpec</a>     = <a href="#IdentifierList" class="noline">IdentifierList</a> ( <a href="#Type" class="noline">Type</a> [ "=" <a href="#ExpressionList" class="noline">ExpressionList</a> ] | "=" <a href="#ExpressionList" class="noline">ExpressionList</a> ) .
+VarDecl     = "var" ( VarSpec | "(" { VarSpec ";" } ")" ) .
+VarSpec     = IdentifierList ( Type [ "=" ExpressionList ] | "=" ExpressionList ) .
 </pre>
 
 <pre>
@@ -2283,7 +2297,7 @@ A <i>short variable declaration</i> uses the syntax:
 </p>
 
 <pre class="ebnf">
-<a id="ShortVarDecl">ShortVarDecl</a> = <a href="#IdentifierList" class="noline">IdentifierList</a> ":=" <a href="#ExpressionList" class="noline">ExpressionList</a> .
+ShortVarDecl = IdentifierList ":=" ExpressionList .
 </pre>
 
 <p>
@@ -2335,9 +2349,9 @@ to a function.
 </p>
 
 <pre class="ebnf">
-<a id="FunctionDecl">FunctionDecl</a> = "func" <a href="#FunctionName" class="noline">FunctionName</a> <a href="#Signature" class="noline">Signature</a> [ <a href="#FunctionBody" class="noline">FunctionBody</a> ] .
-<a id="FunctionName">FunctionName</a> = <a href="#identifier" class="noline">identifier</a> .
-<a id="FunctionBody">FunctionBody</a> = <a href="#Block" class="noline">Block</a> .
+FunctionDecl = "func" FunctionName Signature [ FunctionBody ] .
+FunctionName = identifier .
+FunctionBody = Block .
 </pre>
 
 <p>
@@ -2382,8 +2396,8 @@ and associates the method with the receiver's <i>base type</i>.
 </p>
 
 <pre class="ebnf">
-<a id="MethodDecl">MethodDecl</a> = "func" <a href="#Receiver" class="noline">Receiver</a> <a href="#MethodName" class="noline">MethodName</a> <a href="#Signature" class="noline">Signature</a> [ <a href="#FunctionBody" class="noline">FunctionBody</a> ] .
-<a id="Receiver">Receiver</a>   = <a href="#Parameters" class="noline">Parameters</a> .
+MethodDecl = "func" Receiver MethodName Signature [ FunctionBody ] .
+Receiver   = Parameters .
 </pre>
 
 <p>
@@ -2472,10 +2486,10 @@ operand only on the left-hand side of an <a href="#Assignments">assignment</a>.
 </p>
 
 <pre class="ebnf">
-<a id="Operand">Operand</a>     = <a href="#Literal" class="noline">Literal</a> | <a href="#OperandName" class="noline">OperandName</a> | "(" <a href="#Expression" class="noline">Expression</a> ")" .
-<a id="Literal">Literal</a>     = <a href="#BasicLit" class="noline">BasicLit</a> | <a href="#CompositeLit" class="noline">CompositeLit</a> | <a href="#FunctionLit" class="noline">FunctionLit</a> .
-<a id="BasicLit">BasicLit</a>    = <a href="#int_lit" class="noline">int_lit</a> | <a href="#float_lit" class="noline">float_lit</a> | <a href="#imaginary_lit" class="noline">imaginary_lit</a> | <a href="#rune_lit" class="noline">rune_lit</a> | <a href="#string_lit" class="noline">string_lit</a> .
-<a id="OperandName">OperandName</a> = <a href="#identifier" class="noline">identifier</a> | <a href="#QualifiedIdent" class="noline">QualifiedIdent</a> .
+Operand     = Literal | OperandName | "(" Expression ")" .
+Literal     = BasicLit | CompositeLit | FunctionLit .
+BasicLit    = int_lit | float_lit | imaginary_lit | rune_lit | string_lit .
+OperandName = identifier | QualifiedIdent .
 </pre>
 
 <h3 id="Qualified_identifiers">Qualified identifiers</h3>
@@ -2487,7 +2501,7 @@ Both the package name and the identifier must not be
 </p>
 
 <pre class="ebnf">
-<a id="QualifiedIdent">QualifiedIdent</a> = <a href="#PackageName" class="noline">PackageName</a> "." <a href="#identifier" class="noline">identifier</a> .
+QualifiedIdent = PackageName "." identifier .
 </pre>
 
 <p>
@@ -2511,15 +2525,15 @@ Each element may optionally be preceded by a corresponding key.
 </p>
 
 <pre class="ebnf">
-<a id="CompositeLit">CompositeLit</a>  = <a href="#LiteralType" class="noline">LiteralType</a> <a href="#LiteralValue" class="noline">LiteralValue</a> .
-<a id="LiteralType">LiteralType</a>   = <a href="#StructType" class="noline">StructType</a> | <a href="#ArrayType" class="noline">ArrayType</a> | "[" "..." "]" <a href="#ElementType" class="noline">ElementType</a> |
-                <a href="#SliceType" class="noline">SliceType</a> | <a href="#MapType" class="noline">MapType</a> | <a href="#TypeName" class="noline">TypeName</a> .
-<a id="LiteralValue">LiteralValue</a>  = "{" [ <a href="#ElementList" class="noline">ElementList</a> [ "," ] ] "}" .
-<a id="ElementList">ElementList</a>   = <a href="#KeyedElement" class="noline">KeyedElement</a> { "," <a href="#KeyedElement" class="noline">KeyedElement</a> } .
-<a id="KeyedElement">KeyedElement</a>  = [ <a href="#Key" class="noline">Key</a> ":" ] <a href="#Element" class="noline">Element</a> .
-<a id="Key">Key</a>           = <a href="#FieldName" class="noline">FieldName</a> | <a href="#Expression" class="noline">Expression</a> | <a href="#LiteralValue" class="noline">LiteralValue</a> .
-<a id="FieldName">FieldName</a>     = <a href="#identifier" class="noline">identifier</a> .
-<a id="Element">Element</a>       = <a href="#Expression" class="noline">Expression</a> | <a href="#LiteralValue" class="noline">LiteralValue</a> .
+CompositeLit  = LiteralType LiteralValue .
+LiteralType   = StructType | ArrayType | "[" "..." "]" ElementType |
+                SliceType | MapType | TypeName .
+LiteralValue  = "{" [ ElementList [ "," ] ] "}" .
+ElementList   = KeyedElement { "," KeyedElement } .
+KeyedElement  = [ Key ":" ] Element .
+Key           = FieldName | Expression | LiteralValue .
+FieldName     = identifier .
+Element       = Expression | LiteralValue .
 </pre>
 
 <p>
@@ -2718,7 +2732,7 @@ A function literal represents an anonymous <a href="#Function_declarations">func
 </p>
 
 <pre class="ebnf">
-<a id="FunctionLit">FunctionLit</a> = "func" <a href="#Signature" class="noline">Signature</a> <a href="#FunctionBody" class="noline">FunctionBody</a> .
+FunctionLit = "func" Signature FunctionBody .
 </pre>
 
 <pre>
@@ -2749,22 +2763,22 @@ Primary expressions are the operands for unary and binary expressions.
 </p>
 
 <pre class="ebnf">
-<a id="PrimaryExpr">PrimaryExpr</a> =
-	<a href="#Operand" class="noline">Operand</a> |
-	<a href="#Conversion" class="noline">Conversion</a> |
-	<a href="#MethodExpr" class="noline">MethodExpr</a> |
-	<a href="#PrimaryExpr" class="noline">PrimaryExpr</a> <a href="#Selector" class="noline">Selector</a> |
-	<a href="#PrimaryExpr" class="noline">PrimaryExpr</a> <a href="#Index" class="noline">Index</a> |
-	<a href="#PrimaryExpr" class="noline">PrimaryExpr</a> <a href="#Slice" class="noline">Slice</a> |
-	<a href="#PrimaryExpr" class="noline">PrimaryExpr</a> <a href="#TypeAssertion" class="noline">TypeAssertion</a> |
-	<a href="#PrimaryExpr" class="noline">PrimaryExpr</a> <a href="#Arguments" class="noline">Arguments</a> .
+PrimaryExpr =
+	Operand |
+	Conversion |
+	MethodExpr |
+	PrimaryExpr Selector |
+	PrimaryExpr Index |
+	PrimaryExpr Slice |
+	PrimaryExpr TypeAssertion |
+	PrimaryExpr Arguments .
 
-<a id="Selector">Selector</a>       = "." <a href="#identifier" class="noline">identifier</a> .
-<a id="Index">Index</a>          = "[" <a href="#Expression" class="noline">Expression</a> "]" .
-<a id="Slice">Slice</a>          = "[" [ <a href="#Expression" class="noline">Expression</a> ] ":" [ <a href="#Expression" class="noline">Expression</a> ] "]" |
-                 "[" [ <a href="#Expression" class="noline">Expression</a> ] ":" <a href="#Expression" class="noline">Expression</a> ":" <a href="#Expression" class="noline">Expression</a> "]" .
-<a id="TypeAssertion">TypeAssertion</a>  = "." "(" <a href="#Type" class="noline">Type</a> ")" .
-<a id="Arguments">Arguments</a>      = "(" [ ( <a href="#ExpressionList" class="noline">ExpressionList</a> | <a href="#Type" class="noline">Type</a> [ "," <a href="#ExpressionList" class="noline">ExpressionList</a> ] ) [ "..." ] [ "," ] ] ")" .
+Selector       = "." identifier .
+Index          = "[" Expression "]" .
+Slice          = "[" [ Expression ] ":" [ Expression ] "]" |
+                 "[" [ Expression ] ":" Expression ":" Expression "]" .
+TypeAssertion  = "." "(" Type ")" .
+Arguments      = "(" [ ( ExpressionList | Type [ "," ExpressionList ] ) [ "..." ] [ "," ] ] ")" .
 </pre>
 
 
@@ -2938,8 +2952,8 @@ argument that is the receiver of the method.
 </p>
 
 <pre class="ebnf">
-<a id="MethodExpr">MethodExpr</a>    = <a href="#ReceiverType" class="noline">ReceiverType</a> "." <a href="#MethodName" class="noline">MethodName</a> .
-<a id="ReceiverType">ReceiverType</a>  = <a href="#Type" class="noline">Type</a> .
+MethodExpr    = ReceiverType "." MethodName .
+ReceiverType  = Type .
 </pre>
 
 <p>
@@ -3061,6 +3075,18 @@ The expression <code>x</code> is evaluated and saved during the evaluation of th
 method value; the saved copy is then used as the receiver in any calls,
 which may be executed later.
 </p>
+
+<pre>
+type S struct { *T }
+type T int
+func (t T) M() { print(t) }
+
+t := new(T)
+s := S{T: t}
+f := t.M                    // receiver *t is evaluated and stored in f
+g := s.M                    // receiver *(s.T) is evaluated and stored in g
+*t = 42                     // does not affect stored receivers in f and g
+</pre>
 
 <p>
 The type <code>T</code> may be an interface or non-interface type.
@@ -3621,15 +3647,15 @@ Operators combine operands into expressions.
 </p>
 
 <pre class="ebnf">
-<a id="Expression">Expression</a> = <a href="#UnaryExpr" class="noline">UnaryExpr</a> | <a href="#Expression" class="noline">Expression</a> <a href="#binary_op" class="noline">binary_op</a> <a href="#Expression" class="noline">Expression</a> .
-<a id="UnaryExpr">UnaryExpr</a>  = <a href="#PrimaryExpr" class="noline">PrimaryExpr</a> | <a href="#unary_op" class="noline">unary_op</a> <a href="#UnaryExpr" class="noline">UnaryExpr</a> .
+Expression = UnaryExpr | Expression binary_op Expression .
+UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
 
-<a id="binary_op">binary_op</a>  = "||" | "&amp;&amp;" | <a href="#rel_op" class="noline">rel_op</a> | <a href="#add_op" class="noline">add_op</a> | <a href="#mul_op" class="noline">mul_op</a> .
-<a id="rel_op">rel_op</a>     = "==" | "!=" | "&lt;" | "&lt;=" | ">" | ">=" .
-<a id="add_op">add_op</a>     = "+" | "-" | "|" | "^" .
-<a id="mul_op">mul_op</a>     = "*" | "/" | "%" | "&lt;&lt;" | "&gt;&gt;" | "&amp;" | "&amp;^" .
+binary_op  = "||" | "&amp;&amp;" | rel_op | add_op | mul_op .
+rel_op     = "==" | "!=" | "&lt;" | "&lt;=" | ">" | ">=" .
+add_op     = "+" | "-" | "|" | "^" .
+mul_op     = "*" | "/" | "%" | "&lt;&lt;" | "&gt;&gt;" | "&amp;" | "&amp;^" .
 
-<a id="unary_op">unary_op</a>   = "+" | "-" | "!" | "^" | "*" | "&amp;" | "&lt;-" .
+unary_op   = "+" | "-" | "!" | "^" | "*" | "&amp;" | "&lt;-" .
 </pre>
 
 <p>
@@ -3664,7 +3690,7 @@ var i = 1&lt;&lt;s                   // 1 has type int
 var j int32 = 1&lt;&lt;s             // 1 has type int32; j == 0
 var k = uint64(1&lt;&lt;s)           // 1 has type uint64; k == 1&lt;&lt;33
 var m int = 1.0&lt;&lt;s             // 1.0 has type int; m == 1&lt;&lt;33
-var n = 1.0&lt;&lt;s == j            // 1.0 has type int; n == true
+var n = 1.0&lt;&lt;s == j            // 1.0 has type int32; n == true
 var o = 1&lt;&lt;s == 2&lt;&lt;s           // 1 and 2 have type int; o == false
 var p = 1&lt;&lt;s == 1&lt;&lt;33          // 1 has type int; p == true
 var u = 1.0&lt;&lt;s                 // illegal: 1.0 has type float64, cannot shift
@@ -4141,7 +4167,7 @@ that can be converted to type <code>T</code>.
 </p>
 
 <pre class="ebnf">
-<a id="Conversion">Conversion</a> = <a href="#Type" class="noline">Type</a> "(" <a href="#Expression" class="noline">Expression</a> [ "," ] ")" .
+Conversion = Type "(" Expression [ "," ] ")" .
 </pre>
 
 <p>
@@ -4391,12 +4417,16 @@ a <a href="#Run_time_panics">run-time panic</a> occurs.
 <pre>
 s := make([]byte, 2, 4)
 s0 := (*[0]byte)(s)      // s0 != nil
+s1 := (*[1]byte)(s[1:])  // &amp;s1[0] == &amp;s[1]
 s2 := (*[2]byte)(s)      // &amp;s2[0] == &amp;s[0]
 s4 := (*[4]byte)(s)      // panics: len([4]byte) > len(s)
 
 var t []string
 t0 := (*[0]string)(t)    // t0 == nil
 t1 := (*[1]string)(t)    // panics: len([1]string) > len(t)
+
+u := make([]byte, 0)
+u0 := (*[0]byte)(u)      // u0 != nil
 </pre>
 
 <h3 id="Constant_expressions">Constant expressions</h3>
@@ -4595,21 +4625,20 @@ Statements control execution.
 </p>
 
 <pre class="ebnf">
-<a id="Statement">Statement</a> =
-	<a href="#Declaration" class="noline">Declaration</a> | <a href="#LabeledStmt" class="noline">LabeledStmt</a> | <a href="#SimpleStmt" class="noline">SimpleStmt</a> |
-	<a href="#GoStmt" class="noline">GoStmt</a> | <a href="#ReturnStmt" class="noline">ReturnStmt</a> | <a href="#BreakStmt" class="noline">BreakStmt</a> | <a href="#ContinueStmt" class="noline">ContinueStmt</a> | <a href="#GotoStmt" class="noline">GotoStmt</a> |
-	<a href="#FallthroughStmt" class="noline">FallthroughStmt</a> | <a href="#Block" class="noline">Block</a> | <a href="#IfStmt" class="noline">IfStmt</a> | <a href="#SwitchStmt" class="noline">SwitchStmt</a> | <a href="#SelectStmt" class="noline">SelectStmt</a> | <a href="#ForStmt" class="noline">ForStmt</a> |
-	<a href="#DeferStmt" class="noline">DeferStmt</a> .
+Statement =
+	Declaration | LabeledStmt | SimpleStmt |
+	GoStmt | ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |
+	FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt |
+	DeferStmt .
 
-<a id="SimpleStmt">SimpleStmt</a> = <a href="#EmptyStmt" class="noline">EmptyStmt</a> | <a href="#ExpressionStmt" class="noline">ExpressionStmt</a> | <a href="#SendStmt" class="noline">SendStmt</a> | <a href="#IncDecStmt" class="noline">IncDecStmt</a> | <a href="#Assignment" class="noline">Assignment</a> | <a href="#ShortVarDecl" class="noline">ShortVarDecl</a> .
+SimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl .
 </pre>
 
 <h3 id="Terminating_statements">Terminating statements</h3>
 
 <p>
-A <i>terminating statement</i> prevents execution of all statements that lexically
-appear after it in the same <a href="#Blocks">block</a>. The following statements
-are terminating:
+A <i>terminating statement</i> interrupts the regular flow of control in
+a <a href="#Blocks">block</a>. The following statements are terminating:
 </p>
 
 <ol>
@@ -4692,7 +4721,7 @@ The empty statement does nothing.
 </p>
 
 <pre class="ebnf">
-<a id="EmptyStmt">EmptyStmt</a> = .
+EmptyStmt = .
 </pre>
 
 
@@ -4704,8 +4733,8 @@ A labeled statement may be the target of a <code>goto</code>,
 </p>
 
 <pre class="ebnf">
-<a id="LabeledStmt">LabeledStmt</a> = <a href="#Label" class="noline">Label</a> ":" <a href="#Statement" class="noline">Statement</a> .
-<a id="Label">Label</a>       = <a href="#identifier" class="noline">identifier</a> .
+LabeledStmt = Label ":" Statement .
+Label       = identifier .
 </pre>
 
 <pre>
@@ -4723,7 +4752,7 @@ can appear in statement context. Such statements may be parenthesized.
 </p>
 
 <pre class="ebnf">
-<a id="ExpressionStmt">ExpressionStmt</a> = <a href="#Expression" class="noline">Expression</a> .
+ExpressionStmt = Expression .
 </pre>
 
 <p>
@@ -4755,8 +4784,8 @@ to the channel's element type.
 </p>
 
 <pre class="ebnf">
-<a id="SendStmt">SendStmt</a> = <a href="#Channel" class="noline">Channel</a> "&lt;-" <a href="#Expression" class="noline">Expression</a> .
-<a id="Channel">Channel</a>  = <a href="#Expression" class="noline">Expression</a> .
+SendStmt = Channel "&lt;-" Expression .
+Channel  = Expression .
 </pre>
 
 <p>
@@ -4783,7 +4812,7 @@ or a map index expression.
 </p>
 
 <pre class="ebnf">
-<a id="IncDecStmt">IncDecStmt</a> = <a href="#Expression" class="noline">Expression</a> ( "++" | "--" ) .
+IncDecStmt = Expression ( "++" | "--" ) .
 </pre>
 
 <p>
@@ -4801,9 +4830,9 @@ x--                 x -= 1
 <h3 id="Assignments">Assignments</h3>
 
 <pre class="ebnf">
-<a id="Assignment">Assignment</a> = <a href="#ExpressionList" class="noline">ExpressionList</a> <a href="#assign_op" class="noline">assign_op</a> <a href="#ExpressionList" class="noline">ExpressionList</a> .
+Assignment = ExpressionList assign_op ExpressionList .
 
-<a id="assign_op">assign_op</a> = [ <a href="#add_op" class="noline">add_op</a> | <a href="#mul_op" class="noline">mul_op</a> ] "=" .
+assign_op = [ add_op | mul_op ] "=" .
 </pre>
 
 <p>
@@ -4942,7 +4971,7 @@ present, the "else" branch is executed.
 </p>
 
 <pre class="ebnf">
-<a id="IfStmt">IfStmt</a> = "if" [ <a href="#SimpleStmt" class="noline">SimpleStmt</a> ";" ] <a href="#Expression" class="noline">Expression</a> <a href="#Block" class="noline">Block</a> [ "else" ( <a href="#IfStmt" class="noline">IfStmt</a> | <a href="#Block" class="noline">Block</a> ) ] .
+IfStmt = "if" [ SimpleStmt ";" ] Expression Block [ "else" ( IfStmt | Block ) ] .
 </pre>
 
 <pre>
@@ -4977,7 +5006,7 @@ to execute.
 </p>
 
 <pre class="ebnf">
-<a id="SwitchStmt">SwitchStmt</a> = <a href="#ExprSwitchStmt" class="noline">ExprSwitchStmt</a> | <a href="#TypeSwitchStmt" class="noline">TypeSwitchStmt</a> .
+SwitchStmt = ExprSwitchStmt | TypeSwitchStmt .
 </pre>
 
 <p>
@@ -5008,9 +5037,9 @@ A missing switch expression is equivalent to the boolean value
 </p>
 
 <pre class="ebnf">
-<a id="ExprSwitchStmt">ExprSwitchStmt</a> = "switch" [ <a href="#SimpleStmt" class="noline">SimpleStmt</a> ";" ] [ <a href="#Expression" class="noline">Expression</a> ] "{" { <a href="#ExprCaseClause" class="noline">ExprCaseClause</a> } "}" .
-<a id="ExprCaseClause">ExprCaseClause</a> = <a href="#ExprSwitchCase" class="noline">ExprSwitchCase</a> ":" <a href="#StatementList" class="noline">StatementList</a> .
-<a id="ExprSwitchCase">ExprSwitchCase</a> = "case" <a href="#ExpressionList" class="noline">ExpressionList</a> | "default" .
+ExprSwitchStmt = "switch" [ SimpleStmt ";" ] [ Expression ] "{" { ExprCaseClause } "}" .
+ExprCaseClause = ExprSwitchCase ":" StatementList .
+ExprSwitchCase = "case" ExpressionList | "default" .
 </pre>
 
 <p>
@@ -5101,11 +5130,11 @@ The types listed in the cases of a type switch must all be
 </p>
 
 <pre class="ebnf">
-<a id="TypeSwitchStmt">TypeSwitchStmt</a>  = "switch" [ <a href="#SimpleStmt" class="noline">SimpleStmt</a> ";" ] <a href="#TypeSwitchGuard" class="noline">TypeSwitchGuard</a> "{" { <a href="#TypeCaseClause" class="noline">TypeCaseClause</a> } "}" .
-<a id="TypeSwitchGuard">TypeSwitchGuard</a> = [ <a href="#identifier" class="noline">identifier</a> ":=" ] <a href="#PrimaryExpr" class="noline">PrimaryExpr</a> "." "(" "type" ")" .
-<a id="TypeCaseClause">TypeCaseClause</a>  = <a href="#TypeSwitchCase" class="noline">TypeSwitchCase</a> ":" <a href="#StatementList" class="noline">StatementList</a> .
-<a id="TypeSwitchCase">TypeSwitchCase</a>  = "case" <a href="#TypeList" class="noline">TypeList</a> | "default" .
-<a id="TypeList">TypeList</a>        = <a href="#Type" class="noline">Type</a> { "," <a href="#Type" class="noline">Type</a> } .
+TypeSwitchStmt  = "switch" [ SimpleStmt ";" ] TypeSwitchGuard "{" { TypeCaseClause } "}" .
+TypeSwitchGuard = [ identifier ":=" ] PrimaryExpr "." "(" "type" ")" .
+TypeCaseClause  = TypeSwitchCase ":" StatementList .
+TypeSwitchCase  = "case" TypeList | "default" .
+TypeList        = Type { "," Type } .
 </pre>
 
 <p>
@@ -5193,8 +5222,8 @@ The iteration may be controlled by a single condition, a "for" clause, or a "ran
 </p>
 
 <pre class="ebnf">
-<a id="ForStmt">ForStmt</a> = "for" [ <a href="#Condition" class="noline">Condition</a> | <a href="#ForClause" class="noline">ForClause</a> | <a href="#RangeClause" class="noline">RangeClause</a> ] <a href="#Block" class="noline">Block</a> .
-<a id="Condition">Condition</a> = <a href="#Expression" class="noline">Expression</a> .
+ForStmt = "for" [ Condition | ForClause | RangeClause ] Block .
+Condition = Expression .
 </pre>
 
 <h4 id="For_condition">For statements with single condition</h4>
@@ -5225,9 +5254,9 @@ Variables declared by the init statement are re-used in each iteration.
 </p>
 
 <pre class="ebnf">
-<a id="ForClause">ForClause</a> = [ <a href="#InitStmt" class="noline">InitStmt</a> ] ";" [ <a href="#Condition" class="noline">Condition</a> ] ";" [ <a href="#PostStmt" class="noline">PostStmt</a> ] .
-<a id="InitStmt">InitStmt</a> = <a href="#SimpleStmt" class="noline">SimpleStmt</a> .
-<a id="PostStmt">PostStmt</a> = <a href="#SimpleStmt" class="noline">SimpleStmt</a> .
+ForClause = [ InitStmt ] ";" [ Condition ] ";" [ PostStmt ] .
+InitStmt = SimpleStmt .
+PostStmt = SimpleStmt .
 </pre>
 
 <pre>
@@ -5263,7 +5292,7 @@ to corresponding <i>iteration variables</i> if present and then executes the blo
 </p>
 
 <pre class="ebnf">
-<a id="RangeClause">RangeClause</a> = [ <a href="#ExpressionList" class="noline">ExpressionList</a> "=" | <a href="#IdentifierList" class="noline">IdentifierList</a> ":=" ] "range" <a href="#Expression" class="noline">Expression</a> .
+RangeClause = [ ExpressionList "=" | IdentifierList ":=" ] "range" Expression .
 </pre>
 
 <p>
@@ -5400,7 +5429,7 @@ within the same address space.
 </p>
 
 <pre class="ebnf">
-<a id="GoStmt">GoStmt</a> = "go" <a href="#Expression" class="noline">Expression</a> .
+GoStmt = "go" Expression .
 </pre>
 
 <p>
@@ -5441,11 +5470,11 @@ cases all referring to communication operations.
 </p>
 
 <pre class="ebnf">
-<a id="SelectStmt">SelectStmt</a> = "select" "{" { <a href="#CommClause" class="noline">CommClause</a> } "}" .
-<a id="CommClause">CommClause</a> = <a href="#CommCase" class="noline">CommCase</a> ":" <a href="#StatementList" class="noline">StatementList</a> .
-<a id="CommCase">CommCase</a>   = "case" ( <a href="#SendStmt" class="noline">SendStmt</a> | <a href="#RecvStmt" class="noline">RecvStmt</a> ) | "default" .
-<a id="RecvStmt">RecvStmt</a>   = [ <a href="#ExpressionList" class="noline">ExpressionList</a> "=" | <a href="#IdentifierList" class="noline">IdentifierList</a> ":=" ] <a href="#RecvExpr" class="noline">RecvExpr</a> .
-<a id="RecvExpr">RecvExpr</a>   = <a href="#Expression" class="noline">Expression</a> .
+SelectStmt = "select" "{" { CommClause } "}" .
+CommClause = CommCase ":" StatementList .
+CommCase   = "case" ( SendStmt | RecvStmt ) | "default" .
+RecvStmt   = [ ExpressionList "=" | IdentifierList ":=" ] RecvExpr .
+RecvExpr   = Expression .
 </pre>
 
 <p>
@@ -5547,7 +5576,7 @@ are executed before <code>F</code> returns to its caller.
 </p>
 
 <pre class="ebnf">
-<a id="ReturnStmt">ReturnStmt</a> = "return" [ <a href="#ExpressionList" class="noline">ExpressionList</a> ] .
+ReturnStmt = "return" [ ExpressionList ] .
 </pre>
 
 <p>
@@ -5646,7 +5675,7 @@ within the same function.
 </p>
 
 <pre class="ebnf">
-<a id="BreakStmt">BreakStmt</a> = "break" [ <a href="#Label" class="noline">Label</a> ] .
+BreakStmt = "break" [ Label ] .
 </pre>
 
 <p>
@@ -5680,7 +5709,7 @@ The "for" loop must be within the same function.
 </p>
 
 <pre class="ebnf">
-<a id="ContinueStmt">ContinueStmt</a> = "continue" [ <a href="#Label" class="noline">Label</a> ] .
+ContinueStmt = "continue" [ Label ] .
 </pre>
 
 <p>
@@ -5709,7 +5738,7 @@ within the same function.
 </p>
 
 <pre class="ebnf">
-<a id="GotoStmt">GotoStmt</a> = "goto" <a href="#Label" class="noline">Label</a> .
+GotoStmt = "goto" Label .
 </pre>
 
 <pre>
@@ -5765,7 +5794,7 @@ It may be used only as the final non-empty statement in such a clause.
 </p>
 
 <pre class="ebnf">
-<a id="FallthroughStmt">FallthroughStmt</a> = "fallthrough" .
+FallthroughStmt = "fallthrough" .
 </pre>
 
 
@@ -5780,7 +5809,7 @@ or because the corresponding goroutine is <a href="#Handling_panics">panicking</
 </p>
 
 <pre class="ebnf">
-<a id="DeferStmt">DeferStmt</a> = "defer" <a href="#Expression" class="noline">Expression</a> .
+DeferStmt = "defer" Expression .
 </pre>
 
 <p>
@@ -6296,7 +6325,7 @@ types, variables, and constants.
 </p>
 
 <pre class="ebnf">
-<a id="SourceFile">SourceFile</a>       = <a href="#PackageClause" class="noline">PackageClause</a> ";" { <a href="#ImportDecl" class="noline">ImportDecl</a> ";" } { <a href="#TopLevelDecl" class="noline">TopLevelDecl</a> ";" } .
+SourceFile       = PackageClause ";" { ImportDecl ";" } { TopLevelDecl ";" } .
 </pre>
 
 <h3 id="Package_clause">Package clause</h3>
@@ -6307,8 +6336,8 @@ to which the file belongs.
 </p>
 
 <pre class="ebnf">
-<a id="PackageClause">PackageClause</a>  = "package" <a href="#PackageName" class="noline">PackageName</a> .
-<a id="PackageName">PackageName</a>    = <a href="#identifier" class="noline">identifier</a> .
+PackageClause  = "package" PackageName .
+PackageName    = identifier .
 </pre>
 
 <p>
@@ -6337,9 +6366,9 @@ that specifies the package to be imported.
 </p>
 
 <pre class="ebnf">
-<a id="ImportDecl">ImportDecl</a>       = "import" ( <a href="#ImportSpec" class="noline">ImportSpec</a> | "(" { <a href="#ImportSpec" class="noline">ImportSpec</a> ";" } ")" ) .
-<a id="ImportSpec">ImportSpec</a>       = [ "." | <a href="#PackageName" class="noline">PackageName</a> ] <a href="#ImportPath" class="noline">ImportPath</a> .
-<a id="ImportPath">ImportPath</a>       = <a href="#string_lit" class="noline">string_lit</a> .
+ImportDecl       = "import" ( ImportSpec | "(" { ImportSpec ";" } ")" ) .
+ImportSpec       = [ "." | PackageName ] ImportPath .
+ImportPath       = string_lit .
 </pre>
 
 <p>
@@ -6904,7 +6933,6 @@ A struct or array type has size zero if it contains no fields (or elements, resp
 </p>
 
 
-
 </div>
 </main>
 <footer>
@@ -6919,4 +6947,12 @@ A struct or array type has size zero if it contains no fields (or elements, resp
     <a class="Footer-supportedBy" href="https://google.com">Supported by Google</a>
   </div>
 </footer>
+
+<script>
+(function() {
+  var ga = document.createElement("script"); ga.type = "text/javascript"; ga.async = true;
+  ga.src = ("https:" == document.location.protocol ? "https://ssl" : "http://www") + ".google-analytics.com/ga.js";
+  var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
 
