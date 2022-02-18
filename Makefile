@@ -92,14 +92,14 @@ spec_noscript.html: spec_orig.html
 
 docs/spec.html: spec_noscript.html
 	mkdir -p docs
-	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | $(SED) '7 a <script src="word2stem.js"></script>' | $(SED) '8 a <script src="dic.ja.js"></script>' | $(SED) '9 a <script src="main.js"></script><script src="godocs.js"></script>' > $@
+	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | $(SED) '7 a <script src="word2stem.js"></script>' | $(SED) '8 a <script src="dic.ja.js"></script>' | $(SED) '9 a <script src="main.js"></script><script src="toc.js"></script>' > $@
 	perl -pi -e 's#/lib/godoc/#./lib/godoc/#g' $@
 	perl -pi -e 'BEGIN{undef $$/;}  s|(<h1>\s+The)|$$1 <span id="word-wise">Word Wise</span>|' $@
 	perl -pi -e 's|<title>.*</title>|<title>Word Wise Go Spec</title>|' $@
 	perl -pi -e 's|(class="container")|$$1 ontouchstart|' $@
 
-copy_my_static_files: dictionary.css main.js godocs.js
-	cp dictionary.css main.js godocs.js docs/
+copy_my_static_files: dictionary.css main.js toc.js
+	cp dictionary.css main.js toc.js docs/
 
 copy_original_static_files: web/css/* web/images/*
 	mkdir -p docs/css
