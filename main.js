@@ -16,7 +16,7 @@ function main() {
 }
 
 function collectTextNodes() {
-  const container = document.querySelector(".container")
+  const container = document.querySelector("main")
   const r = [];
   let n;
   const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null, false);
