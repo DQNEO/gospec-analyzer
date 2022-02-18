@@ -73,6 +73,10 @@ docs/count.txt: docs/tokens4.txt gospec
 docs/uniq.txt: docs/tokens4.txt gospec
 	./gospec uniq < $< > $@ 2>/dev/null
 
+bin/tsv2json: tsv2json/*/*
+	go mod vendor
+	go build -o $@ ./tsv2json/cmd
+
 docs/dic.ja.json: data/dic.ja.tsv bin/tsv2json
 	bin/tsv2json $< > $@
 
@@ -104,7 +108,3 @@ copy_original_static_files: web/css/* web/images/*
 	mkdir -p docs/images
 	cp -r web/css/* docs/css/
 	cp -r web/images/* docs/images/
-
-bin/tsv2json: tsv2json/*/*
-	go mod vendor
-	go build -o $@ ./tsv2json/cmd
