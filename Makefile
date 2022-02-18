@@ -99,9 +99,7 @@ docs/spec.html: spec_noscript.html
 	perl -pi -e 's|(class="container")|$$1 ontouchstart|' $@
 
 copy_my_static_files: dictionary.css main.js godocs.js
-	cp dictionary.css docs/
-	cp main.js docs/
-	cp godocs.js docs/
+	cp dictionary.css main.js godocs.js docs/
 
 copy_original_static_files: web/css/* web/images/*
 	mkdir -p docs/css
