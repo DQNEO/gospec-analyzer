@@ -93,7 +93,8 @@ spec_noscript.html: spec_orig.html
 docs/spec.html: spec_noscript.html
 	mkdir -p docs
 	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css"><script src="word2stem.js"></script><script src="dic.ja.js"></script><script src="main.js"></script><script src="toc.js"></script>' > $@
-	perl -pi -e 's#/lib/godoc/#./lib/godoc/#g' $@
+	perl -pi -e 's#/css/#css/#g' $@
+	perl -pi -e 's#/images/#images/#g' $@
 	perl -pi -e 'BEGIN{undef $$/;}  s|(<h1>\s+The)|$$1 <span id="word-wise">Word Wise</span>|' $@
 	perl -pi -e 's|<title>.*</title>|<title>Word Wise Go Spec</title>|' $@
 	perl -pi -e 's|(<main)|$$1 ontouchstart |' $@
