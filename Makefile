@@ -83,8 +83,6 @@ docs/dic.ja.js: docs/dic.ja.json
 .PHONY: web
 web: docs/spec.html docs/dic.ja.js docs/word2stem.js copy_my_static_files copy_original_static_files
 
-#docs/dictionary.css docs/main.js  docs/lib/godoc/jquery.js docs/lib/godoc/playground.js docs/lib/godoc/godocs.js docs/lib/godoc/images/go-logo-blue.svg docs/lib/godoc/images/footer-gopher.jpg
-
 spec_noscript.html: spec_orig.html
 	perl -p -e 'BEGIN{undef $$/;}  s|<script\s*>[^<]*</script>||smg' $< > $@
 
