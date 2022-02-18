@@ -22,6 +22,7 @@ bin/s2t: spec2text/* spec2text/*/*
 	go build -o $@ ./spec2text/cmd
 
 docs/spec.txt: spec_orig.html bin/s2t
+	@echo --- extracting text from spec_orig.html
 	bin/s2t $< > $@
 
 bin/tokenizer: tokenizer/* tokenizer/*/*
@@ -72,6 +73,10 @@ docs/count.txt: docs/tokens4.txt gospec
 docs/uniq.txt: docs/tokens4.txt gospec
 	./gospec uniq < $< > $@ 2>/dev/null
 
+bin/tsv2json: tsv2json/*/*
+	go mod vendor
+	go build -o $@ ./tsv2json/cmd
+
 docs/dic.ja.json: data/dic.ja.tsv bin/tsv2json
 	bin/tsv2json $< > $@
 
@@ -80,46 +85,24 @@ docs/dic.ja.js: docs/dic.ja.json
 	cat $< >> $@
 
 .PHONY: web
-web: docs/spec.html docs/lib/godoc/style.css docs/dictionary.css docs/main.js docs/dic.ja.js docs/word2stem.js docs/lib/godoc/jquery.js docs/lib/godoc/playground.js docs/lib/godoc/godocs.js docs/lib/godoc/images/go-logo-blue.svg docs/lib/godoc/images/footer-gopher.jpg
+web: docs/spec.html docs/dic.ja.js docs/word2stem.js copy_my_static_files copy_original_static_files
 
 spec_noscript.html: spec_orig.html
-	perl -p -e 'BEGIN{undef $$/;}  s|<script>[^<]*</script>||smg' $< > $@
+	perl -p -e 'BEGIN{undef $$/;}  s|<script\s*>[^<]*</script>||smg' $< > $@
 
 docs/spec.html: spec_noscript.html
 	mkdir -p docs
-	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css">' | $(SED) '7 a <script src="word2stem.js"></script>' | $(SED) '8 a <script src="dic.ja.js"></script>' | $(SED) '9 a <script src="main.js"></script>' > $@
+	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css"><script src="word2stem.js"></script><script src="dic.ja.js"></script><script src="main.js"></script><script src="toc.js"></script>' > $@
 	perl -pi -e 's#/lib/godoc/#./lib/godoc/#g' $@
 	perl -pi -e 'BEGIN{undef $$/;}  s|(<h1>\s+The)|$$1 <span id="word-wise">Word Wise</span>|' $@
 	perl -pi -e 's|<title>.*</title>|<title>Word Wise Go Spec</title>|' $@
-	perl -pi -e 's|(class="container")|$$1 ontouchstart|' $@
+	perl -pi -e 's|(<main)|$$1 ontouchstart |' $@
 
-docs/lib/godoc/style.css: lib/godoc/style.css
-	mkdir -p docs/lib/godoc
-	cp $< $@
+copy_my_static_files: dictionary.css main.js toc.js
+	cp dictionary.css main.js toc.js docs/
 
-docs/lib/godoc/images/go-logo-blue.svg: lib/godoc/images/go-logo-blue.svg
-	mkdir -p docs/lib/godoc/images
-	cp $< $@
-
-docs/lib/godoc/images/footer-gopher.jpg: lib/godoc/images/footer-gopher.jpg
-	mkdir -p docs/lib/godoc/images
-	cp $< $@
-
-docs/dictionary.css: dictionary.css
-	cp $< $@
-
-docs/main.js: main.js
-	cp $< $@
-
-bin/tsv2json: tsv2json/*/*
-	go mod vendor
-	go build -o $@ ./tsv2json/cmd
-
-docs/lib/godoc/jquery.js:
-	touch $@
-
-docs/lib/godoc/playground.js:
-	touch $@
-
-docs/lib/godoc/godocs.js: godocs.js
-	cp $< $@
+copy_original_static_files: web/css/* web/images/*
+	mkdir -p docs/css
+	mkdir -p docs/images
+	cp -r web/css/* docs/css/
+	cp -r web/images/* docs/images/
