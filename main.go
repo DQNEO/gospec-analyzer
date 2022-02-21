@@ -1,17 +1,19 @@
 package main
 
 import (
+	_ "embed"
 	"encoding/json"
 	"fmt"
+	"github.com/aaaton/golem/v4"
 	"io"
 	"os"
 	"strings"
-	_ "embed"
 
+	"github.com/DQNEO/gospec-analyzer/tokenizer"
+	"github.com/aaaton/golem/v4/dicts/en"
 	"github.com/jdkato/prose/v2"
 	"github.com/jinzhu/inflection"
 	"github.com/surgebase/porter2"
-	"github.com/DQNEO/gospec-analyzer/tokenizer"
 )
 
 func showUsage() {
@@ -22,6 +24,7 @@ Usage:
 	filter3: exclude basic words
 	filter4: exclude technical terms
 	normalize: normalize word variations
+	lemmatize: lemmatize
 	count: show statistics
 	uniq: show statistics uniq by word
 `
@@ -30,11 +33,12 @@ Usage:
 
 //go:embed data/technicalterms.txt
 var technicalTermsString string
+
 //go:embed data/basicwords.txt
 var basicWordsString string
 
 var technicalTerm map[string]bool
-var basicWords  map[string]bool
+var basicWords map[string]bool
 
 func main() {
 	if len(os.Args) == 1 {
@@ -68,16 +72,20 @@ func main() {
 			technicalTerm[t] = true
 		}
 		filter(loadTokens(os.Stdin), isTechnicalTerm)
-	case "normalize":
+	case "normalize": // DEPRECATED
 		normalize(loadTokens(os.Stdin))
-	case "normalizejson":
+	case "normalizejson": // DEPRECATED
 		normalizeJson(loadTokens(os.Stdin))
-	case "count":
+	case "lemmatize":
+		lemmatize(loadTokens(os.Stdin))
+	case "lemmatizejson":
+		lemmatizeJson(loadTokens(os.Stdin))
+	case "count_by_lemma_and_tag":
 		tokens := loadTokens(os.Stdin)
-		countByTags(tokens)
-	case "uniq":
+		countByLemmaAndTag(tokens)
+	case "count_by_lemma":
 		tokens := loadTokens(os.Stdin)
-		countByWord(tokens)
+		countByLemma(tokens)
 	default:
 		showUsage()
 	}
@@ -96,8 +104,8 @@ func loadTokens(r io.Reader) []prose.Token {
 		}
 		fields := strings.Split(line, "\t")
 		tk := prose.Token{
-			Text:   fields[0],
-			Tag:  fields[1],
+			Text:  fields[0],
+			Tag:   fields[1],
 			Label: fields[2],
 		}
 		tokens = append(tokens, tk)
@@ -171,15 +179,49 @@ func normalizeJson(tokens []prose.Token) {
 		newTok := manipulateToken(tok)
 		assoc[tok.Text] = newTok.Text
 	}
-	bytes , err := json.MarshalIndent(assoc, "", "  ")
+	bytes, err := json.MarshalIndent(assoc, "", "  ")
 	if err != nil {
 		panic(err)
 	}
 	os.Stdout.Write(bytes)
 }
 
-func explainConversion(old *prose.Token, new *
-	prose.Token) {
+func newLemmatizer() *golem.Lemmatizer {
+	lemmatizer, err := golem.New(en.New())
+	if err != nil {
+		panic(err)
+	}
+	return lemmatizer
+}
+
+func lemmatize(tokens []prose.Token) {
+	lemmatizer := newLemmatizer()
+	for _, tok := range tokens {
+		newTok := lemmatizeToken(tok, lemmatizer)
+		fmt.Printf(
+			"%-15s\t%4s => %-15s\t%4s\t:%s\n",
+			tok.Text, tok.Tag,
+			newTok.Text, newTok.Tag,
+			tok.Label,
+		)
+	}
+}
+
+func lemmatizeJson(tokens []prose.Token) {
+	var assoc map[string]string = make(map[string]string, len(tokens))
+	lemmatizer := newLemmatizer()
+	for _, tok := range tokens {
+		newTok := lemmatizeToken(tok, lemmatizer)
+		assoc[tok.Text] = newTok.Text
+	}
+	bytes, err := json.MarshalIndent(assoc, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+	os.Stdout.Write(bytes)
+}
+
+func explainConversion(old *prose.Token, new *prose.Token) {
 	fmt.Fprintf(os.Stderr, "Converting [%4s] %20s => [%4s] %20s\n",
 		old.Tag, old.Text, new.Tag, new.Text)
 }
@@ -194,6 +236,30 @@ func singulifyToken(origTok *prose.Token) *prose.Token {
 	} else {
 		return origTok
 	}
+}
+
+type Lemmatizer interface {
+	Lemma(word string) string
+}
+
+func lemmatizeToken(origTok prose.Token, lem Lemmatizer) prose.Token {
+	tok := origTok
+	switch origTok.Tag {
+	case "nns", "nnps":
+		// dogs NNS -> dog NN
+		return *singulifyToken(&origTok)
+	case "vbd", "vbg", "vbn", "vbp", "vbz":
+		tok.Text = lem.Lemma(origTok.Text)
+		tok.Tag = "vb"
+		return tok
+	case "jjs":
+		if strings.HasSuffix(origTok.Text, "est") {
+			tok.Text = strings.TrimSuffix(origTok.Text, "est")
+			tok.Tag = "jj"
+			return tok
+		}
+	}
+	return tok
 }
 
 func manipulateToken(origTok prose.Token) prose.Token {
@@ -217,10 +283,11 @@ func manipulateToken(origTok prose.Token) prose.Token {
 	return tok
 }
 
-func countByTags(meaningfulTokens []prose.Token) {
+func countByLemmaAndTag(meaningfulTokens []prose.Token) {
+	lemmatizer := newLemmatizer()
 	var wordCount = map[string]map[string]int{}
 	for _, origTok := range meaningfulTokens {
-		tok := manipulateToken(origTok)
+		tok := lemmatizeToken(origTok, lemmatizer)
 		lowerText := strings.ToLower(tok.Text)
 		_, ok := wordCount[lowerText]
 		if !ok {
@@ -244,10 +311,11 @@ func countByTags(meaningfulTokens []prose.Token) {
 	}
 }
 
-func countByWord(meaningfulTokens []prose.Token) {
+func countByLemma(meaningfulTokens []prose.Token) {
+	lemmatizer := newLemmatizer()
 	var wordCount = map[string]int{}
 	for _, origTok := range meaningfulTokens {
-		tok := manipulateToken(origTok)
+		tok := lemmatizeToken(origTok, lemmatizer)
 		lowerText := strings.ToLower(tok.Text)
 		cnt := wordCount[lowerText]
 		wordCount[lowerText] = cnt + 1

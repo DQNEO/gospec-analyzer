@@ -8,7 +8,7 @@ else
 endif
 
 .PHONY: all
-all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/word2stem.txt docs/word2stem.json docs/count.txt docs/uniq.txt docs/dic.ja.json web
+all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/word2lemma.txt docs/word2lemma.json docs/count_by_lemma_and_tag.txt docs/count_by_lemma.txt docs/dic.ja.json web
 
 .PHONY: data/dic.ja.tsv
 data/dic.ja.tsv:
@@ -56,22 +56,22 @@ docs/tokens4.txt: docs/tokens3.txt gospec
 docs/tokens-uniq.txt: docs/tokens4.txt
 	cat $< | sort | uniq | tr '[:upper:]' '[:lower:]' > $@
 
-docs/word2stem.txt: docs/tokens-uniq.txt gospec
-	./gospec normalize < $< > $@ 2> docs/word2stem.log
-	cat docs/word2stem.log | sort | uniq > docs/word2stem.uniq.log
+docs/word2lemma.txt: docs/tokens-uniq.txt gospec
+	./gospec lemmatize < $< > $@ 2> docs/word2lemma.log
+	cat docs/word2lemma.log | sort | uniq > docs/word2lemma.uniq.log
 
-docs/word2stem.json: docs/tokens-uniq.txt gospec
-	./gospec normalizejson < $< > $@ 2>/dev/null
+docs/word2lemma.json: docs/tokens-uniq.txt gospec
+	./gospec lemmatizejson < $< > $@ 2>/dev/null
 
-docs/word2stem.js: docs/word2stem.json
-	echo 'var word2stem = ' > $@
+docs/word2lemma.js: docs/word2lemma.json
+	echo 'var word2lemma = ' > $@
 	cat $< >> $@
 
-docs/count.txt: docs/tokens4.txt gospec
-	./gospec count < $< > $@ 2>/dev/null
+docs/count_by_lemma_and_tag.txt: docs/tokens4.txt gospec
+	./gospec count_by_lemma_and_tag < $< > $@ 2>/dev/null
 
-docs/uniq.txt: docs/tokens4.txt gospec
-	./gospec uniq < $< > $@ 2>/dev/null
+docs/count_by_lemma.txt: docs/tokens4.txt gospec
+	./gospec count_by_lemma < $< > $@ 2>/dev/null
 
 bin/tsv2json: tsv2json/*/*
 	go mod vendor
@@ -85,14 +85,14 @@ docs/dic.ja.js: docs/dic.ja.json
 	cat $< >> $@
 
 .PHONY: web
-web: docs/spec.html docs/dic.ja.js docs/word2stem.js copy_my_static_files copy_original_static_files
+web: docs/spec.html docs/dic.ja.js docs/word2lemma.js docs/word2lemma.json copy_my_static_files copy_original_static_files
 
 spec_noscript.html: spec_orig.html
 	perl -p -e 'BEGIN{undef $$/;}  s|<script\s*>[^<]*</script>||smg' $< > $@
 
 docs/spec.html: spec_noscript.html
 	mkdir -p docs
-	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css"><script src="word2stem.js"></script><script src="dic.ja.js"></script><script src="main.js"></script><script src="toc.js"></script>' > $@
+	cat spec_noscript.html | $(SED) '6 a <link type="text/css" rel="stylesheet" href="dictionary.css"><script src="word2lemma.js"></script><script src="dic.ja.js"></script><script src="main.js"></script><script src="toc.js"></script>' > $@
 	perl -pi -e 's#/css/#css/#g' $@
 	perl -pi -e 's#/images/#images/#g' $@
 	perl -pi -e 'BEGIN{undef $$/;}  s|(<h1>\s+The)|$$1 <span id="word-wise">Word Wise</span>|' $@
