@@ -27,11 +27,11 @@ function collectTextNodes() {
 }
 
 function lookupWord(word) {
-    const stem = word2stem[word.toLowerCase()];
-    if (!stem) {
+    const lemma = word2lemma[word.toLowerCase()];
+    if (!lemma) {
       return "";
     }
-    const meaning = dic[stem];
+    const meaning = dic[lemma];
     if (!meaning) {
       return "";
     }

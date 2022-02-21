@@ -1,1058 +1,1170 @@
-EN	JA	翻訳不要 (E: 初歩単語、T: 専門用語)
-alternation	〔二者間の〕交代	
-accented		
-multi-variable	多値	
-typically	一般的に、典型的に	
-ellipsis	省略記号(...)	
-group		
-enter		
-stream		
-camelcase	キャメルケース	
-moreover	その上	
-embeddedfield		
-significantly	著しく	
-golang.org		
-superset	上位集合	
-constituent	構成要素	
-reflection	リフレクション、反映	
-descriptor	記述子	
-lt		
-rare	まれ	
-segment	切片	
-integrated	統合された	
-easy		
-divid	割る、分割する	
-garbage-collected		
-here		
-general-purpose	汎用の	
-speak		
-generator		
-parsing	構文解析の	
-copy		
-power	累乗	
-resume	再開する	
-n-bit		
-subset	部分集合	
-repeat		E
-queue	キュー	
-substitution	置き換え	
-bootstrap		
-skips		
-selection	選択	
-read		
-ensure	保証する	
-semantically	意味論的に	
-facility	施設、設備	
-and		
-fall		
-directory		
-multiply	掛け算する	
-still		
-portability	移植性	
-enumeration	列挙、目録	
-own		
-resolve	解決する	
-exploit	不当に利用する	
-printing		
-repository		
-sequential	連続して起こる	
-surviv	生存する	
-minimum	最小の	
-inhabit	済む	
-written		
-hierarchy	階層	
-common		
-importpaths		
-illustr	描写する、示す	
-deterministically	決定論的に	
-simplicity	単純さ、簡単さ	
-assignability	代入可能性	
-round-to-even	偶数への丸め、偶数丸め	
-inverse	逆の	
-termination	終端	
-rais		
-less		
-impli	暗黙の	
-non-complex	複素数でない（実数の）	
-event		
-immaterial	重要でない	
-fully	完全に	
-pars	構文解析する	
-compile		
-encount	出会う	
-higher-dimensional	より高次元の	
-twice	2回	
-automatic	自動の	
-linguistic	言語上の	
-correspond	照応する	
-cyclic	循環的	
-issue		
-literally	文字通りに	
-sufficiently	十分に	
-strongly		
-rewritten		
-no-op		
-varspec		
-first-in-first-out	先入先出法	
-computation	計算	
-table		
-snippet	断片	
-multiplication	乗算	
-top-to-bottom		
-sieve	 篩(ふるい)	
-keywords	予約語	
-sender	送信者	
-protect	守る	
-alternative	代わりのもの、選択肢	
-separ	分割する	
-modify		
-re-us		
-program-defined		
-low-level		
-wrap		
-uniform		
-overlap	重なる/重なり	
-reflect		
-disassemble	分解する	
-top		
-nnn		
-done		
-subexpression		
-multi-byte		
-overrid		
-hypothetical	仮定の	
-conditional	条件付き、条件的	
-concrete	具体的な/具象的な	
-mix		
-reproducible	再現可能	
-occupy	占める	
-impossible		
-manual	マニュアル、手動	
-exit		
-dereferenc		
-measure		
-direct		
-specifically	特に	
-oppos	反対する、対置する	
-accommodate	収容する	
-typespec		
-position		
-annot		
-FALSE		
-extract	抽出する	
-entirely		
-side-effect	副作用	
-detail		
-backus-naur	バッカス・ナウア (考案者のジョン・バッカスさんとピーター・ナウアさん）	
-shortvardecl		
-uniqueness	一意性	
-inherit	継承する	
-brace-bound		
-indicate	指し示す	
-choice		
-labels		
-show		
-portable		
-types—array		
-fma		
-surrogate		
-design	設計（する）	
-fusion	融合	
-reachable	到達可能	
-plain		
-choos		
-period		
-near		
-irrespective	に関係なく	
-enough		
-safety		
-broken		
-uninterpreted		
-deletion		
-turn		
-inclusive	含んでいる	
-placeholder		
-fraction	小数	
-reserf		
-simplifi		
-record		
-manage		
-consideration	考慮	
-format		
-elementary	初歩的な	
-anew		
-nul		
-enforc		
-multipli		
-indirect	間接的な、遠回りの	
-not-a-number		
-jan		
-left-		
-repetition	繰り返し	
-sometimes		
-encompass		
-scoping		
-vocabulary		
-nn		
-loosely		
-launch		
-introduction		
-align	揃える	
-useful		
-grow		
-analyz		
-contiguous		
-originally		
-relation		
-specially		
-erroneously	誤って	
-cycle		
-stepwise		
-incur		
-qualifier		
-offset		
-dereference		
-documentation	文書	
-unordered		
-structurally		
-compris		
-thread		
-express		
-negation	否定	
-finally		
-reverse		
-compact	コンパクト	
-behav	振る舞う	
-becom		
-failure		
-leftmost	最も左の	
-room	余地	
-types—may		
-unimported		
-nd		
-test		
-idiomatic		
-discussion		
-suppose		
-greater		
-lo		
-arise		
-collectively		
-earlier		
-conditionally		
-non-		
-correct		
-passing		
-manipul		
-quot		
-type-specific		
-running		
-unnamed		
-white		
-exclud		
-nan		
-continu		
-encourag		
-textual		
-unit		
-recent		
-circumstance		
-duplicate		
-exclude	除外する	
-backward		
-ordering		
-ll		
-development	開発	
-process		
-creation		
-initialization—variable		
-square		
-optimize	最適化する	
-half		
-look		
-conflict		
-strong		
-informally	非公式に	
-solely	単に/単独で	
-emb		
-alone		
-produce	産出する	
-nothing		
-efficient	効率のよい	
-typeswitchcase		
-ebnf	拡張バッカスナウア記法	
-bootstrapping		
-terminator	終端子	
-immutable	不変の	
-fewer		
-deriv		
-allocation	割当	
-wish		
-interpretation	解釈	
-object		
-truncation	切り捨て	
-accurately	正確に	
-management	管理	
-influence		
-vet		
-low		
-conventional	慣習的	
-multi-dimensional		
-carri		
-communicate	通信する	
-travers	走査する	
-top-level		
-calcul		
-successful		
-lead		
-curly		
-information		
-non-terminal	非終端記号	
-attribute		
-constraint	制約	
-already		
-limited		
-manually		
-synchronization		
-structure		
-closure		
-internal		
-architecture		
-tuple	タプル(複合型)	
-sum		
-cost		
-insert	挿入する	
-redeclare	再宣言する	
-precise		
-organization		
-enabl		
-tabs		
-n		
-extra		
-byte-wise		
-path		
-wide		
-non-variadic		
-canonic	正規化する	
-light-weight		
-affect		
-get		
-value-receiver		
-version		
-int		
-sequentially		
-lower	下方の、小文字の	
-addressability		
-add		
-receive-only		
-non-decimal		
-build		
-architecture-independent		
-encode	符号化する	
-legally		
-assumption		
-stay		
-too		E
-completeness		
-convenience		
-independently		
-repeatedly		
-representability		
-multi-character		
-or		
-permissible		
-minimal		
-lm		
-multi-way	多分岐	
-mind		E
-differently		
-indirectly		
-three-digit		
-redeclar		
-site		
-incoming		
-subsequent	その後の	
-assembly		
-width		
-overwrite		
-environment	環境	
-two-digit		
-related		
-fused		
-formal		
-right-hand-side	右辺	
-unparenthesized		
-spec		
-entire		
-prime		
-ascii		
-variant		
-interface-valued		
-deliv		
-assemble		
-dynamically		
-pseudo-random		
-normal		
-larg		
-single-character		
-available		
-function-local		
-specifier		
-fuse		
-spell		
-phase	段階	
-binding		
-functions—happen		
-constrain		
-factor		
-computer		
-graphic		
-integral	整数の、積分の	
-modulo		
-violat	違反する	
-parse	構文解析する	
-insertion	挿入	
-accent		
-ordinary		
-derive	派生する	
-lower-case	小文字	
-independent		
-re-used		
-guard		
-increas	増加する、昇順の	
-meaning		
-float		
-data		
-extent		
-input		
-skip		
-ignore	無視する	
-invoke		
-target		
-attempt		
-associativity	結合性	
-implementation-specific	実装依存/実装固有	
-initialize	初期化する	
-relationship		
-chosen		
-real		
-come		
-erroneous	誤った、間違いの	
-earli		
-consequence	結果	
-state		
-parenthesis		
-introduc		
-typename		
-perform		
-reporting		
-pointer-receiver		
-jump		
-continue		
-indication		
-exp		
-callable		
-extended	拡張された	
-identifi		
-union		
-carriage		
-unchanged		
-quotient		
-bracket		
-horizontal	水平	
-elsewhere		
-redeclaration	再宣言	
-identify	同定する、特定する	
-complet		
-iter	繰り返す、反復する	
-associ		
-referenc		
-concatenation	結合、連接	
-exact		
-truth		
-avoid	避ける、回避する	
-maximum		
-execute		
-report		
-architectur		
-simpl		
-buffered		
-unqualified	修飾されていない	
-dividend		
-differ		
-opening		
-irrelevant	無関係の	
-lu		
-requirement		
-scale	規模を変更する	
-equality	同一性、等式	
-hint		
-contrast	対比する、対比	
-link		
-instal		
-nil		
-represent		
-replacement		
-assist		
-radix	基数	
-prevent	防ぐ	
-repeated		
-transitively		
-consequently	結果として	
-structured		
-importpath		
-accord	according to 〜に応じて	
-decrement	減少（させる）	
-obtain	得る	
-original		
-blocks		
-local		
-necessary		
-bidirectional	双方向の	
-limit		
-rely		
-make		
-unescaped	エスケープされていない	
-iota		
-scoped		
-transfer		
-happen		
-panicking		
-encoding		
-unspecified	特定されていない	
-just		
-infinite		
-content		
-previously		
-initializer		
-mask	マスク、隠す	
-hidden		
-large		
-numbered		
-visible		
-increment	増加（させる）	
-unbuffered		
-combin	合体する、組み合わせる	
-complement		
-determine	決定する	
-compile-time		
-associate	結びつける	
-recursively	再帰的に	
-write		
-intermediate	中間の、中級の	
-hand		
-location		
-retriev	受信する、受け取る	
-regardless	〜に関わらず	
-normally		
-ready		
-one-dimensional	1次元の	
-concurrently	並行して	
-forclause		
-tokens		
-flow		
-literaltype		
-shallowest		
-functionality		
-moment		
-implementation-defined		
-discuss		
-advance		
-wait		
-reserv	予約する	
-well		E
-recvexpr		
-identifierlist		T
-zero-size		
-extend	拡張する	
-readability	可読性	
-additionally		
-nested	入れ子	
-later		E
-recvstmt		T
-anonymous	無名	
-infinity	無限大	
-ad	たす	
-component	構成要素	
-encod	符号化する	
-substring	部分文字列	
-treat	取り扱う	
-panick		
-support		
-stand		
-ambiguity	曖昧さ	
-notation	記法	
-give		
-identity	同一性	
-lexically	辞書的に、語彙的に	
-concurrent	並行	
-main		
-mechanism	仕組み、機構	
-guarantee	保証する	
-trigger	引き起こす	
-accessible		
-relat		
-serv	働く、用をなす	
-grammar	文法	
-said		
-possible		
-known		
-qualifi	修飾する	
-typeswitchguard		T
-note		
-purpose		
-combine		
-entity	実体、存在物	
-require		
-else		
-buffer		
-consider	考える、みなす	
-vary		
-remain		
-kind		
-concaten	連結（する）	
-versa		
-append		
-high		
-replac		
-indexing		
-stop		
-immediately	直後に、直接的に	
-due		
-assert		
-implementation-dependent	実装依存	
-elide	省略する	
-include		
-generat	生成する	
-temporary	一時的な	
-long		E
-particular		
-word		E
-precisely	正確に	
-define	定義する	
-certain		
-compatibility	互換性	
-property	特徴、性質	
-receife		
-tool		E
-assume	仮定する	
-current		
-class	分類	
-introduce	導入する	
-introduction	はじめに、導入	
-bitwise	bitに関する	
-step		
-mantissa	仮数（浮動小数点の小数部）	
-rather		
-double	2倍にする	
-construction	構築	
-remov		
-instruction	命令	
-analysis	解析	
-item		
-save		
-remainder	余り	
-larger		
-right-hand	右辺	
-similar	似ている、同様の	
-production	生成規則	
-destination	行き先、目的地	
-embed	埋め込む	
-handl		
-universe		
-vice		
-automatically	自動的に	
-unable		
-post		
-restrict	制限する	
-innermost	最も内側の	
-unary	単項の	
-init		
-op		
-describ	記述する	
-non-exported		
-division		
-mark		
-create		
-memory		
-missing	欠けている、存在しない	
-comput	計算する	
-count		
-directly	直接	
-succeed	後続する/成功する	
-individually	個々に	
-truncat	切り捨てる	
-further	さらなる、それ以上	
-satisfi	満たす、満足させる	
-line		
-brace	括弧	
-specific	特定の	
-forever		
-reach		
-involv		
-readi		
-been		E
-several		E
-interpret	解釈する	
-document	文書	
-therefore		
-arbitrary	任意の	
-compos	構成する	
-addition	追加	
-behavior	ふるまい	
-package-level		T
-various	さまざまな	
-specification	仕様、仕様書	
-fit		
-accept	受け付ける、受理する	
-anywhere	どこでも	
-ieee		T
-effect		
-constspec		
-full		
-terminate	終了させる	
-predeclar	事前に宣言する	
-single-valued	単一値	
-elid		
-labeled	ラベル付き	
-static	静的な	
-octal	８進数	
-syntax	文法	
-complete	完全な	
-nth	N番目の	
-guarante	保証する	
-left-to-right		
-place		
-variadic	可変長引数を伴う	
-importing		
-back		
-divisor		
-punctuation	句読点	
-upper	上方の、大文字の	
-made		
-term	項、用語	
-TRUE		
-level		
-optionally		
-system		
-export		
-category		
-ignor	無視する	
-enclos	囲う	
-invalid		
-qualified	修飾された	
-however		
-raw	生の	
-rounding		
-way		E
-depend		
-programming	プログラミング	
-receiv		
-packagename		T
-disallow	許可しない	
-respectively	それぞれ	
-share		
-similarly	同様に	
-requir		
-associated	関連付けられた	
-standard		
-closed		
-discov		
-caller	呼び出し側	
-direction	方向	
-channels		
-loop		
-previous	前の	
-exist		
-yet		
-determin	決定する	
-precedence	優先順位	
-sliced	スライスされた	
-copi		
-cause	起こす	
-multi-valued	多値の	
-branch	枝、分岐	
-context	文脈、背景	
-usual		
-consid	みなす、考慮する	
-alignment	揃えること	
-depth		
-allow	許可する、可能にする	
-indirection	インダイレクション(※C言語のデリファレンスに相当)	
-exception	例外	
-definition	定義	
-together		
-do		
-sequenc		
-promot	昇格(する)	
-preced	先行する	
-inner	内側の	
-even		
-reference	参照	
-round		
-instead		
-invocation	呼び出し	
-arithmetic	算術	
-initial	初期	
-regular	普通の、正規の	
-legal	(文法的に)適格	
-alias	別名	
-defer		T
-logical	論理の、論理的	
-lexical	字句的	
-utf-8		T
-occurs	起こる、発生する	
-backslash		
-space		
-fractional	小数の	
-newline	改行	
-produc	産出、産出する	
-belong		
-consist	構成される	
-absent	無い、存在しない	
-left-hand	左辺	
-general	一般	
-were		E
-bit		
-surround	囲う	
-explicitly	明示的に	
-exponent	指数	
-actual	実際の	
-specify	特定する、指定する、規定する	
-underlying	裏に潜んだ、背後の	
-match	一致する、マッチさせる	
-close		E
-unsigned	符号なし	
-apply	適用する	
-break		E
-discard	捨てる	
-non-empty		E
-optional	必須でない	
-was		E
-primary	主要な、初等の、第一の	
-prefix	接頭辞	
-received		E
-sent		E
-underscore		
-shorthand	簡略表現	
-typed	型あり、型付けされた	
-last		E
-thus	それゆえに、従って、	
-store		E
-caus		
-binary	２進数	
-representation	表現	
-act	振る舞う	
-individual	個々の、それぞれの	
-final		E
-chang		E
-tag		T
-non-negative	非負	
-declare	宣言する	
-occur	起こる	
-additional	追加の	
-termin	終端	
-never		T
-escape		T
-terminating	終端	
-semicolon		T
-permit	許す	
-storage	保存場所、保管スペース	
-exported		T
-implicit	暗黙の	
-comment		T
-non-interface		T
-alloc	確保する	
-most		E
-language	言語	
-see		E
-compar	比較する	
-uninitialized	未初期化の	
-successive	連続した	
-control	制御する	
-entry	項目	
-overflow		T
-simple		E
-access		E
-addressable	アドレス可能	
-least		E
-bound	制限する、結び付けられて	
-pass		E
-next		E
-second		E
-unique	一意	
-valid	有効な、正しい	
-sign	符号	
-begin		E
-negative	負の	
-includ		E
-evaluation	評価	
-dependency	依存、依存関係	
-side		E
-signature	シグネチャ	
-so		E
-hold	保有する、有効である	
-assertion	アサーション	
-once		E
-non-blank	"_" でない	
-embedded	組み込み	
-body		E
-imaginary	虚数の	
-hexadecimal	16進数	
-respective	それぞれの	
-decimal	10進数	
-right		E
-restriction	制限	
-omit	省略する	
-letter	文字	
-exactly	正確に	
-invok	呼び出す	
-parenthes	丸かっこ(で囲う）	
-non-constant	非定数	
-text		E
-section	節	
-cannot		E
-bind	束ねる/くっつける	
-precision	精度	
-representable	表現可能	
-short		E
-multiple	複数の	
-token	トークン	
-size		E
-dynamic	動的	
-start		E
-comparison	比較	
-illegal	文法違反	
-special		E
-quote		T
-creat		E
-base	基となる、基底(の)	
-distinct	区別された/独立した	
-compiler		T
-communication	通信	
-implicitly	暗黙的に	
-proceed	進む	
-deferred	遅延実行された	
-more		E
-then		E
-left		E
-construct	作る、構成体	
-run		E
-sequence	連なり、並び	
-label		T
-selector		T
-error		E
-composite	複合	
-possibly	ことによると、可能性としてあり得ることに	
-receive		E
-present	ある	
-implementation	実装	
-provid	与える	
-comparable	比較可能	
-select		E
-time		E
-address		T
-digit	数字、数値	
-blank	"_"	
-condition	条件	
-refer	参照する	
-end		E
-program		E
-rule		E
-example		E
-predeclared	事前宣言された	
-assignable	代入可能	
-implement	実装する	
-take	とる	
-always		E
-explicit	明示的な	
-equivalent	等価	
-capacity	容量	
-rune	ルーン(神秘文字)	
-empty	空の	
-equal	等しい	
-send		E
-appli	適用する	
-conversion	変換	
-different		E
-yield	産出する、出力する	
-corresponding	対応する	
-instance	実例	
-doe		E
-numeric	数の、数値の	
-new		E
-part		E
-assign	代入する	
-clause	句、節	
-zero		E
-appear	現れる	
-under		E
-execut	実行(する)	
-such		E
-point		E
-initi	初期化	
-also		E
-single	単一の	
-source	元の	
-only		E
-defin	定義する	
-otherwise	さもなければ	
-run-time	実行時の(に)	
-length		E
-boolean	真偽の	
-convert	変換する	
-given	与えられた	
-range	範囲	
-execution	実行	
-contain	含む	
-denot	指す、示す、表す	
-built-in	組み込みの	
-file		E
-assignment	代入	
-initialization	初期化	
-order	順序	
-identical	同一の(である)	
-first		E
-specifi	特定する、指定する、規定する	
-complex	複素数、複文の	
-number		E
-key		E
-form	形式、形態、形作る	
-other		E
-has		E
-iteration	反復、繰り返し	
-floating-point	浮動小数点	
-list	リスト、列挙する	
-struct	構造、構造体	
-parameter	仮引数	
-there		E
-character	文字	
-all		E
-declar	宣言	
-repres	表現する	
-evalu	評価する（される）	
-argument	引数	
-operation	演算、操作	
-operator	演算子	
-untyped	型なしの	
-have		E
-follow	下記の、次に続く、追従する	
-one		E
-set	セットする、集合	
-name		E
-integer	整数	
-operand	被演算子	
-result	結果、戻り値	
-same		E
-use		E
-declaration	宣言	
-array	配列	
-call	呼び出し	
-identifier	識別子	
-element	要素	
-not		E
-variable	変数、ストレージ	
-statement	文	
-constant	定数	
-expression	式	
-is		E
+EN	JA	備考	frequency
+absent	無い、存在しない		7
+accent	アクセント		2
+accented	アクセントつきの		1
+accept	受け付ける、受理する		4
+access			10
+accessible	アクセス可能		3
+accommodate	収容する		1
+accord	according to 〜に応じて		2
+accordingly	応じて、対応して		1
+accurately	正確に		1
+act	振る舞う		9
+actual	実際の		7
+add			11
+addition	追加		6
+additional	追加の		10
+additionally	加えて		4
+address			18
+addressability	アドレス可能性		1
+addressable	アドレス可能		10
+adjust	調整する		2
+advance			2
+affect			1
+alert			1
+alias	別名		11
+align	揃える		1
+alignment	揃えること		6
+all			89
+allocate	割り当てる		9
+allocation	割当		1
+allow	許可する、可能にする		6
+alone			1
+already			4
+also			31
+alternation	〔二者間の〕交代		1
+alternative	代わりのもの、選択肢		4
+always			20
+ambiguity	曖昧さ		5
+analysis	解析		3
+analyze	分析する、解析する		1
+and			5
+anew			1
+annotate	注釈のついた		1
+anonymous	無名		3
+anywhere	どこでも		4
+appear	現れる		27
+append			4
+apply	適用する		37
+approximately	およそ		1
+arbitrary	任意の		6
+arbitrarytype	任意型		4
+architecture			3
+architecture-independent	アーキテクチャに依存しない		1
+argument	実引数		139
+arise			2
+arithmetic	算術		6
+array	配列		98
+ascii			1
+assemble			1
+assembly			1
+assert			3
+assertion	アサーション		10
+assign	代入する		25
+assignability	代入可能性		1
+assignable	代入可能		21
+assignment	代入		33
+assignments	代入	バグ？	1
+assist			2
+associate	結びつける、関連付ける		4
+associated	関連付けられた		7
+associativity	結合性		2
+assume	仮定する、想定する		3
+assumption	仮定、想定		1
+attempt			3
+attribute			1
+automatic	自動の		1
+automatically	自動的に		3
+available			2
+avoid	避ける、回避する		2
+back			4
+backslash			8
+backspace			1
+backus-naur	バッカス・ナウア (考案者のジョン・バッカスさんとピーター・ナウアさん）		1
+backward			1
+base	基となる、基底(の)		21
+basic	基本的な、基礎的な		4
+be			22
+become			1
+begin			11
+behave	振る舞う		1
+behavior	振る舞い		5
+bell			1
+belong			7
+bidirectional	双方向の		3
+binary	２進数		8
+bind	束ねる/くっつける		21
+binding			1
+bit			11
+bitwise	bitに関する		7
+blank	"_"		18
+block	ブロック、ブロックする		12
+blocks			2
+body			12
+bool			1
+boolean	真偽の		30
+bootstrap			1
+bootstrapping			1
+bound	制限する、結び付けられて		2
+brace	括弧		4
+brace-bound			1
+bracket			4
+branch	枝、分岐		6
+break			9
+buffer			9
+build			1
+built-in	組み込みの		34
+byte			19
+byte-wise			1
+calculate	計算する		1
+call	呼び出し		95
+callable			2
+caller	呼び出し側		6
+calling			7
+camelcase	キャメルケース		1
+cannot			21
+canonicalized	正規化する		1
+cap		訳さない	1
+capacity	容量		26
+carriage			3
+carry		訳さない	2
+case		訳さない	13
+category			5
+cause	起こす		16
+certain			4
+chan		訳さない	4
+change		訳さない	8
+channel		訳さない	3
+channels			7
+character	文字		43
+choice			1
+choose		訳さない	4
+circumstance			1
+class	分類		3
+clause	句、節		26
+clear		訳さない	1
+close			5
+closed			5
+closing			3
+closure			1
+collectively			2
+combine	合体する、組み合わせる		5
+come			2
+comma			1
+comment			8
+common			1
+communicate	通信する		1
+communication	通信		14
+compact	コンパクト		1
+comparable	比較可能		20
+compare	比較する		14
+comparison	比較		14
+compatibility	互換性		3
+compile			1
+compile-time			2
+compiler			14
+complement			3
+complete	完全な		8
+completely	完全に		1
+completeness			1
+complex	複素数、複文の		43
+complex128		訳さない	3
+complex64		訳さない	3
+complext		訳さない	1
+component	構成要素		5
+compose	構成する		4
+composite	複合		19
+computation	計算		1
+compute	計算する		7
+computer			1
+concatenate	連結（する）		3
+concatenation	結合、連接		2
+concrete	具体的な/具象的な		2
+concurrent	並行		3
+concurrently	並行して		2
+condition	条件		22
+conditional	条件付き、条件的		3
+conditionally			1
+conflict			1
+consequence	結果		2
+consequently	結果として		2
+consider	考える、みなす		16
+consideration	考慮		1
+consist	構成される		7
+consisting	of 〜、〜で構成される		3
+const		訳さない	1
+constant	定数		175
+constituent	構成要素		1
+constrain			1
+constraint	制約		36
+construct	作る、構成体		15
+construction	構築		5
+constspec			4
+contain	含む		48
+content			2
+context	文脈、背景		7
+contiguous			1
+continue			6
+contrast	対比する、対比		2
+control	制御する		11
+convenience			3
+conventional	慣習的		1
+conversion	変換		23
+convert	変換する		36
+copy			7
+core			36
+correct			2
+correspond	照応する		3
+corresponding	対応する		36
+cost			1
+count			4
+create			17
+creation			1
+curly			1
+current			4
+cycle			1
+cyclic	循環的		1
+data			2
+decimal	10進数		11
+declaration	宣言		92
+declare	宣言する		64
+decrement	減少する、させる		2
+deduce	推論する、推定する		1
+default		訳さない	4
+defer			7
+deferred	遅延実行された		15
+define	定義する		46
+definition	定義		15
+delete			1
+deletion			1
+deliver			1
+denote	指す、示す、表す		41
+depend	依存する		10
+dependency	依存、依存関係		10
+depth			6
+dereference	デリファレンス		1
+dereferenced	デリファレンスされた		1
+derive	派生する		3
+describe	記述する		5
+descriptor	記述子		1
+design	設計（する）		1
+destination	行き先、目的地		3
+detail			1
+determine	決定する		8
+deterministically	決定論的に		1
+development	開発		1
+differ			3
+difference	減算、差異		1
+different			24
+differently			1
+digit	数字、数値		18
+direct			1
+direction	方向		8
+directional	単方向の、有向の		3
+directly	直接		5
+directory			1
+disallow	許可しない		5
+disassemble	分解する		1
+discard	捨てる		7
+discover			5
+discuss			2
+discussion			1
+disjoint	[数学] 素集合、交わりを持たない		1
+disregard	無視する、考慮しない		1
+distinct	区別された/独立した		14
+divide	割る、分割する		1
+dividend			2
+division			4
+divisor			4
+do			38
+document	文書		4
+documentation	文書		1
+double	2倍にする		4
+due			3
+duplicate			2
+dynamic	動的		13
+dynamically			1
+earli			2
+earlier			2
+easy			1
+ebnf	拡張バッカスナウア記法		1
+effect			4
+efficient	効率のよい		1
+element	要素		134
+elementary	初歩的な		1
+elide	省略する		7
+ellipsis	省略記号(...)		1
+else			6
+elsewhere			2
+embed	埋め込む		7
+embedded	埋め込まれた、組み込みの		13
+embeddedfield			1
+empty	空の		30
+enable			2
+enclose	囲う		8
+encode	符号化する		4
+encoding			2
+encompass			1
+encounter	出会う		1
+encourage	推奨する		1
+end			21
+enforce	強制する、遵守させる		1
+enough			2
+ensure	保証する		2
+enter			1
+entire			2
+entirely			3
+entity	実体、存在物		3
+entry	項目		27
+enumeration	列挙、目録		1
+environment	環境		1
+equal	等しい		25
+equality	同一性、等式		2
+equivalent	等価		27
+erroneous	誤った、間違いの		2
+erroneously	誤って		1
+error			18
+escape			10
+evaluate	評価する		46
+evaluation	評価		10
+even			9
+event			1
+exact			2
+exactly	正確に		12
+example			28
+except	を除いて		12
+exception	例外		7
+exclude	除外する		2
+excluding	除外する		1
+execute	実行する		29
+execution	実行		30
+exist			7
+exit			1
+exp			2
+explicit	明示的な		20
+explicitly	明示的に		9
+exploit	不当に利用する		1
+exponent	指数		7
+export			4
+exported			8
+express			1
+expression	式		185
+expressionlist		訳さない	1
+extend	拡張する		2
+extended	拡張された		2
+extent			2
+extra			1
+extract	抽出する		1
+facility	施設、設備		1
+factor			1
+fail			14
+failure			1
+fall			1
+feed			2
+fewer			1
+field			18
+file			33
+final			10
+finally			1
+find			1
+finite	有限		1
+first			1
+first-in-first-out	先入先出法		1
+fit			4
+float			6
+float32			4
+float64			4
+floating-point	浮動小数点		44
+floatt			3
+flow			3
+fma			1
+follow	下記の、次に続く、追従する		27
+following	下記の、次に続く、追従する		35
+forclause			2
+forever			4
+form	形式、形態、形作る		49
+formal			1
+format			2
+former	前者		1
+fraction	小数		1
+fractional	小数の		7
+full			6
+fully	完全に		1
+func			8
+function			49
+function-local			1
+functionality			2
+functions—happen			1
+further	さらに、さらなる、それ以上		6
+fuse			1
+fused			1
+fusion	融合		1
+garbage-collected			1
+general	一般		11
+general-purpose	汎用の		1
+generally	一般的に		1
+generate	生成する		3
+generator			1
+generic	一般的な、包括的な、総称の		26
+get			1
+give			3
+given	与えられた		45
+goroutine			3
+grammar	文法		3
+graphic			1
+greater			3
+group			3
+grouping			1
+grow			1
+guarantee	保証する		7
+guard			2
+half			1
+hand			3
+handling			3
+happen			5
+have			58
+here			2
+hexadecimal	16進数		11
+hidden			2
+hierarchy	階層		1
+high			3
+higher-dimensional	より高次元の		1
+hint			2
+hold	保有する、有効である		9
+holder			1
+holding			1
+horizontal	水平		3
+however			4
+hypothetical	仮定の		1
+identical	同一の(である)		44
+identifier	識別子		101
+identifierlist			3
+identify	同定する、特定する		4
+identity	同一性		3
+idiomatic			1
+ieee			4
+ignore	無視する		11
+illegal	文法違反		14
+illustrate	描写する、示す		1
+imag			1
+imaginary	虚数の		13
+imaginarypart			1
+immaterial	重要でない		1
+immediately	直後に、直接的に		3
+immutable	不変の		1
+implement	実装する		30
+implementation	実装		18
+implementation-defined	実装依存		2
+implementation-dependent	実装依存		3
+implementation-specific	実装依存/実装固有		3
+implicit	暗黙の		8
+implicitly	暗黙的に		14
+imply			2
+import			11
+importing			4
+importpath			2
+importpaths			1
+impossible			1
+include			16
+inclusive	含んでいる		1
+incoming			1
+increase	増加する、昇順の		2
+increment	増加（させる）		2
+incur			1
+independent			2
+independently			1
+index			16
+indexing			3
+indicate	指し示す		1
+indication			2
+indirection	インダイレクション(※C言語のデリファレンスに相当)		6
+indirectly	間接的に		2
+indirects			1
+indistinguishable	区別できない		1
+individual	個々の、それぞれの		8
+individually	個々に		4
+infer	推論する		10
+inference	推論		30
+inferrable	推論可能な		2
+inferred	推論された		5
+infinite	無限の		4
+infinity	無限大		3
+influence			1
+informally	非公式に		1
+information			3
+inhabit	住む		1
+inherit	継承する		1
+init			4
+initial	初期の		8
+initialization	初期化		34
+initialization—variable			1
+initialize	初期化する		30
+initializer	初期化子		2
+inner	内側の		6
+innermost	最も内側の		4
+input			2
+insert	挿入する		1
+insertion	挿入		1
+install			2
+instance	実例		24
+instantiate	インスタンス化する		15
+instantiation	インスタンス化		9
+instead			7
+instruction	命令		3
+int			9
+int16			3
+int32			4
+int64			3
+int8			3
+integer	整数		98
+integertype			3
+integral	整数の、積分の		1
+integrated	統合された		1
+interface			19
+interface-valued			1
+interface{}			1
+intermediate	中間の、中級の		2
+internal			1
+interpret	解釈する		4
+interpretation	解釈		1
+interrupt	中断させる		1
+intersection	[数学] 積集合、共通部分		5
+introduce	導入する		5
+introduction	はじめに、導入		1
+invalid	不正な		5
+inverse	逆にする		1
+invocation	呼び出し		6
+invoke	呼び出す		14
+involve			4
+iota	イオータ(ギリシャ語のI)		3
+irrelevant	無関係の		1
+irrespective	に関係なく		1
+issue			1
+item			3
+iterate	繰り返す、反復する		2
+iteration	反復、繰り返し		38
+jump			2
+just			5
+key			41
+keyword			3
+keywords	予約語		1
+kind			3
+know			1
+known			10
+label			16
+labeled	ラベル付き		4
+labels			1
+language	言語		9
+larg			1
+large			3
+larger			3
+last			9
+later			2
+latter	後者		1
+launch			1
+lead			1
+least			12
+leave			1
+left			18
+left-			1
+left-hand	左辺		7
+left-to-right			4
+leftmost	最も左の		1
+legal	(文法的に)適格		6
+legally			1
+len			3
+length			41
+less			4
+letter	文字		12
+level			4
+lexical	字句的		6
+lexically	辞書的に、語彙的に		2
+lib/math			3
+light-weight			1
+limit			2
+limited			1
+line			5
+linguistic	言語上の		1
+link			2
+list	リスト、列挙する		78
+listing			2
+literal			34
+literally	文字通りに		1
+literaltype			2
+ll			1
+lm			1
+lo			1
+local			3
+location			2
+logical	論理の、論理的		6
+long			3
+look			3
+loop			5
+loosely			3
+lose			1
+low			1
+low-level			1
+lower	下方の、小文字の		1
+lower-case	小文字		2
+lt			3
+lu			4
+lu.			1
+m.sin			1
+main			3
+make			9
+manage			1
+management	管理		1
+manipulate	操作する		1
+mantissa	仮数（浮動小数点の小数部）		3
+manual	マニュアル、手動		1
+manually			1
+map			6
+mark			4
+marker			1
+marking			1
+mask	マスク、隠す		2
+match	一致する、マッチさせる		12
+matching			2
+math.sin			1
+matter			1
+maximum			2
+mean			1
+meaning			2
+measure			1
+mechanism	仕組み、機構		3
+member			1
+memory			4
+meta-)type			1
+method			33
+mind			1
+minimal			1
+minimum	最小の		1
+miss	欠ける		1
+missing	欠けている、存在しない		8
+mix			1
+modify			1
+modulo			1
+moment			2
+more			19
+moreover	その上		1
+most			11
+multi-byte			1
+multi-character			1
+multi-dimensional			1
+multi-valued	多値の		6
+multi-variable	多値		1
+multi-way	多分岐		1
+multiple	複数の		13
+multiplication	乗算		1
+multiply	掛け算する		2
+n			1
+n-bit			1
+n't		バグ?	5
+n]e		バグ?	1
+n]t		バグ?	2
+name			38
+nan			1
+nd			1
+near			1
+necessary			4
+negation	否定		2
+negative	負の		11
+nested	入れ子		2
+never			12
+new			29
+newline	改行		9
+next			10
+nil			3
+nn			1
+nnn			1
+no-op			1
+non-			1
+non-blank	"_" でない		13
+non-complex	複素数でない（実数の）		1
+non-composite			1
+non-constant	非定数		16
+non-decimal			1
+non-empty			9
+non-exported			2
+non-generic			2
+non-interface			16
+non-negative	非負		9
+non-terminal	非終端記号		1
+non-type			1
+non-variadic			1
+normal			1
+normally			2
+not			2
+not-a-number			1
+notation	記法		3
+note			3
+nothing			1
+nth	N番目の		4
+nul			1
+number			42
+numbered			2
+numeric	数の、数値の		22
+object			1
+obtain	得る		2
+occupy	占める		1
+occur	起こる、発生する		10
+occurs	起こる、発生する		6
+octal	8進数の		4
+offset			1
+omit	省略する		16
+once			10
+one-dimensional	1次元の		2
+only			3
+op			4
+opening			2
+operand	被演算子		76
+operate	働く、作動する		1
+operation	演算、操作		49
+operator	演算子		49
+oppose	反対する、対置する		1
+optimize	最適化する		1
+option			3
+optional	必須でない		7
+optionally			4
+or			3
+order	順序		35
+ordering			1
+ordinary			10
+organization			1
+original			2
+originally			1
+other			47
+otherwise	さもなければ		33
+overflow			9
+overlap	重なる/重なり		1
+override			1
+overwrite			1
+own			1
+package			11
+package-level			4
+packagename			5
+pair			8
+pairs			1
+pairwise			2
+panic			9
+panicking			2
+parameter	仮引数		179
+parenthesis	丸かっこ		4
+parenthesize	丸かっこで囲う		12
+parse	構文解析する		3
+parsing	構文解析の		2
+part			26
+partial			3
+partially			2
+particular			3
+pass			10
+passing			1
+path			1
+perform			2
+period			1
+permissible			2
+permit	許す		8
+phase	段階		12
+place			5
+placeholder			1
+plain			1
+point			30
+pointer			4
+pointer-receiver			2
+portability	移植性		1
+portable			1
+position			1
+possible			6
+possibly	ことによると、可能性としてあり得ることに		26
+post			4
+power	累乗		1
+pre-go1.18			1
+precede	先行する		6
+precedence	優先順位		6
+precise	正確な		2
+precisely	正確に		4
+precision	精度		16
+predeclared	事前宣言された		28
+predeclares	事前宣言する		1
+prefix	接頭辞		8
+present	在る、現在の		20
+prevent	防ぐ		1
+previous	前の		6
+previously	前に、以前に		2
+primary	主要な、初等の、第一の		7
+prime			1
+print			5
+printing			1
+println			2
+proceed	進む		18
+process			8
+produce	産出する		9
+product	[数学] 積		2
+production	生成規則		4
+production_name			2
+program			18
+program-defined			1
+programming	プログラミング		5
+promote	昇格する		6
+property	特徴、性質		3
+prose	文		1
+protect	守る		1
+provide	与える		22
+pseudo-random	疑似ランダム		1
+punctuation	句読点		4
+purpose			3
+qualified	修飾された		5
+qualifier			1
+qualify	修飾する		3
+queue	キュー		2
+quite			1
+quote			17
+quotient			3
+radix	基数		2
+raise			1
+range	範囲		34
+rare	まれ		2
+rather			5
+raw	生の		5
+re-use			1
+re-used			2
+reach			4
+reachable	到達可能		1
+read			1
+readability	可読性		2
+ready			6
+real			7
+receife			3
+receive			22
+receive-only			1
+received			7
+receiver			1
+recent			1
+record			1
+recover			1
+recursively	再帰的に		2
+recvexpr			2
+recvstmt			3
+redeclaration	再宣言		2
+redeclare	再宣言する		1
+redeclared			1
+refer	参照する		16
+reference	参照		10
+reflect			1
+reflection	リフレクション、反映		1
+regardless	〜に関わらず		2
+regular	普通の、正規の		7
+related			1
+relation			1
+relationship			2
+relative	相対的		3
+release			1
+relevant	関係する		1
+rely			2
+remain			7
+remainder	余り		4
+remove			5
+repeat			1
+repeated			2
+repeatedly			1
+repetition	繰り返し		4
+replace			7
+replacement			2
+report			3
+reporting			2
+repository			1
+represent			51
+representability			1
+representable	表現可能		17
+representation	表現		8
+representative	 代表的な, 典型的な		4
+reproducible	再現可能		1
+require			9
+requirement			2
+reserf			1
+reserve	予約する		1
+resolve	解決する		2
+respective	それぞれの		18
+respectively	それぞれ		9
+restrict	制限する		4
+restriction	制限		12
+result	結果、戻り値		80
+resume	再開する		1
+retrieve	取り出す		2
+return			28
+reverse			1
+reviewer			1
+rewrite			1
+right			13
+right-hand	右辺		6
+right-hand-side	右辺		1
+room	余地		1
+round			7
+round-to-even	偶数への丸め、偶数丸め		1
+rounding			5
+rule			21
+run			18
+run-time	実行時の(に)		33
+rune	ルーン(神秘文字)		24
+running			1
+safety			1
+satisfied			2
+satisfy	満たす、満足させる		4
+save			3
+say			3
+scale	規模を変更する		2
+scope		訳さない	1
+scoped			2
+scoping			1
+second			14
+section	節		15
+see			13
+segment	切片		1
+select			19
+selection	選択		1
+selector			17
+semantically	意味論的に		1
+semicolon			8
+send			27
+sender	送信者		1
+sent			1
+separate	分割する		3
+sequence	連なり、並び		22
+sequential	連続して起こる		1
+sequentially			1
+series			1
+serve	働く、用をなす		3
+set	セットする、集合		118
+several			4
+shallowest			2
+share			5
+shift			7
+short			13
+shorthand	簡略表現		9
+shortvardecl			1
+show			1
+side			13
+side-effect	副作用		1
+sieve	 篩(ふるい)		1
+sign	符号		15
+signature	シグネチャ		11
+significantly	著しく		1
+similar	似ている、同様の		3
+similarly	同様に		5
+simpl			2
+simple			9
+simplicity	単純さ、簡単さ		1
+simplify			1
+sin			2
+single	単一の		40
+single-character			1
+single-valued	単一値		4
+site			1
+size			20
+skip			4
+skips			1
+slice	スライス/スライスする		16
+sliced	スライスされた		5
+slightly			1
+snippet	断片		1
+so			11
+solely	単に/単独で		1
+sometimes			1
+soon			2
+source	元の		28
+space			9
+speak			3
+spec			1
+special			15
+specially			1
+specific	特定の		35
+specifically	特に		2
+specification	仕様、仕様書		8
+specify	特定する、指定する、規定する		48
+spell			1
+square			3
+src			2
+stand			4
+standard			5
+start			16
+state			3
+statement	文		146
+static	静的な		4
+stay			1
+step			14
+stepwise			1
+still			5
+stop			6
+storage	保存場所、保管スペース		8
+store			8
+stream			1
+string			10
+strong			1
+strongly			1
+struct	構造、構造体		45
+structurally			1
+structure			5
+structured			2
+subexpression			1
+subsequent	その後の		1
+subset	部分集合		1
+substitute	置き換える		4
+substitution	置き換え		19
+substring	部分文字列		3
+subtype			1
+succeed	後続する/成功する		7
+successful			3
+successive	連続した		9
+such			30
+sufficient			1
+sufficiently	十分に		1
+sum			2
+support			7
+suppose			1
+surrogate			1
+surrounding	取り囲んでいる		7
+survive	生存する		1
+switch			4
+synchronization			1
+syntactically			1
+syntax	文法		4
+system			4
+tab			2
+table			1
+tabs			1
+tag			8
+take	とる		17
+taking			3
+target			2
+temporary	一時的な		3
+term	項、用語		27
+terminate	終了させる		12
+terminating	終端		8
+termination	終端		1
+terminator	終端子		1
+test			1
+text			12
+textual			1
+that			1
+then			18
+there			52
+therefore			4
+thread			1
+three-digit			1
+thus	それゆえに、従って、		9
+time			21
+together			7
+token	トークン		15
+tokens			2
+too			1
+tool			3
+top			1
+top-level			1
+top-to-bottom			1
+track			1
+trailing			1
+transfer			2
+transitively			2
+traverse	走査する		1
+treat	取り扱う		3
+trigger	引き起こす		3
+truncate	切り捨てる		4
+truncation	切り捨て		1
+truth			2
+tuple	タプル(複合型)		1
+turn			2
+twice	2回		1
+two-digit			1
+type			168
+type-specific			1
+typed	型あり、型付けされた		8
+typename			2
+types—array			1
+types—may			1
+typespec			2
+typeswitchcase			1
+typeswitchguard			3
+typically	一般的に、典型的に		1
+uint		訳不要	3
+uint16		訳不要	3
+uint32		訳不要	3
+uint64		訳不要	3
+uint8		訳不要	4
+uintptr		訳不要	5
+unable			3
+unary	単項の		4
+unbuffered			3
+unchanged			2
+underlie	裏に潜む、背後にある		1
+underlying	裏に潜んだ、背後の		40
+underscore			7
+unescaped	エスケープされていない		2
+unification			16
+uniform			1
+unify			6
+unifying			5
+unimported			1
+uninitialized	未初期化の		9
+uninterpreted			2
+union			11
+unique	一意		12
+uniqueness	一意性		1
+unit			1
+universe	全宇宙		3
+unknown			1
+unlikely	ありそうにない、起こりそうにない		1
+unnamed			1
+unordered			1
+unparenthesized			1
+unqualified	修飾されていない		2
+unresolved			1
+unsafe			1
+unsigned	符号なし		13
+unspecified	特定されていない		2
+untyped	型なしの		64
+updated			1
+upper	上方の、大文字の		4
+use			83
+useful			1
+usual			6
+usually			1
+utf-8			6
+valid	有効な、正しい		15
+value			124
+value-receiver			1
+var			2
+variable	変数、ストレージ		151
+variadic	可変長引数を伴う		4
+variant	変異体		1
+various	さまざまな		4
+varspec			1
+vary			3
+verify			1
+versa	[ラテン語] 逆のこと		3
+version			1
+vertical	垂直の		1
+vet			1
+vice	[ラテン語] 成り立つ		3
+violate	違反する		1
+visible			2
+vocabulary			1
+wait			2
+way			4
+well			2
+white			1
+wide			1
+width	幅		1
+wish			1
+word			3
+work			1
+wrap			1
+write		訳不要	3
+x--		訳不要	1
+x.f		訳不要	1
+xor		訳不要	1
+yet			7
+yield	産出する、出力する		27
+zero			1
+zero-size			2
+FALSE			3
+TRUE			6
