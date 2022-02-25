@@ -20,8 +20,8 @@ addressability	アドレス可能性		1
 addressable	アドレス可能		10
 adjust	調整する		2
 advance			2
-affect			1
-alert			1
+affect	に影響する		1
+alert		訳さない	1
 alias	別名		11
 align	揃える		1
 alignment	揃えること		6
@@ -908,7 +908,7 @@ run-time	実行時の(に)		33
 rune	ルーン(神秘文字)		24
 running			1
 safety			1
-satisfied			2
+satisfied	満たされる、満足させられる		2
 satisfy	満たす、満足させる		4
 save			3
 say			3
@@ -965,7 +965,7 @@ skip			4
 skips			1
 slice	スライス/スライスする		16
 sliced	スライスされた		5
-slightly			1
+slightly	わずかに		1
 snippet	断片		1
 so			11
 solely	単に/単独で		1
@@ -1006,7 +1006,7 @@ structurally			1
 structure			5
 structured			2
 subexpression			1
-subsequent	その後の		1
+subsequent	その後の、(順序が)次の		1
 subset	部分集合		1
 substitute	置き換える		4
 substitution	置き換え		19
@@ -1025,8 +1025,8 @@ surrogate			1
 surrounding	取り囲んでいる		7
 survive	生存する		1
 switch			4
-synchronization			1
-syntactically			1
+synchronization	同期処理		1
+syntactically	文法的に、統語論的に		1
 syntax	文法		4
 system			4
 tab			2
@@ -1044,12 +1044,12 @@ termination	終端		1
 terminator	終端子		1
 test			1
 text			12
-textual			1
+textual	テキスト上の		1
 that			1
 then			18
 there			52
 therefore			4
-thread			1
+thread	スレッド		1
 three-digit			1
 thus	それゆえに、従って、		9
 time			21
@@ -1059,10 +1059,10 @@ tokens			2
 too			1
 tool			3
 top			1
-top-level			1
-top-to-bottom			1
-track			1
-trailing			1
+top-level	トップレベルの、最上位の		1
+top-to-bottom	上から下へ		1
+track	を追跡する		1
+trailing	末尾の		1
 transfer			2
 transitively			2
 traverse	走査する		1
@@ -1100,7 +1100,7 @@ underlying	裏に潜んだ、背後の		40
 underscore			7
 unescaped	エスケープされていない		2
 unification			16
-uniform			1
+uniform	一様に		1
 unify			6
 unifying			5
 unimported			1
@@ -1109,15 +1109,15 @@ uninterpreted			2
 union			11
 unique	一意		12
 uniqueness	一意性		1
-unit			1
+unit	単位		1
 universe	全宇宙		3
-unknown			1
+unknown	未知の、不明の		1
 unlikely	ありそうにない、起こりそうにない		1
 unnamed			1
-unordered			1
+unordered	順序付けられていない		1
 unparenthesized			1
 unqualified	修飾されていない		2
-unresolved			1
+unresolved	未解決の		1
 unsafe			1
 unsigned	符号なし		13
 unspecified	特定されていない		2
@@ -1125,13 +1125,13 @@ untyped	型なしの		64
 updated			1
 upper	上方の、大文字の		4
 use			83
-useful			1
+useful	便利な		1
 usual			6
 usually			1
 utf-8			6
 valid	有効な、正しい		15
 value			124
-value-receiver			1
+value-receiver		訳不要	1
 var			2
 variable	変数、ストレージ		151
 variadic	可変長引数を伴う		4
@@ -1139,15 +1139,15 @@ variant	変異体		1
 various	さまざまな		4
 varspec			1
 vary			3
-verify			1
+verify	を確かめる		1
 versa	[ラテン語] 逆のこと		3
 version			1
 vertical	垂直の		1
-vet			1
+vet	を審査する		1
 vice	[ラテン語] 成り立つ		3
 violate	違反する		1
 visible			2
-vocabulary			1
+vocabulary	語彙		1
 wait			2
 way			4
 well			2
