@@ -10,10 +10,6 @@ endif
 .PHONY: all
 all: docs/spec.txt docs/tokens4.txt docs/tokens-all.json docs/tokens-uniq.txt docs/word2lemma.txt docs/word2lemma.json docs/count_by_lemma_and_tag.txt docs/count_by_lemma.txt docs/dic.ja.json web
 
-.PHONY: data/dic.ja.tsv
-data/dic.ja.tsv:
-	wget -O data/dic.ja.tsv 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSLRyGpO5qAUt2YGejK3tkELmnrGKHX0iALEFIgdN0vKCOZU0j9lseDLf3s8UA8waZnL3uAWsDk1Xp7/pub?gid=406497718&single=true&output=tsv'
-
 .PHONY: spec_orig.html
 spec_orig.html:
 	wget -O spec_orig.html 'https://tip.golang.org/ref/spec'
